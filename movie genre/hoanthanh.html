@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phim Đã Hoàn Thành, Đã Kết Thúc Phần, Đã Kết Thúc Phim</title>
+    <link rel="stylesheet" href="../css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class=" header">
+        <div class="childHeader">
+            <div class="logo"><a href="../index.html"><img src="../image/logo/Screenshot 2024-02-21 004019.png"
+                        alt=""></a></div>
+
+            <div class="form_search">
+                <form action="">
+                    <label for="searchMovie" for="">
+                        <i class="fa-solid fa-magnifying-glass" id="timkiem"></i>
+                    </label>
+
+                    <input id="searchMovie" class="search" type="text" placeholder="Tìm kiếm..." id="tiemkiem" />
+                </form>
+            </div>
+            <div class="login">
+                Đăng nhập
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+        <div class="child-navigation">
+            <a href="../index.html" title="ok" class="navbar">
+                <div>
+                    <i class='bx bxs-home' style='color:#fcfafa'></i>&nbsp
+                    Trang chủ
+                </div>
+            </a>
+            <div class="theloai">Thể loại
+                <i class='bx bx-caret-down bxArrow' style='color:#ffffff'></i>
+                <ul>
+                    <a href="./huyenhuyen.html">
+                        <li>Huyền Huyễn</li>
+                    </a>
+                    <a href="./xuyenkhong.html">
+                        <li>Xuyên Không</li>
+                    </a>
+                    <a href="./trungsinh.html">
+                        <li>Trùng Sinh</li>
+                    </a>
+                    <a href="./tienhiep.html">
+                        <li>Tiên Hiệp</li>
+                    </a>
+                    <a href="./cotrang.html">
+                        <li>Cổ Trang</li>
+                    </a>
+                    <a href="./haihuoc.html">
+                        <li>Hài Hước</li>
+                    </a>
+                    <a href="./kiemhiep.html">
+                        <li>Kiếm Hiệp</li>
+                    </a>
+                    <a href="hiendai.html">
+                        <li>Hiện Đại</li>
+                    </a>
+                </ul>
+            </div>
+            <a href="./phimle" title="ok2" class="navbar">
+                <div class="phimle">Phim lẻ</div>
+            </a>
+            <a href="./dangchieu.html">
+                <div>
+                    <i class='bx bx-sync bx-rotate-90'></i>
+                    Đang chiếu
+                </div>
+            </a>
+            <a href="./lichchieu.html">
+                <div>
+                    <i class='bx bx-calendar-x' style='color:#ffffff'></i>&nbsp
+                    Lịch chiếu
+                </div>
+            </a>
+            <a href="./hoanthanh.html" title="ok3" onclick="lk(3)">
+                <div>
+                    <i class='bx bx-check' style='color:#ffffff'></i>
+                    Hoàn thành
+                </div>
+            </a>
+            <a href="./sapchieu.html">
+                <div>
+                    <i class='bx bx-time-five'></i>&nbsp
+                    Sắp chiếu
+                </div>
+            </a>
+            <a href="./top10hh3d.html">
+                <div>
+                    <i class='bx bx-trophy'></i>&nbsp
+                    Top 10 HH3D
+                </div>
+            </a>
+            <a href="./dangxem.html">
+                <div>
+                    <i class='bx bx-like'></i>&nbsp
+                    Đáng xem
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class=background>
+        <div class="content">
+            <br>
+            <div class=" title"> PHIM ĐÃ HOÀN THÀNH
+                <div class="underlined" style="width: 180px;">
+                </div>
+                <div class="underlined2"></div>
+            </div>
+            <br>
+            <div class="content-img">
+                <div class="moicapnhat ">
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/80227bceb2b1c9d720816ef0fc2d53082b2a7c08-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            No Title
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/ac-ma-phap-tac-poster-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Ác Ma Pháp Tắc
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/am-gioi-than-su-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Âm Giới Thần Sứ
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/am-ha-truyen-1-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Ám hà Truyện
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/bach-luyen-phi-thang-luc-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Bách Luyện Phi Thăng Lục
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/ban-than-chi-canh.webp" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Bán Thần Chi Cảnh
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/bat-dau-tu-trang-do-1-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Bắt Đầu Từ Trăng Đỏ
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/cai-the-de-ton-1-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Cái Thế Đế Tôn
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/chan-duong-vo-than-2-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Chân Dương Võ Thần
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/Chien-Than-Ngu-Hanh-300x449.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Chiến Thần Ngũ Hành
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/cuu-than-phong-van-luc.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Cửu Thần Vong Vân Lục
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/dau-la-dai-luc-1-1-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Đấu La Đại Lục Phần 1
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/de-nhat-danh-sach-300x450.png" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Đệ Nhất Danh Sách
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/doa-huyen-su-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Đọa Huyền Sư
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/du-hoac-mieu-yeu-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Dụ Hoặc Miêu Yêu
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/IMG_0171-300x450.jpeg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            No Title
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/IMG_0198.jpeg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            No Title
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/IMG_3157.jpeg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            No Title
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/kiem-cot.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Kiếm Cốt
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/ma-trang-truyen-thuyet-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Ma Trang Truyền Thuyết
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/ngao-the-cuu-trung-thien-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Ngạo Thế Cửu Trùng Thiên
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/nghich-thien-chien-ky-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Nghịch Thiên Chiến Kỷ
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/nhat-the-doc-ton-300x450.webp" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Nhất Thể Độc Tôn
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/phong-hoa-chien-ky-300x450.webp" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Phong Hỏa Chiến Kỷ
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/phong-khoi-lac-duong-song-tu-truy-hung-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Phong Khởi Lạc Dương Phong Tu Truy Hùng
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/phong-khoi-lac-duong-thieu-nien-than-co-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Phong Khởi Lạc Dương Thiếu Niên Thần Cổ
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/sieu-pham-vu-son-ngu-hanh-p1-203-300x449.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Siêu Phàm Vụ Sơn Ngũ Hành Phần 1
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/tam-thap-luc-ky-1-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Tam Thập Lục Kỷ Phần 1
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/than-lan-ky-vuc-vo-song-chau-ss3-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Thằn Lằn Kỳ Vực Vô Song Châu
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/than-tang-poster-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Thần Tàng
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/thanh-lien-kiem-tien-truyen-300x450.webp" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Thanh Liên Kiếm Tiền Truyện
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/thap-phuong-kiem-thanh-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Thập Phương Kiếm Thánh
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/thieu-nien-cam-y-ve-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Thiếu Niên Cẩm Y Vệ
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/thuong-nguyen-do-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Thương Nguyên Đồ
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/toan-chuc-phap-su-phan-6-300x450.webp" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Toàn Chức Pháp Sư Phần 6
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/tran-hon-nhai-phan-3-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Trấn Hồn Nhai Phần 3
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/tu-la-vo-than-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Tu La Võ Thần
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/vinh-sinh-phan-2-300x450.webp" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Vĩnh Sinh Phần 2
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/vo-anh-tam-thien-dao-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Vô Ảnh Tam Thiên Đạo
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div>
+                            <img src="../image/hoàn thành/vu-dong-can-khon-phan-4-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Vũ Động Càng Khôn Phần 4
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="pagination">
+                <div class="button"><a href="#" "><button class=" button activeButton"
+                        onclick="setActiveButton(1);showPage(1)">1</button></a></div>
+                <div class="button"><a href="#"><button onclick="setActiveButton(2);showPage(2)">2</button></a>
+                </div>
+                <div class="button"><a href="#"><button onclick="setActiveButton(3);showPage(3)">3</button></a>
+                </div>
+                <div class="button"><a href="#"><button onclick="setActiveButton(4);showPage(4)">4</button></a>
+                </div>
+                <div class="button"><a href="#"><button onclick="setActiveButton(5);showPage(5)">5</button></a>
+                </div>
+                <div class="button"><a href="#"><button onclick="setActiveButton(6);showPage(6)">6</button></a>
+                </div>
+            </div>
+            <div class="crollPage">
+                <i class='bx bxs-chevrons-up bx-croll'></i>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <div class="footer-background">
+            <div class="footer-content">
+                <span>
+                    HoatHinh3D
+                </span>
+                <div class="footer-underline"></div>
+                <a href="https://www.facebook.com/hoathinh3dcom">
+                    <div class="fb-icon">
+                        <i class='bx bxl-facebook-circle' style='color:#29448a'></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="license">
+            <i class='bx bx-copyright' style='color:#007979'></i>
+            <span>Copyright ® 2023 HOATHINH3D.</span>
+        </div>
+    </footer>
+</body>
+<script src="./film processing.js"></script>
+
+</html>
