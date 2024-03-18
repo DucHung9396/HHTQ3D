@@ -85,15 +85,32 @@ scrollThePage.addEventListener("click", () => {
 });
 
 // Bỏ đuôi ".html" cho trang web
-if (location.href.endsWith(".html")) {
-  var newUrl = location.href.slice(0, -5);
-  history.replaceState(null, null, newUrl);
-}
+// if (location.href.endsWith(".html")) {
+//   var newUrl = location.href.slice(0, -5);
+//   history.replaceState(null, null, newUrl);
+// }
 
 // 12>> set kết quả tìm kiếm cho input "search" kết quả phim
+// Thêm 2 thẻ div để làm ô "Tìm Kiếm" phim
+var createAllMovies = document.createElement("div");
+createAllMovies.classList.add("all-movies");
+var createHienThi = document.createElement("div");
+createHienThi.classList.add("hienthi");
+var getElementNodeHeader = document.querySelector(".header");
+document
+  .querySelector("body")
+  .insertBefore(createAllMovies, getElementNodeHeader);
+document
+  .querySelector("body")
+  .insertBefore(createHienThi, getElementNodeHeader);
+//thêm thẻ div "notification" trước thẻ thẻ input "Tìm kiếm"
+var createNotification = document.createElement("div");
+createNotification.classList.add("notification");
+createNotification.innerHTML = "Không tìm thấy kết quả";
 var input = document.querySelector(".form_search input");
+input.autocomplete = "off"; // Thêm thuộc tính "autocomplete(ẩn gợi ý tìm kiếm)" thẻ "input"
+input.insertAdjacentElement("afterend", createNotification); // thêm thẻ div ".notification" trước thẻ "input"
 var allMovies = document.querySelector(".all-movies");
-
 var lishMoicapnhat = document.querySelectorAll(".moicapnhat .title-img");
 var hienthi = document.querySelector(".hienthi");
 lishMoicapnhat.forEach((item) => {
@@ -119,18 +136,22 @@ input.addEventListener("input", function () {
       });
       testCommand = true;
     }
-  }
-  var notification = document.querySelector(".notification");
-
-  if (inputtext.length <= 1) {
-    hienthi.style.display = "none";
-  }
-  input.addEventListener("keyup", function () {
-    if (!name.includes(inputtext) && inputtext.length >= 2) {
+    if (!testCommand || inputtext.length <= 1) {
+      hienthi.style.display = "none";
+    }
+    var notification = document.querySelector(".notification");
+    if (!testCommand && inputtext.length >= 2) {
       notification.style.display = "block";
       notification.style.position = "relative";
     } else {
       notification.style.display = "none";
     }
-  });
+  }
 });
+
+// 13>> Thêm thẻ "div" vào ".login" đăng nhập
+var getLogin = document.querySelector(".login");
+var createDiv = document.createElement("div");
+createDiv.textContent = "Đăng Nhập";
+getLogin.innerHTML = "";
+getLogin.appendChild(createDiv);

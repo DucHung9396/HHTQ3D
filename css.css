@@ -158,6 +158,7 @@ form {
 .login {
   z-index: 2;
   div {
+    color: red;
     color: white;
     font-weight: 400;
     font-size: 15px;
@@ -700,10 +701,10 @@ audio {
   overflow: hidden;
   text-overflow: ellipsis;
   z-index: 1000;
-  top: 7%;
+  top: 3.4%;
   height: 500px;
   overflow: scroll;
-  left: 44%;
+  left: 34.5%;
   display: none;
   border-radius: 5px;
   .title-img {
@@ -731,4 +732,14 @@ audio {
     top: -45px;
     left: 60px;
   }
+}
+.notification {
+  border-radius: 10px;
+  height: 30px;
+  line-height: 30px;
+  display: none;
+  width: 63%;
+  background: black;
+  margin-left: 20.1%;
+  margin-top: 7px;
 }

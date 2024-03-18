@@ -613,10 +613,10 @@ window.onload = function () {
 };
 
 // Loại bỏ đuôi ".html" của thanh địa chỉ
-if (location.href.endsWith(".html")) {
-  var newUrl = location.href.slice(0, -5); // Loại bỏ đuôi .html
-  history.replaceState(null, null, newUrl); // Thay đổi URL
-}
+// if (location.href.endsWith(".html")) {
+//   var newUrl = location.href.slice(0, -5); // Loại bỏ đuôi .html
+//   history.replaceState(null, null, newUrl); // Thay đổi URL
+// }
 
 // Tạo tút qua bài mp3
 // Next song cách 1

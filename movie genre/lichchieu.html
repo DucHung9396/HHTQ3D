@@ -16,6 +16,9 @@
 </head>
 
 <body>
+    <!-- 2 thẻ div class "all-movies và hienthi" để lưu trữ phim tạo chức năng "tìm kiếm" ô "input(tìm kiếm)" -->
+    <div class="all-movies"></div>
+    <div class="hienthi"></div>
     <div class=" header">
         <div class="childHeader">
             <div class="logo"><a href="../index.html"><img src="../image/logo/Screenshot 2024-02-21 004019.png"
@@ -28,6 +31,7 @@
                     </label>
 
                     <input id="searchMovie" class="search" type="text" placeholder="Tìm kiếm..." id="tiemkiem" />
+                    <div class="notification"></div>
                 </form>
             </div>
             <div class="login">
@@ -1093,9 +1097,18 @@
         var link2 = link1.split(" ").join("-")
         unmarkThePath = unmark(link2)
         tagA.href = "https://hoathinh3d.vip/" + unmarkThePath
-
-
     });
+
+    // 13>> Thêm thẻ "div" vào ".login" đăng nhập
+    var getLogin = document.querySelector(".login");
+    var createDiv = document.createElement("div");
+    createDiv.textContent = "Đăng Nhập";
+    getLogin.innerHTML = "";
+    getLogin.appendChild(createDiv);
+
+    //14>> Tạo chức năng tìm kiếm cho "Input" tìm kiềm
+    var allMovies = document.querySelectorAll(".movie-schedule .movie")
+    console.log(allMovies)
 </script>
 
 </html>
