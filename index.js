@@ -819,6 +819,7 @@ function registerAnAcount() {
 
 // Tạo event login cho người dùng
 var login = document.querySelector(".login-form .login-button");
+
 login.addEventListener("click", () => {
   var passWordLoginForm = document.querySelector(".login-form #password").value;
   var userLoginForm = document.querySelector(".login-form #user").value;
