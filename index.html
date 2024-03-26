@@ -19,14 +19,31 @@
   <div class="dark-mode"></div>
 
   <!-- form "Đăng Nhập" -->
-  <div class="form-login">
+  <div class="login-form">
+    <h2>Login to your account</h2>
     <label for="user"><span>User name:</span> <input id="user" type="text"
         placeholder="Nhập tên đăng nhập..."></label><br>
-    <label for="password"><span>Pass word:</span> <input id="password" type="password"><br>
-      <button>Login</button><br>
-      <button>Register
-        <div>"Có tài khoản chưa mà đòi đăng nhập"</div>
-      </button>
+    <label for="password"><span>Pass word:</span> <input id="password" type="password" placeholder="Nhập password"><br>
+    </label>
+    <button class="login-button">Login</button><br>
+    <button class="register-loginform">Register
+      <div>"Có tài khoản chưa mà đòi đăng nhập"</div>
+    </button>
+  </div>
+
+  <!-- Form "register" -->
+  <div class="register-form">
+    <h2>Register an account</h2>
+    <label for="user"><span>User name:</span> <input id="user" type="text" placeholder="Nhập tên đăng nhập...">
+    </label><br>
+    <label for="password"><span>Pass word:</span> <input id="password" type="password" placeholder="Nhập pass word"><br>
+    </label>
+    <label for="email"><span>Email:</span> <input id="email" type="text" placeholder="Nhập email"><br>
+    </label>
+    <label for="retype-email"><span>Nhập lại email:</span> <input id="retype-email" type="text"
+        placeholder="Nhập lại email"><br>
+    </label>
+    <button class="register-registerform" onclick="registerAnAcount()">Register</button><br>
   </div>
 
   <!--  -->
@@ -55,6 +72,11 @@
         <div>
           Đăng Nhập
         </div>
+      </div>
+
+      <!--Tạo thông tin khi user login thành công  -->
+      <div class="logged-in-user">
+        <i class='bx bxs-user'></i>
       </div>
     </div>
   </div>

@@ -1,8 +1,17 @@
-.form-login {
+/* login Form  */
+.login-form {
+  h2 {
+    position: relative;
+    top: -20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 1px rgb(255, 255, 255), 0px 0px 1px white;
+  }
+
   display: none;
-  z-index: 2000;
-  width: 20%;
-  height: 10%;
+  z-index: 1;
+  width: 25%;
+  height: 15%;
   padding: 30px;
   position: absolute;
   padding-right: 2.5%;
@@ -10,52 +19,60 @@
   right: 38.5%;
   border: solid 2px rgb(56, 69, 82);
   font-size: 14px;
-  background: linear-gradient(
-    to bottom right,
-    rgb(74, 85, 107, 0.9) 50%,
-    rgba(97, 100, 113, 0.9) 50%
-  );
-  label:nth-child(3) input {
-    margin-left: 7.7px;
-    height: 15.3px;
+  background-image: url(./image/tru-tien-poster.jpg);
+  label:nth-child(4) {
+    input {
+      height: 15.3px;
+    }
+    span {
+      margin-left: 2.7px;
+    }
   }
   border-radius: 4px;
   color: rgb(213, 213, 213);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  label span {
-    padding: 3px;
-    border-radius: 3px;
-    border: solid 1.6px;
-    background: rgb(53, 78, 92);
+  label {
+    position: relative;
+    margin-top: 120px;
+    span {
+      padding: 3px;
+      border-radius: 3px;
+      border: solid 1.6px rgb(255, 255, 255, 0.7);
+      background: rgb(0, 0, 0, 0.8);
+    }
   }
   input {
     width: 55%;
     margin-left: 5px;
-    font-family: sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     margin-bottom: 10px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-size: 13px;
-    padding: 3px;
-    background-color: rgb(153, 165, 195, 0.8);
+    padding: 6px;
+    background-color: rgba(255, 255, 255);
     border-radius: 3px;
     border: solid 0;
   }
   button {
     color: rgb(213, 213, 213);
     text-align: center;
-    border: solid 1px rgb(88, 106, 127);
+    border: solid 1px rgb(0, 0, 0, 0.5);
     border-radius: 4px;
     padding: 4px;
     padding-left: 8px;
     padding-right: 8px;
     background: rgba(108, 8, 48);
     position: relative;
-    left: 66%;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    left: 74%;
+    top: 10px;
     margin-bottom: 25px;
   }
   button:last-child {
     position: relative;
-    left: 12%;
+    left: 36%;
+    top: 30px;
     border: solid 0;
     div {
       font-size: 10px;
@@ -135,6 +152,18 @@ body::-webkit-scrollbar-thumb {
   /* css form "login-register" */
 }
 .header {
+  .logged-in-user {
+    display: none;
+    position: absolute;
+    right: 18%;
+    top: 1.5%;
+    font-size: 20px;
+    color: rgb(51, 157, 198);
+    .bxs-user {
+      box-shadow: 0px 0px 5px 2px rgb(201, 201, 201);
+      border-radius: 3px;
+    }
+  }
   background-color: #1b2d3c;
   width: 100%;
   margin: auto;
@@ -273,7 +302,7 @@ form {
 }
 .list-img .img {
   position: relative;
-  transition: transform 0.5s ease;
+  transition: transform 1s ease;
   margin: 0;
   width: 100%;
 }
@@ -640,6 +669,8 @@ footer {
   right: 20px;
   border-radius: 4px;
 }
+
+/* Nhạc mp3 */
 audio {
   width: 150px;
   position: relative;
@@ -742,4 +773,109 @@ audio {
   background: black;
   margin-left: 20.1%;
   margin-top: 7px;
+}
+
+/* Form register */
+.register-form {
+  h2 {
+    position: relative;
+    top: -20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: rgb(236, 233, 233);
+    text-shadow: 0px 2px 3px rgb(169, 142, 88), 0px 1px 1px rgb(234, 215, 46);
+  }
+  z-index: 2;
+  width: 25%;
+  height: 15%;
+  padding: 30px;
+  position: absolute;
+  left: 31.8%;
+  transform: translateY(-999px);
+  padding-right: 2.5%;
+  top: 10%;
+  border: solid 2px rgb(56, 69, 82);
+  font-size: 14px;
+  background-image: url(./image/hoa-giang-ho-chi-bat-luong-nhan-phan-3-300x450.jpg);
+  background-size: cover;
+  image-rendering: pixelated;
+  img {
+    object-fit: cover;
+  }
+  label:nth-child(3) input {
+    margin-left: 7.9px;
+    height: 15.3px;
+  }
+  border-radius: 4px;
+  color: rgb(213, 213, 213);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  label span {
+    padding: 3px;
+    border-radius: 3px;
+    border: solid 1.6px rgb(255, 255, 255, 0.6);
+    background: rgb(0, 0, 0, 0.7);
+  }
+  label:nth-child(4) {
+    span {
+      margin-left: 3.7px;
+    }
+  }
+  label:nth-child(5) {
+    span {
+      margin-left: 31.2px;
+    }
+  }
+  label:nth-child(6) {
+    span {
+      margin-left: -22px;
+    }
+  }
+  /* 
+  
+   */
+  input {
+    width: 60%;
+    margin-left: 5px;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255);
+    border-radius: 3px;
+    border: solid 0;
+    position: relative;
+    top: -1px;
+    font-family: "Times New Roman", Times, serif;
+  }
+  button {
+    margin-top: 10px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    color: rgb(213, 213, 213);
+    text-align: center;
+    border: solid 1px rgb(0, 0, 0, 0.5);
+    border-radius: 4px;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background: rgba(108, 8, 48);
+    position: relative;
+    left: 76%;
+    top: 5px;
+    margin-bottom: 25px;
+  }
+  @keyframes colorChange {
+    0% {
+      background-color: red;
+    }
+    100% {
+      background-color: yellow;
+    }
+  }
+  button:hover {
+    animation: colorChange 0.5s forwards;
+    /* font-size: 15px; */
+    /* transform: scale(1.1); */
+    /* background: linear-gradient(to bottom right, #8ef4f4, #86cb1e); */
+  }
 }

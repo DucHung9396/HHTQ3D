@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Doan ĐUc Hung</div>
+    <script>
+        var array = {
+            so: ["1235465"]
+        }
+        var div = document.querySelector("div")
+        array.so.push(div.innerHTML)
+        var savaDate = localStorage.getItem("local")
+        var parse = JSON.stringify(array)
+        var push = localStorage.setItem("local", parse)
+        console.log(savaDate)
+    </script>
+</body>
+
+</html>
