@@ -814,57 +814,46 @@ function registerAnAcount() {
     var jsonStringData = JSON.stringify(userData);
     var savaData = localStorage.setItem(user, jsonStringData);
     alert("Bạn đã đăng ký tài khoản thành công !");
+    var registerForm = document.querySelector(".register-form");
+    var darkMode = document.querySelector(".dark-mode");
+    registerForm.style.display = "none";
+    darkMode.style.display = "none";
   }
 }
 
 // Tạo event login cho người dùng
 var login = document.querySelector(".login-form .login-button");
-
 login.addEventListener("click", () => {
   var passWordLoginForm = document.querySelector(".login-form #password").value;
   var userLoginForm = document.querySelector(".login-form #user").value;
-  var StoredUserInformation = localStorage.length;
-  for (var i = 0; i < StoredUserInformation; i++) {
-    var key = localStorage.key(i);
-    var value = localStorage.getItem(key);
-    var jsonParseData = JSON.parse(value);
-    if (key == userLoginForm && jsonParseData.Password == passWordLoginForm) {
-      alert("Chúc mừng bạn đăng nhập thành công");
-      var loggedInUser = document.querySelector(".logged-in-user");
-      loggedInUser.textContent = userLoginForm;
-      loggedInUser.style.display = "block";
-      console.log(loggedInUser);
+  // Lấy dữ liệu từ localStorage cho userLoginForm
+  var userData = localStorage.getItem(userLoginForm);
+  // Kiểm tra nếu userData không tồn tại hoặc password không khớp
+  if (!userData || JSON.parse(userData).Password != passWordLoginForm) {
+    if (userLoginForm == "") {
+      alert("Bạn chưa nhập 'User name'");
+    } else if (userLoginForm.length <= 5) {
+      alert("'User name' phải có ít nhất 6 ký tự !");
+    } else if (passWordLoginForm == "") {
+      alert("Bạn chưa nhập 'Password' !");
+    } else if (passWordLoginForm.length <= 5) {
+      alert("'Password phải có ít nhất 6 ký tự'");
+    } else {
+      alert("'User name' hoặc 'Password' không chính xác");
     }
+    return;
   }
+  // Nếu tới đây, đăng nhập thành công
+  alert("Chúc mừng bạn đăng nhập thành công");
+  var loginForm = document.querySelector(".login-form");
+  var darkMode = document.querySelector(".dark-mode");
+  loginForm.style.display = "none";
+  darkMode.style.display = "none";
+  var loginButton = document.querySelector(".login");
+  var loggedInUser = document.querySelector(".logged-in-user");
+  loggedInUser.textContent = userLoginForm;
+  loggedInUser.style.display = "block";
+  loginButton.style.display = "none";
+  var a = localStorage.setItem("loggedInUser", userLoginForm);
+  window.location.href = "./loginpage.html";
 });
-var loggedInUser = document.querySelector(".logged-in-user");
-
-// Handle event reload page sẽ lưu trữ thông tin người dùng đăng nhập
-// document.addEventListener("DOMContentLoaded", function () {
-//   var userData = localStorage.length;
-//   var loginButton = document.querySelector(".login");
-//   var loggedInUser = document.querySelector(".logged-in-user");
-//   var theUserIsLoggedIn = document.querySelector(".login-form #user");
-
-//   theUserIsLoggedIn.addEventListener("input", function (event) {
-//     for (var i = 0; i < userData; i++) {
-//       var key = localStorage.key(i);
-//       if (theUserIsLoggedIn.value == key) {
-//         loggedInUser.textContent = this.value;
-//         loggedInUser.style.display = "block";
-//         loginButton.style.display = "none";
-//       }
-//     }
-//   });
-//   for (var i = 0; i < userData; i++) {
-//     var showUser = localStorage.key(i);
-//     if (showUser) {
-//       var b = localStorage.getItem(b);
-//       if (b == null) {
-//         // loggedInUser.textContent = b;
-//         // loggedInUser.style.display = "block";
-//         console.log(b);
-//       }
-//     }
-//   }
-// });

@@ -148,18 +148,24 @@ body::-webkit-scrollbar-thumb {
   width: 75%;
   justify-content: space-between;
   margin: auto;
-
-  /* css form "login-register" */
 }
 .header {
   .logged-in-user {
-    display: none;
     position: absolute;
-    right: 18%;
-    top: 1.5%;
-    font-size: 20px;
+    right: 15%;
     color: rgb(51, 157, 198);
+    span {
+      position: relative;
+      margin-left: 5px;
+      border: solid 1px rgb(130, 125, 125, 0.2);
+      border-radius: 3px;
+      background-color: rgba(13, 12, 12, 0.2);
+      padding: 3px;
+      top: -3px;
+      font-size: 13px;
+    }
     .bxs-user {
+      font-size: 20px;
       box-shadow: 0px 0px 5px 2px rgb(201, 201, 201);
       border-radius: 3px;
     }
@@ -169,6 +175,10 @@ body::-webkit-scrollbar-thumb {
   margin: auto;
   height: 85px;
   padding-top: 15px;
+  .login {
+    position: relative;
+    right: 5%;
+  }
 }
 form {
   margin-left: auto;

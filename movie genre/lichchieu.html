@@ -37,12 +37,17 @@
             <div class="login">
                 Đăng nhập
             </div>
+            <!--  -->
+            <div class="logged-in-user">
+                <i class='bx bxs-user'></i>
+                <span></span>
+            </div>
         </div>
     </div>
     <div class="navigation">
         <div class="child-navigation">
             <a href="../index.html">
-                <div>
+                <div class="home-page">
                     <i class='bx bxs-home' style='color:#fcfafa'></i>&nbsp
                     Trang chủ
                 </div>
@@ -1108,7 +1113,61 @@
 
     //14>> Tạo chức năng tìm kiếm cho "Input" tìm kiềm
     var allMovies = document.querySelectorAll(".movie-schedule .movie")
-    console.log(allMovies)
+
+    // Tạo sự kiện hiện thông tin khi user đăng nhập
+    document.addEventListener("DOMContentLoaded", () => {
+        var currentlyLoggedInUserData = localStorage.getItem("loggedInUser")
+        var loggedInUserName = document.querySelector(".logged-in-user span");
+        var loggedInUser = document.querySelector(".logged-in-user");
+        var login = document.querySelector(".login")
+        loggedInUserName.insertAdjacentText("beforeend", currentlyLoggedInUserData)
+        if (currentlyLoggedInUserData == null || currentlyLoggedInUserData == "") {
+            loggedInUser.style.display = "none"
+            login.style.display = "block"
+        } else {
+            login.style.display = "none"
+            loggedInUser.style.display = "block"
+        }
+    })
+
+    // Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
+    var loggedInUser = document.querySelector(".logged-in-user");
+    loggedInUser.addEventListener("click", () => {
+        var xoa = localStorage.setItem("loggedInUser", "")
+        // thay đổi đường dẫn của logo(" class = 'logo' ")
+        var getLoggedInUserData = localStorage.getItem("loggedInUser")
+        var logo = document.querySelector(".logo a")
+        var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)")
+        if (getLoggedInUserData != null && getLoggedInUserData != "") {
+            logo.href = "../loginpage.html"
+            linkHomePage.href = "../loginpage.html"
+            console.log("ok")
+        } else {
+            logo.href = "../index.html"
+            linkHomePage.href = "../index.html"
+            console.log("ok22222")
+            console.log(getLoggedInUserData)
+        }
+        if (xoa === "" || xoa == null) {
+            var login = document.querySelector(".login")
+            login.style.display = "block"
+            loggedInUser.style.display = "none"
+        }
+    })
+
+    // thay đổi đường dẫn của logo(" class = 'logo' ")
+    var getLoggedInUserData = localStorage.getItem("loggedInUser")
+    var logo = document.querySelector(".logo a")
+    var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)")
+    if (getLoggedInUserData != null && getLoggedInUserData != "") {
+        logo.href = "../loginpage.html"
+        linkHomePage.href = "../loginpage.html"
+    } else {
+        logo.href = "../index.html"
+        linkHomePage.href = "../index.html"
+        console.log(getLoggedInUserData)
+    }
+
 </script>
 
 </html>
