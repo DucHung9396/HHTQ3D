@@ -155,3 +155,91 @@ var createDiv = document.createElement("div");
 createDiv.textContent = "Đăng Nhập";
 getLogin.innerHTML = "";
 getLogin.appendChild(createDiv);
+
+// Tạo event "click" cho nút "login (Đăng Nhập)"
+// B1) thêm 2 "element" cha vào trước thẻ body
+var getBody = document.querySelector("body");
+var createDiv1 = document.createElement("div");
+createDiv1.classList.add("dark-mode");
+var createDiv2 = document.createElement("div");
+createDiv2.classList.add("login-form");
+var createH2 = document.createElement("h2");
+createH2.textContent = "Login to your account";
+var createLabel = document.createElement("label");
+getBody.insertAdjacentElement("afterbegin", createDiv2);
+getBody.insertAdjacentElement("afterbegin", createDiv1);
+var getLoginForm = document.querySelector("body .login-form");
+getLoginForm.appendChild(createH2);
+getLoginForm.appendChild(createLabel);
+var createBr = document.createElement("br");
+getLoginForm.appendChild(createBr);
+getLoginForm.appendChild(createLabel.cloneNode(true));
+getLoginForm.appendChild(createBr.cloneNode(true));
+var createSpan = document.createElement("span");
+createSpan.textContent = "User name:";
+var createInput = document.createElement("input");
+var getLabel1 = document.querySelector("body .login-form label");
+getLabel1.appendChild(createSpan);
+getLabel1.appendChild(createInput);
+var getLabel2 = document.querySelector("body .login-form label:nth-of-type(2");
+getLabel2.appendChild(createSpan.cloneNode(true));
+getLabel2.appendChild(createInput.cloneNode(true));
+var getSpanChildLabel2 = document.querySelector(
+  "body .login-form label:nth-of-type(2) span"
+);
+getSpanChildLabel2.textContent = "Pass word:";
+var createButton = document.createElement("button");
+createButton.textContent = "Login";
+getLoginForm.appendChild(createButton);
+getLoginForm.appendChild(createBr.cloneNode(true));
+getLoginForm.appendChild(createButton.cloneNode(true));
+var getButton2 = document.querySelector(
+  "body .login-form button:nth-of-type(2"
+);
+getButton2.textContent = "Register";
+getButton2.classList.add("register-loginform");
+var getButton = document.querySelector(".login-form button");
+getButton.classList.add("login-button");
+getButton2.appendChild(createDiv1.cloneNode(true));
+var getDivChildButton2 = document.querySelector(
+  "body .login-form button:nth-of-type(2) div"
+);
+getDivChildButton2.removeAttribute("class");
+console.log(getDivChildButton2);
+getDivChildButton2.textContent = "Có tài khoản chưa mà đòi đăng nhập";
+// Set "Attribute" cho các "Element" "newly created (Mới tạo)"
+getLabel1.setAttribute("for", "user");
+getLabel2.setAttribute("for", "password");
+var getInput1 = document.querySelector(".login-form label input");
+getInput1.setAttribute("id", "user");
+getInput1.setAttribute("type", "text");
+getInput1.setAttribute("placeholder", "Nhập tên đăng nhập...");
+var getInput2 = document.querySelector(
+  ".login-form label:nth-of-type(2) input"
+);
+getInput2.setAttribute("id", "password");
+getInput2.setAttribute("type", "text");
+getInput2.setAttribute("placeholder", "Nhập password...");
+console.log(getInput1);
+//Tạo event click "login (đăng nhập)" user
+var loginButton = document.querySelector(".login");
+var loginForm = document.querySelector(".login-form");
+var darkMode = document.querySelector(".dark-mode");
+loginButton.addEventListener("click", function () {
+  loginForm.style.display = "block";
+  darkMode.classList.add("show");
+  darkMode.style.transition = "opacity 0.5s ease";
+  document.body.classList.add("overflow");
+});
+loginForm.addEventListener("click", function () {
+  event.stopPropagation();
+  return;
+});
+document.body.addEventListener("click", (event) => {
+  if (!darkMode.contains(event.target)) {
+    return;
+  }
+  loginForm.style.display = "none";
+  darkMode.classList.remove("show");
+  document.body.classList.remove("overflow");
+});

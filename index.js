@@ -737,7 +737,7 @@ input.addEventListener("input", function () {
   }
 });
 
-// 13>> Tạo event "login - register" user
+// 13>> Tạo event click "login (đăng nhập)" user
 var loginButton = document.querySelector(".login");
 var loginForm = document.querySelector(".login-form");
 var darkMode = document.querySelector(".dark-mode");
