@@ -153,6 +153,7 @@ body::-webkit-scrollbar-thumb {
 }
 .header {
   .logged-in-user {
+    display: none;
     position: absolute;
     right: 15%;
     color: rgb(51, 157, 198);

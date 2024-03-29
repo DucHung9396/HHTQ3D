@@ -216,6 +216,198 @@
             <span>Copyright ® 2023 HOATHINH3D.</span>
         </div>
     </footer>
+    <script>
+        // 13>> Thêm thẻ "div" vào ".login" đăng nhập
+        var getLogin = document.querySelector(".login");
+        var createDiv = document.createElement("div");
+        createDiv.textContent = "Đăng Nhập";
+        getLogin.innerHTML = "";
+        getLogin.appendChild(createDiv);
+
+        // Tạo event "click" cho nút "login (Đăng Nhập)"
+        // B1) thêm 2 "element" cha vào trước thẻ body
+        var getBody = document.querySelector("body");
+        var createDiv1 = document.createElement("div");
+        createDiv1.classList.add("dark-mode");
+        var createDiv2 = document.createElement("div");
+        createDiv2.classList.add("login-form");
+        var createH2 = document.createElement("h2");
+        createH2.textContent = "Login to your account";
+        var createLabel = document.createElement("label");
+        getBody.insertAdjacentElement("afterbegin", createDiv2);
+        getBody.insertAdjacentElement("afterbegin", createDiv1);
+        var getLoginForm = document.querySelector("body .login-form");
+        getLoginForm.appendChild(createH2);
+        getLoginForm.appendChild(createLabel);
+        var createBr = document.createElement("br");
+        getLoginForm.appendChild(createBr);
+        getLoginForm.appendChild(createLabel.cloneNode(true));
+        getLoginForm.appendChild(createBr.cloneNode(true));
+        var createSpan = document.createElement("span");
+        createSpan.textContent = "User name:";
+        var createInput = document.createElement("input");
+        var getLabel1 = document.querySelector("body .login-form label");
+        getLabel1.appendChild(createSpan);
+        getLabel1.appendChild(createInput);
+        var getLabel2 = document.querySelector("body .login-form label:nth-of-type(2");
+        getLabel2.appendChild(createSpan.cloneNode(true));
+        getLabel2.appendChild(createInput.cloneNode(true));
+        var getSpanChildLabel2 = document.querySelector(
+            "body .login-form label:nth-of-type(2) span"
+        );
+        getSpanChildLabel2.textContent = "Pass word:";
+        var createButton = document.createElement("button");
+        createButton.textContent = "Login";
+        getLoginForm.appendChild(createButton);
+        getLoginForm.appendChild(createBr.cloneNode(true));
+        getLoginForm.appendChild(createButton.cloneNode(true));
+        var getButton2 = document.querySelector(
+            "body .login-form button:nth-of-type(2"
+        );
+        getButton2.textContent = "Register";
+        getButton2.classList.add("register-loginform");
+        var getButton = document.querySelector(".login-form button");
+        getButton.classList.add("login-button");
+        getButton2.appendChild(createDiv1.cloneNode(true));
+        var getDivChildButton2 = document.querySelector(
+            "body .login-form button:nth-of-type(2) div"
+        );
+        getDivChildButton2.removeAttribute("class");
+        getDivChildButton2.textContent = "Có tài khoản chưa mà đòi đăng nhập";
+        // Set "Attribute" cho các "Element" "newly created (Mới tạo)"
+        getLabel1.setAttribute("for", "user");
+        getLabel2.setAttribute("for", "password");
+        var getInput1 = document.querySelector(".login-form label input");
+        getInput1.setAttribute("id", "user");
+        getInput1.setAttribute("type", "text");
+        getInput1.setAttribute("placeholder", "Nhập tên đăng nhập...");
+        var getInput2 = document.querySelector(
+            ".login-form label:nth-of-type(2) input"
+        );
+        getInput2.setAttribute("id", "password");
+        getInput2.setAttribute("type", "text");
+        getInput2.setAttribute("placeholder", "Nhập password...");
+        //Tạo event click "login (đăng nhập)" user
+        var loginButton = document.querySelector(".login");
+        var loginForm = document.querySelector(".login-form");
+        var darkMode = document.querySelector(".dark-mode");
+        loginButton.addEventListener("click", function () {
+            loginForm.style.display = "block";
+            darkMode.classList.add("show");
+            darkMode.style.transition = "opacity 0.5s ease";
+            document.body.classList.add("overflow");
+        });
+        loginForm.addEventListener("click", function () {
+            event.stopPropagation();
+            return;
+        });
+        document.body.addEventListener("click", (event) => {
+            if (!darkMode.contains(event.target)) {
+                return;
+            }
+            loginForm.style.display = "none";
+            darkMode.classList.remove("show");
+            document.body.classList.remove("overflow");
+        });
+
+        // Tạo event login trong form đăng nhập cho người dùng
+        //Thêm thẻ div class = "login-form-user" vào ".childHeader"
+        var childHeader = document.querySelector(".header .childHeader");
+        var createDivInChildHeader = document.createElement("div");
+        createDivInChildHeader.innerHTML = "<i class='bx bxs-user'></i>";
+        var createSpanInLoggedInUser = document.createElement("span");
+        createDivInChildHeader.appendChild(createSpanInLoggedInUser);
+        createDivInChildHeader.classList.add("logged-in-user");
+        childHeader.insertAdjacentElement("beforeend", createDivInChildHeader);
+
+        var loginButton = document.querySelector(".login-form .login-button");
+        loginButton.addEventListener("click", () => {
+            var passWordLoginForm = document.querySelector(".login-form #password").value;
+            var userLoginForm = document.querySelector(".login-form #user").value;
+            // Lấy dữ liệu từ localStorage cho userLoginForm
+            var userData = localStorage.getItem(userLoginForm);
+            // Kiểm tra nếu userData không tồn tại hoặc password không khớp
+            if (!userData || JSON.parse(userData).Password != passWordLoginForm) {
+                if (userLoginForm == "") {
+                    alert("Bạn chưa nhập 'User name'");
+                } else if (userLoginForm.length <= 5) {
+                    alert("'User name' phải có ít nhất 6 ký tự !");
+                } else if (passWordLoginForm == "") {
+                    alert("Bạn chưa nhập 'Password' !");
+                } else if (passWordLoginForm.length <= 5) {
+                    alert("'Password phải có ít nhất 6 ký tự'");
+                } else {
+                    alert("'User name' hoặc 'Password' không chính xác");
+                }
+                return;
+            }
+            // Nếu tới đây, đăng nhập thành công
+            alert("Chúc mừng bạn đăng nhập thành công");
+            var loginForm = document.querySelector(".login-form");
+            var darkMode = document.querySelector(".dark-mode");
+            loginForm.style.display = "none";
+            darkMode.style.display = "none";
+            var loginDangNhap = document.querySelector(".login");
+            var loggedInUser = document.querySelector(".logged-in-user");
+            var spanOfLoggedInUser = document.querySelector(".logged-in-user span");
+            spanOfLoggedInUser.textContent = userLoginForm;
+            loggedInUser.style.display = "block";
+            loginDangNhap.style.display = "none";
+            var a = localStorage.setItem("loggedInUser", userLoginForm);
+        });
+
+        // thay đổi đường dẫn của logo("class ='logo' va 'trang chủ' ")
+        // var getLoggedInUserData = localStorage.getItem("loggedInUser");
+        // var logo = document.querySelector(".logo a");
+        // var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)");
+        // if (getLoggedInUserData != null && getLoggedInUserData != "") {
+        //     logo.href = "../loginpage.html";
+        //     linkHomePage.href = "../loginpage.html";
+        // } else {
+        //     logo.href = "../index.html";
+        //     linkHomePage.href = "../index.html";
+        //     console.log(getLoggedInUserData);
+        // }
+
+        // Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
+        var loggedInUser = document.querySelector(".logged-in-user");
+        loggedInUser.addEventListener("click", () => {
+            var xoa = localStorage.setItem("loggedInUser", "");
+            // thay đổi đường dẫn của logo(" class = 'logo' ")
+            // var getLoggedInUserData = localStorage.getItem("loggedInUser");
+            // var logo = document.querySelector(".logo a");
+            // var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)");
+            // if (getLoggedInUserData != null && getLoggedInUserData != "") {
+            //     logo.href = "../loginpage.html";
+            //     linkHomePage.href = "../loginpage.html";
+            // } else {
+            //     logo.href = "../index.html";
+            //     linkHomePage.href = "../index.html";
+            //     console.log(getLoggedInUserData);
+            // }
+            // if (xoa === "" || xoa == null) {
+            //     var login = document.querySelector(".login");
+            //     login.style.display = "block";
+            //     loggedInUser.style.display = "none";
+            // }
+        });
+
+        // Tạo sự kiện hiện thông tin khi user đăng nhập
+        document.addEventListener("DOMContentLoaded", () => {
+            var currentlyLoggedInUserData = localStorage.getItem("loggedInUser");
+            var loggedInUserName = document.querySelector(".logged-in-user span");
+            var loggedInUser = document.querySelector(".logged-in-user");
+            var login = document.querySelector(".login");
+            loggedInUserName.insertAdjacentText("beforeend", currentlyLoggedInUserData);
+            if (currentlyLoggedInUserData == null || currentlyLoggedInUserData == "") {
+                loggedInUser.style.display = "none";
+                login.style.display = "block";
+            } else {
+                login.style.display = "none";
+                loggedInUser.style.display = "block";
+            }
+        });
+    </script>
 </body>
 
 </html>

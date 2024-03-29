@@ -205,7 +205,6 @@ var getDivChildButton2 = document.querySelector(
   "body .login-form button:nth-of-type(2) div"
 );
 getDivChildButton2.removeAttribute("class");
-console.log(getDivChildButton2);
 getDivChildButton2.textContent = "Có tài khoản chưa mà đòi đăng nhập";
 // Set "Attribute" cho các "Element" "newly created (Mới tạo)"
 getLabel1.setAttribute("for", "user");
@@ -220,7 +219,6 @@ var getInput2 = document.querySelector(
 getInput2.setAttribute("id", "password");
 getInput2.setAttribute("type", "text");
 getInput2.setAttribute("placeholder", "Nhập password...");
-console.log(getInput1);
 //Tạo event click "login (đăng nhập)" user
 var loginButton = document.querySelector(".login");
 var loginForm = document.querySelector(".login-form");
@@ -242,4 +240,101 @@ document.body.addEventListener("click", (event) => {
   loginForm.style.display = "none";
   darkMode.classList.remove("show");
   document.body.classList.remove("overflow");
+});
+
+// Tạo event login trong form đăng nhập cho người dùng
+//Thêm thẻ div class = "login-form-user" vào ".childHeader"
+var childHeader = document.querySelector(".header .childHeader");
+var createDivInChildHeader = document.createElement("div");
+createDivInChildHeader.innerHTML = "<i class='bx bxs-user'></i>";
+var createSpanInLoggedInUser = document.createElement("span");
+createDivInChildHeader.appendChild(createSpanInLoggedInUser);
+createDivInChildHeader.classList.add("logged-in-user");
+childHeader.insertAdjacentElement("beforeend", createDivInChildHeader);
+var loginButton = document.querySelector(".login-form .login-button");
+loginButton.addEventListener("click", () => {
+  var passWordLoginForm = document.querySelector(".login-form #password").value;
+  var userLoginForm = document.querySelector(".login-form #user").value;
+  // Lấy dữ liệu từ localStorage cho userLoginForm
+  var userData = localStorage.getItem(userLoginForm);
+  // Kiểm tra nếu userData không tồn tại hoặc password không khớp
+  if (!userData || JSON.parse(userData).Password != passWordLoginForm) {
+    if (userLoginForm == "") {
+      alert("Bạn chưa nhập 'User name'");
+    } else if (userLoginForm.length <= 5) {
+      alert("'User name' phải có ít nhất 6 ký tự !");
+    } else if (passWordLoginForm == "") {
+      alert("Bạn chưa nhập 'Password' !");
+    } else if (passWordLoginForm.length <= 5) {
+      alert("'Password phải có ít nhất 6 ký tự'");
+    } else {
+      alert("'User name' hoặc 'Password' không chính xác");
+    }
+    return;
+  }
+  // Nếu tới đây, đăng nhập thành công
+  alert("Chúc mừng bạn đăng nhập thành công");
+  var loginForm = document.querySelector(".login-form");
+  var darkMode = document.querySelector(".dark-mode");
+  loginForm.style.display = "none";
+  darkMode.style.display = "none";
+  var loginDangNhap = document.querySelector(".login");
+  var loggedInUser = document.querySelector(".logged-in-user");
+  var spanOfLoggedInUser = document.querySelector(".logged-in-user span");
+  spanOfLoggedInUser.textContent = userLoginForm;
+  loggedInUser.style.display = "block";
+  loginDangNhap.style.display = "none";
+  var a = localStorage.setItem("loggedInUser", userLoginForm);
+});
+
+// thay đổi đường dẫn của logo("class ='logo' va 'trang chủ' ")
+// var getLoggedInUserData = localStorage.getItem("loggedInUser");
+// var logo = document.querySelector(".logo a");
+// var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)");
+// if (getLoggedInUserData != null && getLoggedInUserData != "") {
+//   logo.href = "../loginpage.html";
+//   linkHomePage.href = "../loginpage.html";
+// } else {
+//   logo.href = "../index.html";
+//   linkHomePage.href = "../index.html";
+//   console.log(getLoggedInUserData);
+// }
+
+// Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
+var loggedInUser = document.querySelector(".logged-in-user");
+loggedInUser.addEventListener("click", () => {
+  var xoa = localStorage.setItem("loggedInUser", "");
+  // thay đổi đường dẫn của logo(" class = 'logo' ")
+  // var getLoggedInUserData = localStorage.getItem("loggedInUser");
+  // var logo = document.querySelector(".logo a");
+  // var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)");
+  // if (getLoggedInUserData != null && getLoggedInUserData != "") {
+  //   logo.href = "../loginpage.html";
+  //   linkHomePage.href = "../loginpage.html";
+  // } else {
+  //   logo.href = "../index.html";
+  //   linkHomePage.href = "../index.html";
+  //   console.log(getLoggedInUserData);
+  // }
+  if (xoa === "" || xoa == null) {
+    var login = document.querySelector(".login");
+    login.style.display = "block";
+    loggedInUser.style.display = "none";
+  }
+});
+
+// Tạo sự kiện hiện thông tin khi user đăng nhập
+document.addEventListener("DOMContentLoaded", () => {
+  var currentlyLoggedInUserData = localStorage.getItem("loggedInUser");
+  var loggedInUserName = document.querySelector(".logged-in-user span");
+  var loggedInUser = document.querySelector(".logged-in-user");
+  var login = document.querySelector(".login");
+  loggedInUserName.insertAdjacentText("beforeend", currentlyLoggedInUserData);
+  if (currentlyLoggedInUserData == null || currentlyLoggedInUserData == "") {
+    loggedInUser.style.display = "none";
+    login.style.display = "block";
+  } else {
+    login.style.display = "none";
+    loggedInUser.style.display = "block";
+  }
 });
