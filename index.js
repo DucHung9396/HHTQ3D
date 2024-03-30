@@ -768,13 +768,12 @@ registerLoginForm.addEventListener("click", () => {
   registerform.style.transition = "transform 0.5s ease";
   loginForm.style.display = "none";
 });
-
-// 15>> Tạo sự kiện khi click vào "Register form" sẽ không bị ảnh hưởng của bởi event "document.body.addEventListener("click")"
+//Tạo sự kiện khi click vào "Register form" sẽ không bị ảnh hưởng của bởi event "document.body.addEventListener("click")"
 registerform.addEventListener("click", () => {
   event.stopPropagation();
   return;
 });
-// 16>> Tạo event ẩn cho "Register form"
+//Tạo event ẩn cho "Register form"
 document.body.addEventListener("click", (item) => {
   registerform.style.transform = "translateY(-999px)";
 });
@@ -802,7 +801,7 @@ function registerAnAcount() {
   } else if (email == "") {
     alert("Mời bạn nhập 'Email' !");
   } else if (!/@gmail\.com$/.test(email)) {
-    alert("Mời bạn hãy nhập cú pháp 'Gmail'");
+    alert("Mời bạn hãy nhập đúng cú pháp '@gmail.com' !");
   } else if (retypeEmail == "") {
     alert("Mời bạn nhập lại 'Email' !");
   } else if (!/[a-zA-z]/.test(email)) {

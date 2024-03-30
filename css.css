@@ -154,8 +154,8 @@ body::-webkit-scrollbar-thumb {
 .header {
   .logged-in-user {
     display: none;
-    position: absolute;
-    right: 15%;
+    position: relative;
+    right: 7%;
     color: rgb(51, 157, 198);
     span {
       position: relative;
@@ -213,9 +213,9 @@ body::-webkit-scrollbar-thumb {
 
 /*Ô tìm kiếm  */
 .form_search {
-  width: 60%;
+  width: 55%;
   position: relative;
-  left: -100px;
+  left: -10%;
   form {
     margin-left: auto;
     text-align: center;
@@ -814,10 +814,9 @@ audio {
   }
   z-index: 2;
   width: 25%;
-  height: 15%;
   padding: 30px;
   position: absolute;
-  left: 31.8%;
+  left: 35.5%;
   transform: translateY(-999px);
   padding-right: 2.5%;
   top: 10%;

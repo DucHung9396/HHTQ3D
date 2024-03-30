@@ -73,9 +73,3 @@
 }
 
 /* Logged in user (thông tin người dùng đã đăng nhập) */
-.header {
-  .logged-in-user {
-    position: relative;
-    right: 3.3%;
-  }
-}

@@ -1,45 +1,17 @@
-// Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
-var loggedInUser = document.querySelector(".logged-in-user");
-loggedInUser.addEventListener("click", () => {
-var xoa = localStorage.setItem("loggedInUser", "");
+<!DOCTYPE html>
+<html lang="en">
 
-// thay đổi đường dẫn của logo(" class = 'logo' ")
-var getLoggedInUserData = localStorage.getItem("loggedInUser");
-var logo = document.querySelector(".logo a");
-var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)");
-if (getLoggedInUserData != null && getLoggedInUserData != "") {
-logo.href = "../loginpage.html";
-linkHomePage.href = "../loginpage.html";
-} else {
-logo.href = "../index.html";
-linkHomePage.href = "../index.html";
-console.log(getLoggedInUserData);
-}
-if (xoa === "" || xoa == null) {
-var login = document.querySelector(".login");
-login.style.display = "block";
-loggedInUser.style.display = "none";
-}
-});
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-// Tạo event login trong form đăng nhập cho người dùng
-var loginButton = document.querySelector(".login-form .login-button");
-loginButton.addEventListener("click", () => {
-var passWordLoginForm = document.querySelector(".login-form #password").value;
-var userLoginForm = document.querySelector(".login-form #user").value;
+<body>
+    <input type="text">
+    <script>
+        var input = document.querySelector("input")
+    </script>
+</body>
 
-// Lấy dữ liệu từ localStorage cho userLoginForm
-var userData = localStorage.getItem(userLoginForm);
-// Kiểm tra nếu userData không tồn tại hoặc password không khớp
-if (!userData || JSON.parse(userData).Password != passWordLoginForm) {
-if (userLoginForm == "") {
-alert("Bạn chưa nhập 'User name'");
-} else if (userLoginForm.length <= 5) { alert("'User name' phải có ít nhất 6 ký tự !"); } else if (passWordLoginForm==""
-    ) { alert("Bạn chưa nhập 'Password' !"); } else if (passWordLoginForm.length <=5) { alert("'Password phải có ít nhất
-    6 ký tự'"); } else { alert("'User name' hoặc 'Password' không chính xác"); } return; } // Nếu tới đây, đăng nhập
-    thành công alert("Chúc mừng bạn đăng nhập thành công"); var loginForm=document.querySelector(".login-form"); var
-    darkMode=document.querySelector(".dark-mode"); loginForm.style.display="none" ; darkMode.style.display="none" ; var
-    loginButton=document.querySelector(".login"); var loggedInUser=document.querySelector(".logged-in-user"); var
-    spanOfLoggedInUser=document.querySelector(".logged-in-user span"); spanOfLoggedInUser.textContent=userLoginForm;
-    loggedInUser.style.display="block" ; loginButton.style.display="none" ; var a=localStorage.setItem("loggedInUser",
-    userLoginForm); // window.location.href="./loginpage.html" ; });
+</html>

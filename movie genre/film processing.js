@@ -217,7 +217,7 @@ var getInput2 = document.querySelector(
   ".login-form label:nth-of-type(2) input"
 );
 getInput2.setAttribute("id", "password");
-getInput2.setAttribute("type", "text");
+getInput2.setAttribute("type", "password");
 getInput2.setAttribute("placeholder", "Nhập password...");
 //Tạo event click "login (đăng nhập)" user
 var loginButton = document.querySelector(".login");
@@ -277,7 +277,7 @@ loginButton.addEventListener("click", () => {
   var loginForm = document.querySelector(".login-form");
   var darkMode = document.querySelector(".dark-mode");
   loginForm.style.display = "none";
-  darkMode.style.display = "none";
+  darkMode.classList.remove("show");
   var loginDangNhap = document.querySelector(".login");
   var loggedInUser = document.querySelector(".logged-in-user");
   var spanOfLoggedInUser = document.querySelector(".logged-in-user span");
@@ -337,4 +337,64 @@ document.addEventListener("DOMContentLoaded", () => {
     login.style.display = "none";
     loggedInUser.style.display = "block";
   }
+});
+
+// Processing registration form (Xử lý form đăng ký)
+function registerAnAcount() {
+  var user = document.querySelector(".register-form #user").value;
+  var password = document.querySelector(".register-form #password").value;
+  var email = document.querySelector(".register-form #email").value;
+  var retypeEmail = document.querySelector(
+    ".register-form #retype-email"
+  ).value;
+  if (user == "") {
+    alert("Mời bạn nhập 'User name' !");
+  } else if (user.length <= 5) {
+    alert("'User name' phải có ít nhất 6 ký tự !");
+  } else if (!/[a-zA-z]/.test(user)) {
+    alert("'User' phải có ít nhất 1 ký tự là chữ viêt");
+  } else if (password == "") {
+    alert("Mời bạn nhập 'Pass word' !");
+  } else if (password.length <= 5) {
+    alert("'Pass word' phải có ít nhất 6 ký tự !");
+  } else if (!/[a-zA-z]/.test(password)) {
+    alert("'Pass word' phải có ít nhất 1 ký tự viết hoa !'");
+  } else if (email == "") {
+    alert("Mời bạn nhập 'Email' !");
+  } else if (!/@gmail\.com$/.test(email)) {
+    alert("Mời bạn hãy nhập đúng cú pháp '@gmail.com' !");
+  } else if (retypeEmail == "") {
+    alert("Mời bạn nhập lại 'Email' !");
+  } else if (!/[a-zA-z]/.test(email)) {
+    alert("'Email' phải có it nhất 1 ký tự !");
+  } else if (retypeEmail != email) {
+    alert("Nhập lại 'Email' không trùng khớp !");
+  } else {
+    var userData = { User: user, Password: password, Email: email };
+    var jsonStringData = JSON.stringify(userData);
+    var savaData = localStorage.setItem(user, jsonStringData);
+    alert("Bạn đã đăng ký tài khoản thành công !");
+    var registerForm = document.querySelector(".register-form");
+    var darkMode = document.querySelector(".dark-mode");
+    registerForm.style.transform = "translateY(-999px)";
+    darkMode.classList.remove("show");
+  }
+}
+// 14>> Tạo event click cho "register"
+var registerLoginForm = document.querySelector(".register-loginform");
+var registerForm = document.querySelector(".register-form");
+registerLoginForm.addEventListener("click", () => {
+  registerForm.style.transform = "translateY(0px)";
+  registerForm.style.transition = "transform 0.5s ease";
+  loginForm.style.display = "none";
+});
+
+// 15>> Tạo sự kiện khi click vào "Register form" sẽ không bị ảnh hưởng của bởi event "document.body.addEventListener("click")"
+registerForm.addEventListener("click", () => {
+  event.stopPropagation();
+  return;
+});
+// 16>> Tạo event ẩn cho "Register form"
+document.body.addEventListener("click", (item) => {
+  registerForm.style.transform = "translateY(-999px)";
 });
