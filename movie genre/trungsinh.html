@@ -15,6 +15,22 @@
 </head>
 
 <body>
+    <!-- Form "register" -->
+    <div class="register-form">
+        <h2>Register an account</h2>
+        <label for="user"><span>User name:</span> <input id="user" type="text" placeholder="Nhập tên đăng nhập...">
+        </label><br>
+        <label for="password"><span>Pass word:</span> <input id="password" type="password"
+                placeholder="Nhập pass word"><br>
+        </label>
+        <label for="email"><span>Email:</span> <input id="email" type="text" placeholder="Nhập email"><br>
+        </label>
+        <label for="retype-email"><span>Nhập lại email:</span> <input id="retype-email" type="text"
+                placeholder="Nhập lại email"><br>
+        </label>
+        <button class="register-registerform" onclick="registerAnAcount()">Register</button><br>
+    </div>
+
     <div class=" header">
         <div class="childHeader">
             <div class="logo"><a href="../index.html"><img src="../image/logo/Screenshot 2024-02-21 004019.png"
@@ -270,7 +286,7 @@
                 </div>
                 <br><br>
                 <div class="pagination">
-                    <div class="button"><a href="#" "><button class=" button activeButton"
+                    <!-- <div class="button"><a href="#" "><button class=" button activeButton"
                             onclick="setActiveButton(1);showPage(1)">1</button></a></div>
                     <div class="button"><a href="#"><button onclick="setActiveButton(2);showPage(2)">2</button></a>
                     </div>
@@ -281,7 +297,7 @@
                     <div class="button"><a href="#"><button onclick="setActiveButton(5);showPage(5)">5</button></a>
                     </div>
                     <div class="button"><a href="#"><button onclick="setActiveButton(6);showPage(6)">6</button></a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="crollPage">
                     <i class='bx bxs-chevrons-up bx-croll'></i>

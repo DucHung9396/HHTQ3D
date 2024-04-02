@@ -64,8 +64,83 @@ function showPage(page) {
     }
   }
 }
-
 showPage(1);
+// Tạo nút pagination (phân trang)
+function pagination() {
+  var numbers = document.querySelector(".moicapnhat").querySelectorAll("div");
+  var pagination = document.querySelector(".pagination");
+  var paginationPerPage = 4;
+  var totalPagination = Math.ceil(numbers.length / numberOfPageElement);
+  for (var i = 1; i <= totalPagination; i++) {
+    var createButton = document.createElement("button");
+    createButton.textContent = i;
+    pagination.appendChild(createButton);
+  }
+  var buttonOfPagination = document.querySelector(".pagination button");
+  buttonOfPagination.classList.add("activeButton");
+}
+pagination();
+// click phân trang
+var paginationButton = document.querySelectorAll(".pagination button");
+paginationButton.forEach((item) => {
+  item.addEventListener("click", () => {
+    showPage(item.textContent);
+  });
+});
+/* 3>> Tạo màu sác cho nút button-phân trang */
+var clickTheButton = document.querySelectorAll(".pagination button");
+clickTheButton.forEach((button) => {
+  button.addEventListener("click", function (item) {
+    clickTheButton.forEach((remove) => {
+      remove.classList.remove("activeButton");
+    });
+    var selectButton = document.querySelector(
+      ".pagination button:nth-of-type(" + item.target.textContent + ")"
+    );
+    selectButton.classList.add("activeButton");
+  });
+});
+totalPagination(1);
+// Tạo tổng "pagination button (Nút phân trang)" trong 1 page
+function totalPagination(current) {
+  var total = 4;
+  var start = (current - 1) * total;
+  var end = start + total;
+  var paginationButtonLength = document.querySelectorAll(".pagination button");
+  for (var i = 0; i < paginationButtonLength.length; i++) {
+    if (i >= start && i < end) {
+      paginationButton[i].style.display = "block";
+    } else {
+      paginationButton[i].style.display = "none";
+    }
+  }
+}
+// Tạo event click cho "mũi tên" trong class ".pagination" để chuyển tiếp "pagination button"
+// event click for "right arrow"
+var rightArrow = document.querySelector(".pagination .bx-chevron-right");
+var leftArrow = document.querySelector(".pagination .bx-chevron-left");
+var n = 1;
+rightArrow.addEventListener("click", () => {
+  leftArrow.style.opacity = "1";
+  n++;
+  var paginationButtonLength = document.querySelectorAll(".pagination button");
+  if (n >= Math.ceil(paginationButtonLength.length / 4)) {
+    rightArrow.style.opacity = "0";
+    n = Math.ceil(paginationButtonLength.length / 4);
+  }
+  totalPagination(n);
+});
+// event click "left arrow"
+leftArrow.addEventListener("click", () => {
+  n--;
+  var paginationButtonLength = document.querySelectorAll(".pagination button");
+  if (n <= 1) {
+    leftArrow.style.opacity = "0";
+    n = 1;
+  }
+  rightArrow.style.opacity = "1";
+  totalPagination(n);
+});
 
 // Tạo event "scroll" cho nút cuộn trang
 var scrollThePage = document.querySelector(".crollPage");
@@ -287,36 +362,11 @@ loginButton.addEventListener("click", () => {
   var a = localStorage.setItem("loggedInUser", userLoginForm);
 });
 
-// thay đổi đường dẫn của logo("class ='logo' va 'trang chủ' ")
-// var getLoggedInUserData = localStorage.getItem("loggedInUser");
-// var logo = document.querySelector(".logo a");
-// var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)");
-// if (getLoggedInUserData != null && getLoggedInUserData != "") {
-//   logo.href = "../loginpage.html";
-//   linkHomePage.href = "../loginpage.html";
-// } else {
-//   logo.href = "../index.html";
-//   linkHomePage.href = "../index.html";
-//   console.log(getLoggedInUserData);
-// }
-
 // Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
 var loggedInUser = document.querySelector(".logged-in-user");
 loggedInUser.addEventListener("click", () => {
-  var xoa = localStorage.setItem("loggedInUser", "");
-  // thay đổi đường dẫn của logo(" class = 'logo' ")
-  // var getLoggedInUserData = localStorage.getItem("loggedInUser");
-  // var logo = document.querySelector(".logo a");
-  // var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)");
-  // if (getLoggedInUserData != null && getLoggedInUserData != "") {
-  //   logo.href = "../loginpage.html";
-  //   linkHomePage.href = "../loginpage.html";
-  // } else {
-  //   logo.href = "../index.html";
-  //   linkHomePage.href = "../index.html";
-  //   console.log(getLoggedInUserData);
-  // }
-  if (xoa === "" || xoa == null) {
+  var logOut = localStorage.setItem("loggedInUser", "");
+  if (logOut === "" || logOut == null) {
     var login = document.querySelector(".login");
     login.style.display = "block";
     loggedInUser.style.display = "none";
@@ -380,6 +430,7 @@ function registerAnAcount() {
     darkMode.classList.remove("show");
   }
 }
+
 // 14>> Tạo event click cho "register"
 var registerLoginForm = document.querySelector(".register-loginform");
 var registerForm = document.querySelector(".register-form");

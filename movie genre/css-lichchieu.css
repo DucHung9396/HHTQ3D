@@ -72,4 +72,12 @@
   }
 }
 
-/* Logged in user (thông tin người dùng đã đăng nhập) */
+/* form đăng nhập (login)*/
+.login-form {
+  top: 3%;
+}
+
+/* form đăng ký (register) */
+.register-form {
+  top: 3%;
+}

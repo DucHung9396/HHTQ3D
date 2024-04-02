@@ -524,24 +524,64 @@ body::-webkit-scrollbar-thumb {
   z-index: 1000;
   background-color: rgb(0, 0, 0, 0.8);
 }
+
+/* tạo class ".activeButton" thêm vào thẻ button trong class ".pagination" */
+.pagination .activeButton {
+  background-color: #ae328d;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
 .pagination {
+  padding: 10px;
   display: flex;
   justify-content: center;
-}
-.pagination div {
-  padding: 3px;
-}
-.pagination button {
-  background-color: #1b364e;
-  padding: 9px;
-  padding-left: 22px;
-  padding-right: 22px;
-  font-size: 16px;
-  color: white;
-  border-radius: 2px;
-}
-.button .activeButton {
-  background-color: #aa721b;
+  div {
+    padding: 3px;
+  }
+  button:not(.activeButton):hover {
+    box-shadow: 0px 0px 3px 0px rgb(101, 154, 137);
+  }
+  button {
+    cursor: pointer;
+    background-color: #1b364e;
+    margin-left: 4.5px;
+    color: white;
+    width: 50px;
+    border-radius: 2px;
+    font-size: 13px;
+    height: 35px;
+  }
+  .bx-chevron-left:hover {
+    box-shadow: 0px 0px 3px 0px rgb(101, 154, 137);
+  }
+  .bx-chevron-right:hover {
+    box-shadow: 0px 0px 3px 0px rgb(101, 154, 137);
+  }
+  .bx-chevron-left {
+    opacity: 0;
+    font-size: 30px;
+    background-color: #1b364e;
+    width: 50px;
+    border-radius: 2px;
+    text-align: center;
+    border-top: solid 2px rgb(79, 78, 78);
+    border-left: solid 2px rgb(79, 78, 78);
+    border-bottom: solid 2px rgb(0, 0, 0);
+    border-right: solid 2px rgb(0, 0, 0);
+  }
+  .bx-chevron-right {
+    border-right: solid 2px rgb(0, 0, 0);
+    font-size: 30px;
+    background-color: #1b364e;
+    order: 1;
+    margin-left: 3px;
+    width: 50px;
+    border-radius: 2px;
+    text-align: center;
+    border-top: solid 2px rgb(79, 78, 78);
+    border-left: solid 2px rgb(79, 78, 78);
+    border-bottom: solid 2px rgb(0, 0, 0);
+  }
 }
 
 .bx-croll {

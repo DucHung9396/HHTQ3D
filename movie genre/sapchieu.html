@@ -27,7 +27,7 @@
                 position: absolute;
                 top: 4px;
                 text-wrap: nowrap;
-                z-index: 1000;
+                z-index: 1;
             }
 
             span {
@@ -45,12 +45,32 @@
                 top: 2px;
                 font-size: 20px;
             }
+
+            .index {
+                z-index: 0;
+            }
+
         }
     </style>
 </head>
 
 <body>
-    <div class=" header">
+    <!-- Form "register" -->
+    <div class="register-form">
+        <h2>Register an account</h2>
+        <label for="user"><span>User name:</span> <input id="user" type="text" placeholder="Nhập tên đăng nhập...">
+        </label><br>
+        <label for="password"><span>Pass word:</span> <input id="password" type="password"
+                placeholder="Nhập pass word"><br>
+        </label>
+        <label for="email"><span>Email:</span> <input id="email" type="text" placeholder="Nhập email"><br>
+        </label>
+        <label for="retype-email"><span>Nhập lại email:</span> <input id="retype-email" type="text"
+                placeholder="Nhập lại email"><br>
+        </label>
+        <button class="register-registerform" onclick="registerAnAcount()">Register</button><br>
+    </div>
+    <div class="header">
         <div class="childHeader">
             <div class="logo"><a href="../index.html"><img src="../image/logo/Screenshot 2024-02-21 004019.png"
                         alt=""></a>
@@ -185,16 +205,16 @@
             </div>
             <br><br>
             <div class="pagination">
-                <div class="button"><a href="#" "><button class=" button activeButton"
+                <!-- <div class="button"><a href="#" "><button class=" button activeButton"
                         onclick="setActiveButton(1);showPage(1)">1</button></a></div>
-                <div class="button"><a href="#"><button onclick="setActiveButton(2);showPage(2)">2</button></a>
-                </div>
+                <div class="button"><a href="#"><button onclick="setActiveButton(2);showPage(2)">2</button></a> -->
+            </div>
 
-            </div>
-            <div class="crollPage">
-                <i class='bx bxs-chevrons-up bx-croll'></i>
-            </div>
         </div>
+        <div class="crollPage">
+            <i class='bx bxs-chevrons-up bx-croll'></i>
+        </div>
+    </div>
     </div>
     <br>
     <footer>
@@ -285,7 +305,7 @@
             ".login-form label:nth-of-type(2) input"
         );
         getInput2.setAttribute("id", "password");
-        getInput2.setAttribute("type", "text");
+        getInput2.setAttribute("type", "password");
         getInput2.setAttribute("placeholder", "Nhập password...");
         //Tạo event click "login (đăng nhập)" user
         var loginButton = document.querySelector(".login");
@@ -296,6 +316,11 @@
             darkMode.classList.add("show");
             darkMode.style.transition = "opacity 0.5s ease";
             document.body.classList.add("overflow");
+            // thêm class ".index" cho class ".movie-status"
+            var movieStatus = document.querySelectorAll(".movie-status")
+            movieStatus.forEach(element => {
+                element.classList.add("index")
+            });
         });
         loginForm.addEventListener("click", function () {
             event.stopPropagation();
@@ -356,42 +381,6 @@
             var a = localStorage.setItem("loggedInUser", userLoginForm);
         });
 
-        // thay đổi đường dẫn của logo("class ='logo' va 'trang chủ' ")
-        // var getLoggedInUserData = localStorage.getItem("loggedInUser");
-        // var logo = document.querySelector(".logo a");
-        // var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)");
-        // if (getLoggedInUserData != null && getLoggedInUserData != "") {
-        //     logo.href = "../loginpage.html";
-        //     linkHomePage.href = "../loginpage.html";
-        // } else {
-        //     logo.href = "../index.html";
-        //     linkHomePage.href = "../index.html";
-        //     console.log(getLoggedInUserData);
-        // }
-
-        // Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
-        var loggedInUser = document.querySelector(".logged-in-user");
-        loggedInUser.addEventListener("click", () => {
-            var xoa = localStorage.setItem("loggedInUser", "");
-            // thay đổi đường dẫn của logo(" class = 'logo' ")
-            // var getLoggedInUserData = localStorage.getItem("loggedInUser");
-            // var logo = document.querySelector(".logo a");
-            // var linkHomePage = document.querySelector(".child-navigation a:nth-child(1)");
-            // if (getLoggedInUserData != null && getLoggedInUserData != "") {
-            //     logo.href = "../loginpage.html";
-            //     linkHomePage.href = "../loginpage.html";
-            // } else {
-            //     logo.href = "../index.html";
-            //     linkHomePage.href = "../index.html";
-            //     console.log(getLoggedInUserData);
-            // }
-            // if (xoa === "" || xoa == null) {
-            //     var login = document.querySelector(".login");
-            //     login.style.display = "block";
-            //     loggedInUser.style.display = "none";
-            // }
-        });
-
         // Tạo sự kiện hiện thông tin khi user đăng nhập
         document.addEventListener("DOMContentLoaded", () => {
             var currentlyLoggedInUserData = localStorage.getItem("loggedInUser");
@@ -407,6 +396,79 @@
                 loggedInUser.style.display = "block";
             }
         });
+
+        // Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
+        var loggedInUser = document.querySelector(".logged-in-user");
+        loggedInUser.addEventListener("click", () => {
+            var logOut = localStorage.setItem("loggedInUser", "");
+            if (logOut === "" || logOut == null) {
+                var login = document.querySelector(".login");
+                login.style.display = "block";
+                loggedInUser.style.display = "none";
+            }
+        });
+
+        // 14>> Tạo event click cho "register"
+        var registerLoginForm = document.querySelector(".register-loginform");
+        var registerForm = document.querySelector(".register-form");
+        registerLoginForm.addEventListener("click", () => {
+            registerForm.style.transform = "translateY(0px)";
+            registerForm.style.transition = "transform 0.5s ease";
+            loginForm.style.display = "none";
+        });
+
+        // 16>> Tạo event ẩn cho "Register form"
+        document.body.addEventListener("click", (item) => {
+            registerForm.style.transform = "translateY(-999px)";
+        });
+
+        // 15>> Tạo sự kiện khi click vào "Register form" sẽ không bị ảnh hưởng của bởi event "document.body.addEventListener("click")"
+        registerForm.addEventListener("click", () => {
+            event.stopPropagation();
+            return;
+        });
+
+        // Processing registration form (Xử lý form đăng ký)
+        function registerAnAcount() {
+            var user = document.querySelector(".register-form #user").value;
+            var password = document.querySelector(".register-form #password").value;
+            var email = document.querySelector(".register-form #email").value;
+            var retypeEmail = document.querySelector(
+                ".register-form #retype-email"
+            ).value;
+            if (user == "") {
+                alert("Mời bạn nhập 'User name' !");
+            } else if (user.length <= 5) {
+                alert("'User name' phải có ít nhất 6 ký tự !");
+            } else if (!/[a-zA-z]/.test(user)) {
+                alert("'User' phải có ít nhất 1 ký tự là chữ viêt");
+            } else if (password == "") {
+                alert("Mời bạn nhập 'Pass word' !");
+            } else if (password.length <= 5) {
+                alert("'Pass word' phải có ít nhất 6 ký tự !");
+            } else if (!/[a-zA-z]/.test(password)) {
+                alert("'Pass word' phải có ít nhất 1 ký tự viết hoa !'");
+            } else if (email == "") {
+                alert("Mời bạn nhập 'Email' !");
+            } else if (!/@gmail\.com$/.test(email)) {
+                alert("Mời bạn hãy nhập đúng cú pháp '@gmail.com' !");
+            } else if (retypeEmail == "") {
+                alert("Mời bạn nhập lại 'Email' !");
+            } else if (!/[a-zA-z]/.test(email)) {
+                alert("'Email' phải có it nhất 1 ký tự !");
+            } else if (retypeEmail != email) {
+                alert("Nhập lại 'Email' không trùng khớp !");
+            } else {
+                var userData = { User: user, Password: password, Email: email };
+                var jsonStringData = JSON.stringify(userData);
+                var savaData = localStorage.setItem(user, jsonStringData);
+                alert("Bạn đã đăng ký tài khoản thành công !");
+                var registerForm = document.querySelector(".register-form");
+                var darkMode = document.querySelector(".dark-mode");
+                registerForm.style.transform = "translateY(-999px)";
+                darkMode.classList.remove("show");
+            }
+        }
     </script>
 </body>
 
