@@ -100,23 +100,17 @@ clickTheButton.forEach((button) => {
     selectButton.classList.add("activeButton");
   });
 });
-totalPagination(1);
-// Tạo tổng "pagination button (Nút phân trang)" trong 1 page
-function totalPagination(current) {
-  var total = 4;
-  var start = (current - 1) * total;
-  var end = start + total;
-  var paginationButtonLength = document.querySelectorAll(".pagination button");
-  for (var i = 0; i < paginationButtonLength.length; i++) {
-    if (i >= start && i < end) {
-      paginationButton[i].style.display = "block";
-    } else {
-      paginationButton[i].style.display = "none";
-    }
-  }
-}
 // Tạo event click cho "mũi tên" trong class ".pagination" để chuyển tiếp "pagination button"
 // event click for "right arrow"
+var createElementI = document.createElement("i");
+var createElementI2 = document.createElement("i");
+createElementI.classList.add("bx-chevron-left");
+createElementI.classList.add("bx");
+createElementI2.classList.add("bx-chevron-right");
+createElementI2.classList.add("bx");
+var pagination = document.querySelector(".pagination");
+pagination.insertAdjacentElement("afterbegin", createElementI);
+pagination.insertAdjacentElement("afterbegin", createElementI2);
 var rightArrow = document.querySelector(".pagination .bx-chevron-right");
 var leftArrow = document.querySelector(".pagination .bx-chevron-left");
 var n = 1;
@@ -142,6 +136,26 @@ leftArrow.addEventListener("click", () => {
   totalPagination(n);
 });
 
+// Tạo tổng "pagination button (Nút phân trang)" trong 1 page
+function totalPagination(current) {
+  var total = 4;
+  var start = (current - 1) * total;
+  var end = start + total;
+  var paginationButtonLength = document.querySelectorAll(".pagination button");
+  for (var i = 0; i < paginationButtonLength.length; i++) {
+    if (i >= start && i < end) {
+      paginationButton[i].style.display = "block";
+    } else {
+      paginationButton[i].style.display = "none";
+    }
+    if (i > 4) {
+      rightArrow.style.opacity = "1";
+    } else {
+      rightArrow.style.opacity = "0";
+    }
+  }
+}
+totalPagination(1);
 // Tạo event "scroll" cho nút cuộn trang
 var scrollThePage = document.querySelector(".crollPage");
 window.addEventListener("scroll", function () {
