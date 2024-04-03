@@ -343,6 +343,24 @@ body::-webkit-scrollbar-thumb {
   width: 555px;
 }
 
+/* set thuộc tính animation cho "arrow effect" cho banner */
+@keyframes LeftarrowEffect {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+.btn-left:hover {
+  animation: LeftarrowEffect 0.5s linear forwards;
+  background: linear-gradient(
+    to right,
+    rgb(246, 246, 83) 50%,
+    rgb(242, 82, 38)
+  );
+  background-size: 200% 100%;
+}
 .btn-left {
   font-size: 35px;
   line-height: 47px;
@@ -365,17 +383,34 @@ body::-webkit-scrollbar-thumb {
   left: -4px;
 }
 
+/*set thuộc tính animation cho arrow banner  */
+@keyframes RightarrowEffect {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+.btn-right:hover {
+  animation: RightarrowEffect 0.5s linear forwards;
+  background: linear-gradient(
+    to right,
+    rgb(246, 246, 83),
+    rgb(242, 82, 38) 50%
+  );
+  background-size: 200% 100%;
+}
 .btn-right {
-  right: 0px;
   font-size: 35px;
   line-height: 47px;
   border-radius: 5px;
   background-color: #cf5029;
   position: absolute;
   top: 50%;
-  background: linear-gradient(to right, rgb(246, 246, 83) 1%, rgb(242, 82, 38));
+  background: linear-gradient(to right, rgb(246, 246, 83), rgb(242, 82, 38));
   height: 40px;
-  width: 25px;
+  width: 26px;
   right: 10px;
   transform: translateY(-50%);
   cursor: pointer;
@@ -796,14 +831,14 @@ audio {
 .hienthi {
   background-color: rgb(0, 0, 0, 0.9);
   position: absolute;
-  width: 30%;
+  width: 28%;
   overflow: hidden;
   text-overflow: ellipsis;
   z-index: 1000;
-  top: 3.4%;
+  top: 3.2%;
   height: 500px;
   overflow: scroll;
-  left: 34.5%;
+  left: 33.6%;
   display: none;
   border-radius: 5px;
   .title-img {

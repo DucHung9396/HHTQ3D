@@ -463,3 +463,10 @@ registerForm.addEventListener("click", () => {
 document.body.addEventListener("click", (item) => {
   registerForm.style.transform = "translateY(-999px)";
 });
+
+// Thểm page css "all-style"
+var head = document.querySelector("head");
+var createLink = document.createElement("link");
+createLink.setAttribute("rel", "stylesheet");
+createLink.setAttribute("href", "all-style.css");
+head.appendChild(createLink);
