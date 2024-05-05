@@ -258,6 +258,9 @@ body::-webkit-scrollbar-thumb {
       color: white;
       background-color: #223344;
     }
+    div {
+      border: solid 1px yellow;
+    }
   }
   .login:hover {
     border: solid 1px rgb(115, 115, 115, 0.5);
@@ -320,27 +323,27 @@ body::-webkit-scrollbar-thumb {
   width: 97%;
   padding-top: 10px;
   padding-bottom: 11px;
-  overflow: hidden;
   position: relative;
-  height: 280px;
+  overflow: hidden;
 }
 .list-img {
-  display: flex;
-  margin: 0;
+  .row {
+    flex-wrap: nowrap;
+  }
 }
 .list-img .img {
   position: relative;
-  transition: transform 1s ease;
-  margin: 0;
   width: 100%;
-}
-.img .anh {
-  display: flex;
+  .anh .col {
+    position: relative;
+    transition: transform 1s ease;
+  }
 }
 
 .list-img .img img {
-  height: 280px;
-  width: 555px;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
 }
 
 /* set thuộc tính animation cho "arrow effect" cho banner */

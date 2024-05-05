@@ -6,7 +6,7 @@ let btn_l = document.querySelector(".btn-left");
 //     current = 0;
 //     let width = the_img[0].offsetWidth;
 //     var double_width = width * 2;
-//     classname_img.style.transform = `translateX(${double_width * current}px)`;
+// classname_img.style.transform = `translateX(${double_width * current}px)`;
 //     document.querySelector(".active").classList.remove("active");
 //     var b = document
 //       .querySelector(".index-item-" + current)
@@ -57,27 +57,27 @@ let btn_l = document.querySelector(".btn-left");
 
 // Cách 2 làm show slide
 
-var listElement = document.querySelectorAll(".list-img .img");
+var listElement = document.querySelectorAll(".list-img .img .anh .col");
 var currentBanner = 0;
 function showSlides() {
-  var lengthElement = listElement[0].offsetWidth;
+  currentBanner++;
+  var lengthElement = listElement[0].offsetWidth * 2;
+  if (currentBanner >= listElement.length - 4) {
+    currentBanner = 0;
+  }
   listElement.forEach((element) => {
     element.style.transform = `translateX(${
       lengthElement * -1 * currentBanner
     }px)`;
   });
-  currentBanner++;
   var removeActive = document.querySelector(".container-index-items .active");
   removeActive.classList.remove("active");
   var setActive = document.querySelector(
     ".index-item:nth-child(" + currentBanner + ")"
   );
   setActive.classList.add("active");
-  if (currentBanner >= listElement.length) {
-    currentBanner = 0;
-  }
 }
-var handleSetInterval = setInterval(showSlides, 5000);
+var handleSetInterval = setInterval(showSlides, 3000);
 
 // 9>> Set event "mũi tên phải" click chuyển slide cho banner
 btn_r.addEventListener("click", function () {
