@@ -258,9 +258,6 @@ body::-webkit-scrollbar-thumb {
       color: white;
       background-color: #223344;
     }
-    div {
-      border: solid 1px yellow;
-    }
   }
   .login:hover {
     border: solid 1px rgb(115, 115, 115, 0.5);
@@ -432,7 +429,7 @@ body::-webkit-scrollbar-thumb {
 }
 .background {
   background-color: #151d25;
-  width: 75%;
+  width: 100%;
   margin: auto;
 }
 .background-name {
@@ -467,30 +464,43 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(46, 218, 130);
 }
 .showtimes {
-  display: flex;
   cursor: pointer;
   text-align: center;
+  .col {
+    box-sizing: border-box;
+  }
 }
 .container-date {
-  height: 50px;
   background: #23232a;
   border-radius: 5px;
-  width: 100%;
-  margin-left: 5px;
-  text-wrap: nowrap;
+  .date {
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .show-times {
+    line-height: 37px;
+  }
 }
-.date {
-  padding-top: 6px;
-}
+
 .container-showtimes {
-  padding: 10px;
-  padding-right: 15px;
+  .row {
+    margin-left: 15px;
+    margin-right: 10px;
+    .col {
+      padding-left: 0;
+    }
+  }
+  .movie-date {
+    margin-top: 1px;
+  }
 }
 .active-date {
   background-color: #1d7693;
 }
 .extra-day {
   font-size: 15px;
+  line-height: 30px;
 }
 .hide-img {
   display: none;
@@ -637,7 +647,10 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .cssMoicapnhat {
-  line-height: 38px;
+  line-height: 35px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 label {
   position: relative;

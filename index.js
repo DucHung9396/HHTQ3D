@@ -65,17 +65,22 @@ function showSlides() {
   if (currentBanner >= listElement.length - 4) {
     currentBanner = 0;
   }
+  var removeActive = document.querySelectorAll(
+    ".container-index-items .index-item"
+  );
+  removeActive.forEach((item) => {
+    item.classList.remove("active");
+  });
+  var setActive = document.querySelector(
+    ".index-item:nth-child(" + (currentBanner + 1) + ")"
+  );
+  setActive.classList.add("active");
+
   listElement.forEach((element) => {
     element.style.transform = `translateX(${
       lengthElement * -1 * currentBanner
     }px)`;
   });
-  var removeActive = document.querySelector(".container-index-items .active");
-  removeActive.classList.remove("active");
-  var setActive = document.querySelector(
-    ".index-item:nth-child(" + currentBanner + ")"
-  );
-  setActive.classList.add("active");
 }
 var handleSetInterval = setInterval(showSlides, 3000);
 
@@ -88,17 +93,18 @@ btn_r.addEventListener("click", function () {
 btn_l.addEventListener("click", () => {
   clearInterval(handleSetInterval);
   var lengthElement = listElement[0].offsetWidth;
+  var length2Images = lengthElement * 2;
   var removeActive = document.querySelector(".container-index-items .active");
   removeActive.classList.remove("active");
   if (currentBanner < 1) {
-    currentBanner = listElement.length;
+    currentBanner = listElement.length - 4;
   }
   var setActive = document.querySelector(
     ".index-item:nth-child(" + currentBanner + ")"
   );
   listElement.forEach((element) => {
     element.style.transform = `translateX(${
-      lengthElement * -1 * (currentBanner - 1)
+      length2Images * -1 * (currentBanner - 1)
     }px)`;
   });
   setActive.classList.add("active");
@@ -947,4 +953,19 @@ document.addEventListener("DOMContentLoaded", () => {
     login.style.display = "none";
     loggedInUser.style.display = "block";
   }
+});
+
+// set show times (lịch chiếu phim)
+var showTimes = document.querySelector(".container-showtimes .show-times");
+showTimes.addEventListener("click", () => {
+  var handlingMovieShowTimes = document.querySelectorAll(
+    ".container-showtimes .movie-date"
+  );
+  handlingMovieShowTimes.forEach((item) => {
+    if (item.classList.contains("c-0")) {
+      item.classList.remove("c-0");
+    } else {
+      item.classList.add("c-0");
+    }
+  });
 });
