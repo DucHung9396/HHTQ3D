@@ -961,22 +961,19 @@ showTimes.addEventListener("click", () => {
   var handlingMovieShowTimes = document.querySelectorAll(
     ".container-showtimes .movie-date"
   );
-  handlingMovieShowTimes.forEach((item) => {
-    var hiddenContent = document.querySelector(
-      ".container-showtimes .show-times1"
-    );
-    if (item.classList.contains("c-0")) {
-      item.classList.remove("c-0");
-      var fullHeight = document.querySelector(
-        ".container-showtimes .show-times1"
-      ).scrollHeight;
-      hiddenContent.style.height = fullHeight + "px";
-    } else {
-      item.classList.add("c-0");
-      var hiddenContent = document.querySelector(
-        ".container-showtimes .show-times1"
-      );
-      hiddenContent.style.height = "0px";
-    }
-  });
+  var hiddenContent = document.querySelector(
+    ".container-showtimes .show-times1"
+  );
+  var height = document.querySelector(
+    ".container-showtimes .show-times1"
+  ).offsetHeight;
+  var fullHeight = document.querySelector(
+    ".container-showtimes .show-times1"
+  ).scrollHeight;
+  if (height == 0) {
+    hiddenContent.style.height = fullHeight + "px";
+    console.log("ok");
+  } else {
+    hiddenContent.style.height = "0px";
+  }
 });
