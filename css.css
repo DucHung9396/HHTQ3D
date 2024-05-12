@@ -125,6 +125,7 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(228, 38, 38);
 }
 /* Css class "content"phim */
+
 .content {
   .underlined2 {
     border: solid rgb(139, 134, 134) 1px;
@@ -479,7 +480,7 @@ body::-webkit-scrollbar-thumb {
     text-overflow: ellipsis;
   }
   .show-times {
-    line-height: 37px;
+    line-height: 35px;
   }
 }
 
@@ -493,7 +494,18 @@ body::-webkit-scrollbar-thumb {
   }
   .movie-date {
     margin-top: 1px;
+    /* height: 0; */
   }
+}
+.show-times1 {
+  margin: auto;
+  overflow: hidden;
+  transition: height 0.5s ease;
+  height: 0;
+}
+.show-times1 .col {
+  text-align: center;
+  box-sizing: border-box;
 }
 .active-date {
   background-color: #1d7693;

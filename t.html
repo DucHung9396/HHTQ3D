@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin-top: 5px;
+            background-color: red
+        }
+
+        .div2 {
+            /* display: none; */
+        }
+
+        .div3 {
+            position: relative;
+            /* transition: top 1s linear; */
+            top: 56px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">1</div>
+    <div class="div2 ">2</div>
+    <div class="div3">3</div>
+</body>
+<script>
+    var a = document.querySelector(".div3").offsetTop
+    // var b = document.querySelector(".div3").style.top = (a) + "px"
+    console.log(a)
+    console.log(b)
+</script>
+
+</html>
