@@ -138,19 +138,30 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .header .logo {
-  width: 23%;
   height: 40px;
-}
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  img {
+    object-fit: cover;
+    width: 200px;
+    height: 50px;
+  }
 }
 .childHeader {
   display: flex;
-  width: 75%;
   justify-content: space-between;
   margin: auto;
+  .col {
+    box-sizing: border-box;
+  }
+  .login {
+    order: 2;
+  }
+  .lg {
+    order: 1;
+  }
+  .form_search {
+    order: 3;
+    display: none;
+  }
 }
 .header {
   .logged-in-user {
@@ -181,29 +192,19 @@ body::-webkit-scrollbar-thumb {
   padding-top: 15px;
   /* nút login (Đăng Nhập) */
   .login {
-    position: relative;
-    right: 5%;
     font-family: "Raleway", sans-serif;
     z-index: 2;
     div {
-      color: red;
+      margin-left: auto;
       color: white;
       font-weight: 400;
-      font-size: 15px;
-      width: 90px;
-      position: absolute;
-      right: 0px;
-      text-align: center;
       padding: 5px;
       cursor: pointer;
+      background: linear-gradient(rgb(74, 74, 114, 0.5), rgb(49, 55, 70, 0.5));
+      width: 90px;
+      border-radius: 4px;
+      text-align: center;
     }
-    text-align: center;
-    height: 30px;
-    position: relative;
-    border: solid 0;
-    width: 100px;
-    border-radius: 4px;
-    background: linear-gradient(rgb(74, 74, 114, 0.5), rgb(49, 55, 70, 0.5));
   }
   .login:hover {
     background-color: #0f3c4b;
@@ -214,17 +215,12 @@ body::-webkit-scrollbar-thumb {
 
 /*Ô tìm kiếm  */
 .form_search {
-  width: 55%;
-  position: relative;
-  left: -10%;
-  form {
-    margin-left: auto;
-    text-align: center;
-  }
+  flex-wrap: nowrap;
+  white-space: nowrap;
   .search {
+    width: 90%;
     border-radius: 15px;
     height: 31px;
-    width: 65%;
     border: #1b2d3c;
     background-color: #17242e;
     padding-left: 35px;

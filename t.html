@@ -6,33 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div {
-            margin-top: 5px;
-            background-color: red
+        .a {
+            background-color: red;
+            padding: 10px;
+            display: flex;
         }
 
-        .div2 {
-            /* display: none; */
+        .b {
+            order: 2;
         }
 
-        .div3 {
-            position: relative;
-            /* transition: top 1s linear; */
-            top: 56px
+        .c {
+            order: 1;
+        }
+
+        .d {
+            order: 3;
+            background-color: aqua;
         }
     </style>
 </head>
 
 <body>
-    <div class="div1">1</div>
-    <div class="div2 ">2</div>
-    <div class="div3">3</div>
+    <div class="a">
+        <div class="b">
+            1
+        </div>
+        <div class="c">
+            2
+        </div>
+        <div class="d">
+            3
+        </div>
+    </div>
 </body>
-<script>
-    var a = document.querySelector(".div3").offsetTop
-    // var b = document.querySelector(".div3").style.top = (a) + "px"
-    console.log(a)
-    console.log(b)
-</script>
 
 </html>

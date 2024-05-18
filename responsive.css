@@ -396,4 +396,25 @@ body {
     flex: 0 0 100%;
     max-width: 100%;
   }
+
+  /* Css header */
+  .login {
+    padding-top: 10px;
+  }
+  .login div {
+    margin: auto;
+  }
+  .lg {
+    text-align: center;
+  }
+  .navigation .child-navigation {
+    opacity: 0;
+  }
+  .responsive-navigation {
+    box-sizing: border-box;
+  }
+  .responsive-form_search {
+    text-align: right;
+    box-sizing: border-box;
+  }
 }

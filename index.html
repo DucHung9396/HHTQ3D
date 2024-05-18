@@ -50,40 +50,51 @@
   <!--thêm 2 thẻ div ".all-movie" and ".hienthi" để set ô tìm kiếm   -->
   <div class="all-movies"></div>
   <div class="hienthi"></div>
-  <div class=" header">
-    <div class="childHeader">
-      <div class="logo"><a href="./index.html"><img src="./image/logo/Screenshot 2024-02-21 004019.png" alt=""></a>
-      </div>
-      <div class="form_search">
-        <form action="">
-          <label for="searchMovie" for="">
-            <i class="fa-solid fa-magnifying-glass" id="timkiem"></i>
-          </label>
-
-          <input id="searchMovie" class="search" type="text" autocomplete="off" placeholder="Tìm kiếm..."
-            id="tiemkiem" />
-          <div class="notification" style="display: none;background-color: black;width: 63%;margin-left: 20.1%;
-          margin-top: 0px;
-          border-radius:10px;height: 30px;line-height: 30px;">Không Tìm
-            Thấy Kết Quả
+  <div class="header ">
+    <div class="grid wide">
+      <div class="childHeader row">
+        <div class="lg col l-4 c-6">
+          <div class="logo"><a href="./index.html"><img src="./image/logo/Screenshot 2024-02-21 004019.png" alt=""></a>
           </div>
-        </form>
-      </div>
-      <div class="login">
-        <div>
-          Đăng Nhập
         </div>
-      </div>
+        <div class="form_search col l-4 c-12">
+          <form action="">
+            <label for="searchMovie" for="">
+              <i class="fa-solid fa-magnifying-glass" id="timkiem"></i>
+            </label>
 
-      <!--Tạo thông tin khi user login thành công  -->
-      <div class="logged-in-user" style="display: none;">
-        <i class='bx bxs-user'></i>
-        <span></span>
+            <input id="searchMovie" class="search" type="text" autocomplete="off" placeholder="Tìm kiếm..."
+              id="tiemkiem" />
+            <div class="notification" style="display: none;background-color: black;width: 63%;margin-left: 20.1%;
+            margin-top: 0px;
+            border-radius:10px;height: 30px;line-height: 30px;">Không Tìm
+              Thấy Kết Quả
+            </div>
+          </form>
+        </div>
+        <div class="login col l-4 c-6">
+          <div>
+            Đăng Nhập
+          </div>
+        </div>
+
+        <!--Tạo thông tin khi user login thành công  -->
+        <div class="logged-in-user" style="display: none;">
+          <i class='bx bxs-user'></i>
+          <span></span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="navigation">
+  <div class="navigation row no-gutters">
+    <div class="responsive-navigation col c-6 l-0 m-0">
+      1
+    </div>
+    <div class="responsive-form_search col c-6 l-0 m-0">
+      2
+    </div>
     <div class="child-navigation">
+
       <a href="./index.html" class="">
         <div class="trangchu  home-activity-color">
           <i class='bx bxs-home'></i>&nbsp
