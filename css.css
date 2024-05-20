@@ -253,6 +253,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .navigation {
+  overflow: hidden;
   font-size: 13px;
   background-color: #12171b;
   height: 47px;
