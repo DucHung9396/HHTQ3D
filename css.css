@@ -230,7 +230,7 @@ body::-webkit-scrollbar-thumb {
   flex-wrap: nowrap;
   white-space: nowrap;
   .search {
-    width: 80%;
+    width: 65%;
     border-radius: 15px;
     height: 25px;
     border: #1b2d3c;
