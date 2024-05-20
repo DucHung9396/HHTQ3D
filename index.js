@@ -977,3 +977,17 @@ showTimes.addEventListener("click", () => {
     hiddenContent.style.height = "0px";
   }
 });
+
+// set click cho .navigation .responsive-form_search
+var searchButton = document.querySelector(
+  ".navigation .responsive-form_search .fa-solid"
+);
+searchButton.addEventListener("click", () => {
+  var formSearch = document.querySelector(".form_search2 #searchMovie2");
+  if (formSearch.style.opacity == 0) {
+    formSearch.style.opacity = "1";
+  } else {
+    formSearch.style.opacity = 0;
+  }
+  formSearch.style.transition = "opacity 0.5s ease";
+});
