@@ -1,9 +1,4 @@
-body {
-  margin: 0;
-  padding: 0;
-}
 .grid {
-  width: 100%;
   display: block;
 }
 
@@ -195,7 +190,11 @@ body {
 /* Tablet -> PC low resolution */
 @media screen and (min-width: 740px) and (max-width: 1023px) {
   .navigation .child-navigation {
-    width: 75%;
+    width: 90%;
+  }
+  .grid.wide {
+    width: 90%;
+    margin: auto;
   }
   .row.no-gutters {
     margin-left: 0;
@@ -208,6 +207,9 @@ body {
   .m-0 {
     display: none;
   }
+  .m-o-0-6 {
+    margin-left: 5%;
+  }
   .m-1 {
     flex: 0 0 8.33333%;
     max-width: 8.33333%;
@@ -219,6 +221,9 @@ body {
   .m-1-5 {
     flex: 0 0 12.5%;
     max-width: 12.5%;
+  }
+  .m-o-1-5 {
+    margin-left: 12.5%;
   }
   .m-2 {
     flex: 0 0 16.66667%;
@@ -264,7 +269,10 @@ body {
     flex: 0 0 83.33333%;
     max-width: 83.33333%;
   }
-
+  .m-10-8 {
+    flex: 0 0 90%;
+    max-width: 90%;
+  }
   .m-11 {
     flex: 0 0 91.66667%;
     max-width: 91.66667%;
@@ -364,7 +372,9 @@ body {
   .c-0 {
     display: none;
   }
-
+  .c-o-0 {
+    margin: 0;
+  }
   .c-1 {
     flex: 0 0 8.33333%;
     max-width: 8.33333%;
@@ -376,6 +386,9 @@ body {
   .c-1-5 {
     flex: 0 0 12.5%;
     max-width: 12.5%;
+  }
+  .c-o-1-5 {
+    margin-left: 12.5%;
   }
   .c-2 {
     flex: 0 0 16.66667%;

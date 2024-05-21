@@ -972,7 +972,6 @@ showTimes.addEventListener("click", () => {
   ).scrollHeight;
   if (height == 0) {
     hiddenContent.style.height = fullHeight + "px";
-    console.log("ok");
   } else {
     hiddenContent.style.height = "0px";
   }
@@ -991,3 +990,22 @@ searchButton.addEventListener("click", () => {
   }
   formSearch.style.transition = "opacity 0.5s ease";
 });
+
+// Responsive navigation_bar (Respoonsive cho thanh điều hướng)
+function setResponsiveNavigationBar() {
+  var navigationBar = document.querySelector("body .responsive-navigation_bar");
+  var navigationBarLength = navigationBar.scrollHeight;
+  var responsiveNavigation = document.querySelector(
+    ".navigation .responsive-navigation"
+  );
+  responsiveNavigation.addEventListener("click", () => {
+    var navigationBarLength2 = navigationBar.offsetHeight;
+    if (navigationBarLength2 == 0) {
+      navigationBar.style.height = navigationBarLength + "px";
+    }
+    if (navigationBarLength2 != 0) {
+      navigationBar.style.height = 0;
+    }
+  });
+}
+setResponsiveNavigationBar();
