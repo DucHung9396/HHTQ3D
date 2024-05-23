@@ -113,6 +113,7 @@ body {
   font-size: 14px;
   background-size: 300px;
   margin: 0;
+  position: relative;
 }
 body::-webkit-scrollbar {
   width: 10px;
@@ -256,6 +257,11 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 
   .child-navigation {
+    .responsive-form_search {
+      text-align: right;
+      box-sizing: border-box;
+    }
+    flex-wrap: nowrap;
     .bx-menu {
       font-size: 25px;
       border: solid 0.5px;
@@ -274,16 +280,20 @@ body::-webkit-scrollbar-thumb {
       background-color: #223344;
     }
   }
-  .login:hover {
+  /* .login:hover {
     border: solid 1px rgb(115, 115, 115, 0.5);
     transform: scale(1.1);
     background-color: #0f3c4b;
     box-shadow: 1px 1px 1px rgb(7, 63, 81);
-  }
+  } */
 }
 
 /* responsive navigation_bar */
 .responsive-navigation_bar {
+  div {
+    color: #c6c6c6;
+  }
+  background-color: #12171b;
   height: 0;
   transition: height 0.3s ease;
   overflow: hidden;
@@ -292,9 +302,8 @@ body::-webkit-scrollbar-thumb {
   }
   li {
     list-style: none;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     position: relative;
-    left: -45px;
   }
   .col {
   }
@@ -461,7 +470,7 @@ body::-webkit-scrollbar-thumb {
 }
 .background {
   background-color: #151d25;
-  width: 100%;
+  width: 1100px;
   margin: auto;
 }
 .background-name {
@@ -496,16 +505,19 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(46, 218, 130);
 }
 .showtimes {
+  justify-content: center;
   cursor: pointer;
   text-align: center;
   .col {
     box-sizing: border-box;
   }
+  margin: auto;
 }
 .container-date {
   background: #23232a;
   border-radius: 5px;
   .date {
+    padding-top: 5px;
     text-wrap: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -516,11 +528,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container-showtimes {
+  margin-top: 10px;
   .row {
-    margin-left: 15px;
-    margin-right: 10px;
+    margin-left: 10px;
+    margin-right: 13px;
     .col {
-      padding-left: 0;
+      padding-left: 3px;
     }
   }
   .movie-date {
@@ -748,11 +761,16 @@ img {
   bottom: -2px;
 }
 
-.child-navigation div:hover {
+.responsive-navigation:hover {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.responsive-form_search:hover {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.navigation .child-navigation div:hover {
   background: black;
   transition: background 0.4s ease;
 }
-
 .showtimes .container-date:hover {
   background-color: #3c4141;
   transition: background 0.3s ease;

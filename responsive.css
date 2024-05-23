@@ -1,9 +1,9 @@
 .grid {
   display: block;
+  width: 100%;
 }
 
 .grid.wide {
-  width: 75%;
   margin: 0 auto;
 }
 
@@ -19,9 +19,9 @@
 }
 
 /* PC */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
   .navigation .child-navigation {
-    width: 75%;
+    width: 1100px;
   }
   .row.no-gutters {
     margin-left: 0;
@@ -30,6 +30,9 @@
   .row.no-gutters .col {
     padding-left: 0;
     padding-right: 0;
+  }
+  .responsive-navigation_bar {
+    display: none;
   }
   .l-0 {
     display: none;
@@ -108,7 +111,13 @@
 }
 
 /*PC low resolution  */
-@media (min-width: 1024px) and (max-width: 1279px) {
+@media (min-width: 1024px) and (max-width: 1099px) {
+  .navigation .child-navigation {
+    width: 90%;
+  }
+  .background {
+    width: 90% !important;
+  }
   .row.no-gutters {
     margin-left: 0;
     margin-right: 0;
@@ -117,71 +126,81 @@
     padding-left: 0;
     padding-right: 0;
   }
+  .responsive-navigation_bar {
+    li {
+      left: 7px;
+    }
+  }
   /* .wide {
-      width: 984px;
-    } */
-
-  .wide .l-1 {
+    width: 984px;
+  } */
+  .ll-0 {
+    display: none;
+  }
+  .ll-1 {
     flex: 0 0 8.33333%;
     max-width: 8.33333%;
   }
-
-  .wide .l-2 {
+  .ll-1-5 {
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+  }
+  .ll-2 {
     flex: 0 0 16.66667%;
     max-width: 16.66667%;
   }
 
-  .wide .l-2-4 {
+  .ll-2-4 {
     flex: 0 0 20%;
     max-width: 20%;
   }
 
-  .wide .l-3 {
+  .ll-3 {
     flex: 0 0 25%;
     max-width: 25%;
   }
 
-  .wide .l-4 {
+  .ll-4 {
     flex: 0 0 33.33333%;
     max-width: 33.33333%;
   }
 
-  .wide .l-5 {
+  .ll-5 {
     flex: 0 0 41.66667%;
     max-width: 41.66667%;
   }
 
-  .wide .l-6 {
+  .ll-6 {
     flex: 0 0 50%;
     max-width: 50%;
   }
 
-  .wide .l-7 {
+  .ll-7 {
     flex: 0 0 58.33333%;
     max-width: 58.33333%;
   }
 
-  .wide .l-8 {
+  .ll-8 {
     flex: 0 0 66.66667%;
     max-width: 66.66667%;
   }
 
-  .wide .l-9 {
+  .ll-9 {
     flex: 0 0 75%;
     max-width: 75%;
   }
 
-  .wide .l-10 {
+  .ll-10 {
     flex: 0 0 83.33333%;
     max-width: 83.33333%;
   }
 
-  .wide .l-11 {
+  .ll-11 {
     flex: 0 0 91.66667%;
     max-width: 91.66667%;
   }
 
-  .wide .l-12 {
+  .ll-12 {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -190,7 +209,15 @@
 /* Tablet -> PC low resolution */
 @media screen and (min-width: 740px) and (max-width: 1023px) {
   .navigation .child-navigation {
-    width: 90%;
+    width: 95%;
+  }
+  .background {
+    width: 95% !important;
+  }
+  .responsive-navigation_bar {
+    li {
+      left: -70px;
+    }
   }
   .grid.wide {
     width: 90%;
@@ -348,6 +375,17 @@
 
 /* Mobile */
 @media screen and (max-width: 739px) {
+  .navigation .child-navigation {
+    width: 95%;
+  }
+  .background {
+    width: 95% !important;
+  }
+  .responsive-navigation_bar {
+    li {
+      left: -32px;
+    }
+  }
   .login {
     order: 2;
   }
