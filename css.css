@@ -127,7 +127,6 @@ body::-webkit-scrollbar-thumb {
   .underlined2 {
     border: solid rgb(139, 134, 134) 1px;
     position: absolute;
-    width: 1100px;
     height: 0px;
     display: inline;
     top: 24px;
@@ -563,10 +562,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .content-img img {
-  width: 211px;
+  object-fit: cover;
+  width: 100%;
   height: 260px;
   border-radius: 8px;
-  padding: 3px;
 }
 .title {
   background: linear-gradient(to right, #ff800a 30%, #ff5d30 40%, #ff246c 70%);
@@ -588,19 +587,17 @@ body::-webkit-scrollbar-thumb {
   margin-top: 5px;
 }
 .moicapnhat {
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 21.3px;
+  padding-left: 15px;
+  padding-right: 15px;
   .title-img {
+    padding-top: 9px;
+    box-sizing: border-box;
     position: relative;
-    width: 215px;
     height: 260px;
     overflow: hidden;
-    margin-right: 5px;
-    margin-bottom: 5px;
     .blurredBackground {
       background-color: rgb(0, 0, 0, 0.5);
-      width: 100%;
+      width: 94%;
       height: 60px;
       position: absolute;
       bottom: -7px;
