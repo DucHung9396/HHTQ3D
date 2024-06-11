@@ -20,6 +20,9 @@
 
 /* PC */
 @media screen and (min-width: 1100px) {
+  .login-form.grid.wide {
+    left: 30%;
+  }
   .navigation .child-navigation {
     width: 1100px;
   }
@@ -137,9 +140,10 @@
       left: 7px;
     }
   }
-  /* .wide {
-    width: 984px;
-  } */
+  .login-form.grid.wide {
+    margin-left: 20% !important;
+    width: 60% !important;
+  }
   .ll-0 {
     display: none;
   }
@@ -216,6 +220,11 @@
 @media screen and (min-width: 740px) and (max-width: 1023px) {
   .navigation .child-navigation {
     width: 95%;
+  }
+  /* login-form */
+  .login-form.grid.grid.wide {
+    width: 65%;
+    margin-left: 17.5% !important;
   }
   .background {
     width: 95% !important;
@@ -377,6 +386,11 @@
 
 /* Mobile */
 @media screen and (max-width: 739px) {
+  .login-form.grid.grid.wide {
+    width: 90%;
+    height: 11%;
+    margin-left: 5% !important;
+  }
   .navigation .child-navigation {
     width: 95%;
   }

@@ -5,13 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hoat hình 3D Trung Quốc</title>
-  <link rel="stylesheet" href="./responsive.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="./responsive.css">
   <link rel="stylesheet" href="css.css">
 </head>
 
@@ -20,16 +20,28 @@
   <div class="dark-mode"></div>
 
   <!-- form "Đăng Nhập" -->
-  <div class="login-form">
-    <h2>Login to your account</h2>
-    <label for="user"><span>User name:</span> <input id="user" type="text"
-        placeholder="Nhập tên đăng nhập..."></label><br>
-    <label for="password"><span>Pass word:</span> <input id="password" type="password" placeholder="Nhập password"><br>
-    </label>
-    <button class="login-button">Login</button><br>
-    <button class="register-loginform">Register
-      <div>"Có tài khoản chưa mà đòi đăng nhập"</div>
-    </button>
+  <div class="login-form grid wide">
+    <div class="row no-gutters">
+      <div class=" title col l-12 ll-12 m-12 c-12">
+        <h1>Login to your account</h1>
+      </div>
+      <div class="username l-12 ll-12 m-12 c-12">
+        <label for="user"><span>User name:</span> <input id="user" type="text"
+            placeholder="Nhập tên đăng nhập..."></label>
+      </div>
+      <div class="password l-12 ll-12 m-12 c-12">
+        <label for="password"><span>Pass word:</span> <input id="password" type="password" placeholder="Nhập password">
+        </label>
+      </div>
+      <div class="button1 l-9 ll-9 m-9 c-9">
+        <button class="login-button">Login</button><br>
+      </div>
+      <div class="button2 l-9 ll-9 m-9 c-9">
+        <button class="register-loginform">Register
+          <div>"Có tài khoản chưa mà đòi đăng nhập"</div>
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- Form "register" -->
@@ -275,7 +287,7 @@
   <div class=" background ">
     <div class="banner ">
       <div class="list-img row no-gutters">
-        <div class="img col l-12 m-12 c-12">
+        <div class="img col l-12 ll-12 m-12 c-12">
           <div class="row anh">
             <div class="col l-6 m-12 c-12 ll-6">
               <img src="./image/dau-la-dai-luc-2-poster.jpg" alt="">
