@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản Hoat Hình Trung Quốc 3D</title>
+    <link rel="stylesheet" href="./style_register-page.css">
+</head>
+
+<body>
+    <div class="register-form grid">
+        <div class="register_form-content row ">
+            <div class=" title col l-12 ll-12 m-12 c-12">
+                <h1>HoatHinh3D</h1>
+            </div>
+            <div class="form col">
+                <form onsubmit="registerForm(event)">
+                    <div class="register col l-12 ll-12 m-12 c-12">
+                        <h2>Register an account</h2>
+                    </div>
+                    <label for="user" class="">User name</label>
+                    <input class="" type="text" name="" id="user">
+                    <br><br>
+                    <label for="password" class="">Pass word</label>
+                    <input class="" type="password" name="" id="password"><br><br>
+                    <label for="email" class="">Email</label>
+                    <input class="" type="text" name="" id="email"><br><br>
+                    <label for="retype-email" class="">Retype email</label>
+                    <input class="" type="text" name="" id="retype-email"><br><br>
+                    <button class="registration-button">Đăng ký</button><br><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 
+    function registerForm(event) {
+        event.preventDefault()
+        var checkLogin = document.querySelector("#user").value
+        var checkPassword = document.querySelector("#password").value
+        var checkEmail = document.querySelector("#email").value
+        var check_RetypeEmail = document.querySelector("#retype-email").value
+        if (checkLogin == "") {
+            alert("Bạn chưa nhập thông tin tài khoản !")
+        } else if (checkLogin.length < 6) {
+            alert("Tài khoản phải có ít nhất 6 ký tự !")
+        } else if (!/[a-zA-z]/.test(checkLogin)) {
+            alert("Tài khoản phải có ít nhất 1 ký tự chữ viết !")
+        } else if (!/[A-Z]/.test(checkLogin)) {
+            alert("Tài khoản phải có ít nhất 1 ký tự viết hoa !")
+        } else if (checkPassword == "") {
+            alert("Bạn chưa nhập mật khẩu!")
+        } else if (!/[a-zA-z]/.test(checkEmail)) {
+            alert("Bạn chưa nhập Email!")
+        } else if (!/.+@gmail\.com/.test(checkEmail)) {
+            alert("Email không hợp lệ!")
+        } else if (checkEmail != check_RetypeEmail) {
+            alert("Nhập lại email không trùng khớp!")
+        }
+        else {
+            var user = {
+                username: checkLogin,
+                password: checkPassword,
+                email: checkEmail
+            }
+            var accounts = localStorage.getItem("nguoidung")
+            accounts = accounts ? JSON.parse(accounts) : []
+            var taikhoandatoantai = false
+            accounts.forEach((account) => {
+                if (checkLogin === account.username) {
+                    taikhoandatoantai = true
+                    return
+                }
+
+            })
+            if (taikhoandatoantai) {
+                alert("Tài khoản đã tồn tại!")
+            } else {
+                accounts.push(user)
+                var jsonString_User = JSON.stringify(accounts)
+                localStorage.setItem("nguoidung", jsonString_User)
+                alert("Đăng ký tài khoản thành công!")
+                location.href = "./login_page.html"
+            }
+        }
+    }
+</script>
+
+</html>

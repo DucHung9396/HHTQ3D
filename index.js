@@ -808,90 +808,51 @@ input.addEventListener("input", function () {
 });
 
 // 13>> Tạo event click "login (đăng nhập)" user
+// var loginButton = document.querySelector(".login");
+// var loginForm = document.querySelector(".login-form");
+// var darkMode = document.querySelector(".dark-mode");
+// loginButton.addEventListener("click", function () {
+//   loginForm.style.display = "block";
+//   darkMode.classList.add("show");
+//   darkMode.style.transition = "opacity 0.5s ease";
+//   document.body.classList.add("overflow");
+// });
+// loginForm.addEventListener("click", function () {
+//   event.stopPropagation();
+//   return;
+// });
+// document.body.addEventListener("click", (event) => {
+//   if (!darkMode.contains(event.target)) {
+//     return;
+//   }
+//   loginForm.style.display = "none";
+//   darkMode.classList.remove("show");
+//   document.body.classList.remove("overflow");
+// });
 var loginButton = document.querySelector(".login");
-var loginForm = document.querySelector(".login-form");
-var darkMode = document.querySelector(".dark-mode");
-loginButton.addEventListener("click", function () {
-  loginForm.style.display = "block";
-  darkMode.classList.add("show");
-  darkMode.style.transition = "opacity 0.5s ease";
-  document.body.classList.add("overflow");
-});
-loginForm.addEventListener("click", function () {
-  event.stopPropagation();
-  return;
-});
-document.body.addEventListener("click", (event) => {
-  if (!darkMode.contains(event.target)) {
-    return;
-  }
-  loginForm.style.display = "none";
-  darkMode.classList.remove("show");
-  document.body.classList.remove("overflow");
+loginButton.addEventListener("click", () => {
+  location.href = "./login_page.html";
 });
 
-// 14>> Tạo event click cho "register"
-var registerLoginForm = document.querySelector(".register-loginform");
-var registerform = document.querySelector(".register-form");
-registerLoginForm.addEventListener("click", () => {
-  registerform.style.transform = "translateY(0px)";
-  registerform.style.transition = "transform 0.5s ease";
-  loginForm.style.display = "none";
-});
-//Tạo sự kiện khi click vào "Register form" sẽ không bị ảnh hưởng của bởi event "document.body.addEventListener("click")"
-registerform.addEventListener("click", () => {
-  event.stopPropagation();
-  return;
-});
-//Tạo event ẩn cho "Register form"
-document.body.addEventListener("click", (item) => {
-  registerform.style.transform = "translateY(-999px)";
-});
-
-// Processing registration form (Xử lý form đăng ký)
-function registerAnAcount() {
-  var user = document.querySelector(".register-form #user").value;
-  var password = document.querySelector(".register-form #password").value;
-  var email = document.querySelector(".register-form #email").value;
-  var retypeEmail = document.querySelector(
-    ".register-form #retype-email"
-  ).value;
-  if (user == "") {
-    alert("Mời bạn nhập 'User name' !");
-  } else if (user.length <= 5) {
-    alert("'User name' phải có ít nhất 6 ký tự !");
-  } else if (!/[a-zA-z]/.test(user)) {
-    alert("'User' phải có ít nhất 1 ký tự là chữ viêt");
-  } else if (password == "") {
-    alert("Mời bạn nhập 'Pass word' !");
-  } else if (password.length <= 5) {
-    alert("'Pass word' phải có ít nhất 6 ký tự !");
-  } else if (!/[a-zA-z]/.test(password)) {
-    alert("'Pass word' phải có ít nhất 1 ký tự viết hoa !'");
-  } else if (email == "") {
-    alert("Mời bạn nhập 'Email' !");
-  } else if (!/@gmail\.com$/.test(email)) {
-    alert("Mời bạn hãy nhập đúng cú pháp '@gmail.com' !");
-  } else if (retypeEmail == "") {
-    alert("Mời bạn nhập lại 'Email' !");
-  } else if (!/[a-zA-z]/.test(email)) {
-    alert("'Email' phải có it nhất 1 ký tự !");
-  } else if (retypeEmail != email) {
-    alert("Nhập lại 'Email' không trùng khớp !");
-  } else {
-    var userData = { User: user, Password: password, Email: email };
-    var jsonStringData = JSON.stringify(userData);
-    var savaData = localStorage.setItem(user, jsonStringData);
-    alert("Bạn đã đăng ký tài khoản thành công !");
-    var registerForm = document.querySelector(".register-form");
-    var darkMode = document.querySelector(".dark-mode");
-    registerForm.style.transform = "translateY(-999px)";
-    darkMode.classList.remove("show");
-  }
-}
-
-// Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
+//16>> Tạo sự kiện hiện thông tin khi user đăng nhập
+var currentlyLoggedInUserData = localStorage.getItem("loggedInUser");
+var loggedInUserName = document.querySelector(".logged-in-user span");
 var loggedInUser = document.querySelector(".logged-in-user");
+var login = document.querySelector(".login");
+loggedInUserName.insertAdjacentText("beforeend", currentlyLoggedInUserData);
+if (currentlyLoggedInUserData == null || currentlyLoggedInUserData == "") {
+  loggedInUser.style.display = "none";
+  login.style.display = "block";
+} else {
+  loggedInUserName.textContent = currentlyLoggedInUserData;
+  console.log(loggedInUserName);
+  login.style.display = "none";
+  loggedInUser.style.display = "block";
+}
+// document.addEventListener("DOMContentLoaded", () => {
+// });
+
+//17>>  Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
 loggedInUser.addEventListener("click", () => {
   var logOut = localStorage.setItem("loggedInUser", "");
   if (logOut === "" || logOut == null) {
@@ -901,59 +862,104 @@ loggedInUser.addEventListener("click", () => {
   }
 });
 
-// Tạo event login trong form đăng nhập cho người dùng
-var loginButton = document.querySelector(".login-form .login-button");
-loginButton.addEventListener("click", () => {
-  var passWordLoginForm = document.querySelector(".login-form #password").value;
-  var userLoginForm = document.querySelector(".login-form #user").value;
-  // Lấy dữ liệu từ localStorage cho userLoginForm
-  var userData = localStorage.getItem(userLoginForm);
-  // Kiểm tra nếu userData không tồn tại hoặc password không khớp
-  if (!userData || JSON.parse(userData).Password != passWordLoginForm) {
-    if (userLoginForm == "") {
-      alert("Bạn chưa nhập 'User name'");
-    } else if (userLoginForm.length <= 5) {
-      alert("'User name' phải có ít nhất 6 ký tự !");
-    } else if (passWordLoginForm == "") {
-      alert("Bạn chưa nhập 'Password' !");
-    } else if (passWordLoginForm.length <= 5) {
-      alert("'Password phải có ít nhất 6 ký tự'");
-    } else {
-      alert("'User name' hoặc 'Password' không chính xác");
-    }
-    return;
-  }
-  // Nếu tới đây, đăng nhập thành công
-  alert("Chúc mừng bạn đăng nhập thành công");
-  var loginForm = document.querySelector(".login-form");
-  var darkMode = document.querySelector(".dark-mode");
-  loginForm.style.display = "none";
-  darkMode.style.display = "none";
-  var loginButton = document.querySelector(".login");
-  var loggedInUser = document.querySelector(".logged-in-user");
-  var spanOfLoggedInUser = document.querySelector(".logged-in-user span");
-  spanOfLoggedInUser.textContent = userLoginForm;
-  loggedInUser.style.display = "block";
-  loginButton.style.display = "none";
-  var a = localStorage.setItem("loggedInUser", userLoginForm);
-  // window.location.href = "./loginpage.html";
-});
+// 14>> Tạo event click cho "register"
+// var registerLoginForm = document.querySelector(".register-loginform");
+// var registerform = document.querySelector(".register-form");
+// registerLoginForm.addEventListener("click", () => {
+//   registerform.style.transform = "translateY(0px)";
+//   registerform.style.transition = "transform 0.5s ease";
+//   loginForm.style.display = "none";
+// });
 
-// Tạo sự kiện hiện thông tin khi user đăng nhập
-document.addEventListener("DOMContentLoaded", () => {
-  var currentlyLoggedInUserData = localStorage.getItem("loggedInUser");
-  var loggedInUserName = document.querySelector(".logged-in-user span");
-  var loggedInUser = document.querySelector(".logged-in-user");
-  var login = document.querySelector(".login");
-  loggedInUserName.insertAdjacentText("beforeend", currentlyLoggedInUserData);
-  if (currentlyLoggedInUserData == null || currentlyLoggedInUserData == "") {
-    loggedInUser.style.display = "none";
-    login.style.display = "block";
-  } else {
-    login.style.display = "none";
-    loggedInUser.style.display = "block";
-  }
-});
+//Tạo sự kiện khi click vào "Register form" sẽ không bị ảnh hưởng của bởi event "document.body.addEventListener("click")"
+// registerform.addEventListener("click", () => {
+//   event.stopPropagation();
+//   return;
+// });
+//Tạo event ẩn cho "Register form"
+// document.body.addEventListener("click", (item) => {
+//   registerform.style.transform = "translateY(-999px)";
+// });
+
+// Processing registration form (Xử lý form đăng ký)
+// function registerAnAcount() {
+//   var user = document.querySelector(".register-form #user").value;
+//   var password = document.querySelector(".register-form #password").value;
+//   var email = document.querySelector(".register-form #email").value;
+//   var retypeEmail = document.querySelector(
+//     ".register-form #retype-email"
+//   ).value;
+//   if (user == "") {
+//     alert("Mời bạn nhập 'User name' !");
+//   } else if (user.length <= 5) {
+//     alert("'User name' phải có ít nhất 6 ký tự !");
+//   } else if (!/[a-zA-z]/.test(user)) {
+//     alert("'User' phải có ít nhất 1 ký tự là chữ viêt");
+//   } else if (password == "") {
+//     alert("Mời bạn nhập 'Pass word' !");
+//   } else if (password.length <= 5) {
+//     alert("'Pass word' phải có ít nhất 6 ký tự !");
+//   } else if (!/[a-zA-z]/.test(password)) {
+//     alert("'Pass word' phải có ít nhất 1 ký tự viết hoa !'");
+//   } else if (email == "") {
+//     alert("Mời bạn nhập 'Email' !");
+//   } else if (!/@gmail\.com$/.test(email)) {
+//     alert("Mời bạn hãy nhập đúng cú pháp '@gmail.com' !");
+//   } else if (retypeEmail == "") {
+//     alert("Mời bạn nhập lại 'Email' !");
+//   } else if (!/[a-zA-z]/.test(email)) {
+//     alert("'Email' phải có it nhất 1 ký tự !");
+//   } else if (retypeEmail != email) {
+//     alert("Nhập lại 'Email' không trùng khớp !");
+//   } else {
+//     var userData = { User: user, Password: password, Email: email };
+//     var jsonStringData = JSON.stringify(userData);
+//     var savaData = localStorage.setItem(user, jsonStringData);
+//     alert("Bạn đã đăng ký tài khoản thành công !");
+//     var registerForm = document.querySelector(".register-form");
+//     var darkMode = document.querySelector(".dark-mode");
+//     registerForm.style.transform = "translateY(-999px)";
+//     darkMode.classList.remove("show");
+//   }
+// }
+
+// Tạo event login trong form đăng nhập cho người dùng
+// var loginButton = document.querySelector(".login-form .login-button");
+// loginButton.addEventListener("click", () => {
+//   var passWordLoginForm = document.querySelector(".login-form #password").value;
+//   var userLoginForm = document.querySelector(".login-form #user").value;
+//   // Lấy dữ liệu từ localStorage cho userLoginForm
+//   var userData = localStorage.getItem(userLoginForm);
+//   // Kiểm tra nếu userData không tồn tại hoặc password không khớp
+//   if (!userData || JSON.parse(userData).Password != passWordLoginForm) {
+//     if (userLoginForm == "") {
+//       alert("Bạn chưa nhập 'User name'");
+//     } else if (userLoginForm.length <= 5) {
+//       alert("'User name' phải có ít nhất 6 ký tự !");
+//     } else if (passWordLoginForm == "") {
+//       alert("Bạn chưa nhập 'Password' !");
+//     } else if (passWordLoginForm.length <= 5) {
+//       alert("'Password phải có ít nhất 6 ký tự'");
+//     } else {
+//       alert("'User name' hoặc 'Password' không chính xác");
+//     }
+//     return;
+//   }
+//   // Nếu tới đây, đăng nhập thành công
+//   alert("Chúc mừng bạn đăng nhập thành công");
+//   var loginForm = document.querySelector(".login-form");
+//   var darkMode = document.querySelector(".dark-mode");
+//   loginForm.style.display = "none";
+//   darkMode.style.display = "none";
+//   var loginButton = document.querySelector(".login");
+//   var loggedInUser = document.querySelector(".logged-in-user");
+//   var spanOfLoggedInUser = document.querySelector(".logged-in-user span");
+//   spanOfLoggedInUser.textContent = userLoginForm;
+//   loggedInUser.style.display = "block";
+//   loginButton.style.display = "none";
+//   var a = localStorage.setItem("loggedInUser", userLoginForm);
+//   // window.location.href = "./loginpage.html";
+// });
 
 // set show times (lịch chiếu phim)
 var showTimes = document.querySelector(".container-showtimes .show-times");

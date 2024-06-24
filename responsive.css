@@ -514,3 +514,11 @@
     box-sizing: border-box;
   }
 }
+
+@media only screen and (max-height: 500px) {
+  /* login-form */
+  .login-form .login_form-content {
+    position: relative;
+    top: -60px;
+  }
+}
