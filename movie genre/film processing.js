@@ -338,3 +338,36 @@ var createLink = document.createElement("link");
 createLink.setAttribute("rel", "stylesheet");
 createLink.setAttribute("href", "all-style.css");
 head.appendChild(createLink);
+
+// Responsive navigation_bar (Respoonsive cho thanh điều hướng)
+function setResponsiveNavigationBar() {
+  var navigationBar = document.querySelector("body .responsive-navigation_bar");
+  var navigationBarLength = navigationBar.scrollHeight;
+  var responsiveNavigation = document.querySelector(
+    ".navigation .responsive-navigation"
+  );
+  responsiveNavigation.addEventListener("click", () => {
+    var navigationBarLength2 = navigationBar.offsetHeight;
+    if (navigationBarLength2 == 0) {
+      navigationBar.style.height = navigationBarLength + "px";
+    }
+    if (navigationBarLength2 != 0) {
+      navigationBar.style.height = 0;
+    }
+  });
+}
+setResponsiveNavigationBar();
+
+// set click cho .navigation .responsive-form_search
+var searchButton = document.querySelector(
+  ".navigation .responsive-form_search .fa-solid"
+);
+searchButton.addEventListener("click", () => {
+  var formSearch = document.querySelector(".form_search2 #searchMovie2");
+  if (formSearch.style.opacity == 0) {
+    formSearch.style.opacity = "1";
+  } else {
+    formSearch.style.opacity = 0;
+  }
+  formSearch.style.transition = "opacity 0.5s ease";
+});

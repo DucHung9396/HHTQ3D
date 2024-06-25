@@ -163,9 +163,9 @@ body::-webkit-scrollbar-thumb {
 }
 .header {
   .logged-in-user {
+    margin-top: 10px;
+    text-align: right;
     display: none;
-    position: relative;
-    right: 7%;
     color: rgb(51, 157, 198);
     span {
       position: relative;
@@ -213,6 +213,7 @@ body::-webkit-scrollbar-thumb {
 
 /*Ô tìm kiếm  */
 .form_search {
+  margin-top: 8px;
   flex-wrap: nowrap;
   white-space: nowrap;
   .search {
