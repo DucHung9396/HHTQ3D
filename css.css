@@ -300,9 +300,7 @@ body::-webkit-scrollbar-thumb {
 }
 .responsive-navigation_bar .col {
   .active-color {
-    height: 30px;
     color: white;
-    background-color: #223344;
   }
 }
 
@@ -319,12 +317,9 @@ body::-webkit-scrollbar-thumb {
     display: none;
   }
   li {
-    padding-bottom: 7px;
+    padding-bottom: 15px;
     list-style: none;
     position: relative;
-  }
-  li div {
-    padding-top: 15px;
   }
 }
 

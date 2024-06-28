@@ -104,7 +104,7 @@
                 </ul>
             </div>
             <a href="./phimle.html" title="ok2" class="navbar col l-1-3 m-0 c-0 ll-0">
-                <div class="phimle active-color">Phim lẻ</div>
+                <div class="phimle">Phim lẻ</div>
             </a>
             <a href="./dangchieu.html" class="col l-1-3 m-0 c-0 ll-0">
                 <div>
@@ -113,7 +113,7 @@
                 </div>
             </a>
             <a href="./lichchieu.html" class="l-1-3 m-0 c-0 ll-0">
-                <div>
+                <div class="active-color">
                     <i class='bx bx-calendar-x' style='color:#ffffff'></i>&nbsp
                     Lịch chiếu
                 </div>
@@ -201,7 +201,7 @@
                 </li>
                 <li>
                     <a href="./lichchieu.html">
-                        <div style="padding-left: 10px;padding-right: 10px;">
+                        <div class="active-color" style="padding-left: 10px;padding-right: 10px;">
                             <i class='bx bx-calendar-x' style='color:#ffffff'></i>&nbsp
                             Lịch chiếu
                         </div>
@@ -1273,127 +1273,40 @@
         }
     })
 
-    //Tạo event click "login (đăng nhập)" user
-    var loginButton = document.querySelector(".login");
-    var loginForm = document.querySelector(".login-form");
-    var darkMode = document.querySelector(".dark-mode");
-    loginButton.addEventListener("click", function () {
-        loginForm.style.display = "block";
-        darkMode.classList.add("show");
-        darkMode.style.transition = "opacity 0.5s ease";
-        document.body.classList.add("overflow");
-    });
-    loginForm.addEventListener("click", function () {
-        event.stopPropagation();
-        return;
-    });
-    document.body.addEventListener("click", (event) => {
-        if (!darkMode.contains(event.target)) {
-            return;
-        }
-        loginForm.style.display = "none";
-        darkMode.classList.remove("show");
-        document.body.classList.remove("overflow");
-    });
-
-    // 14>> Tạo event click cho "register"
-    var registerLoginForm = document.querySelector(".register-loginform");
-    var registerForm = document.querySelector(".register-form");
-    registerLoginForm.addEventListener("click", () => {
-        registerForm.style.transform = "translateY(0px)";
-        registerForm.style.transition = "transform 0.5s ease";
-        loginForm.style.display = "none";
-    });
-
-    // 15>> Tạo sự kiện khi click vào "Register form" sẽ không bị ảnh hưởng của bởi event "document.body.addEventListener("click")"
-    registerForm.addEventListener("click", () => {
-        event.stopPropagation();
-        return;
-    });
-    // 16>> Tạo event ẩn cho "Register form"
-    document.body.addEventListener("click", (item) => {
-        registerForm.style.transform = "translateY(-999px)";
-    });
-
-    // Processing registration form (Xử lý form đăng ký)
-    function registerAnAcount() {
-        var user = document.querySelector(".register-form #user").value;
-        var password = document.querySelector(".register-form #password").value;
-        var email = document.querySelector(".register-form #email").value;
-        var retypeEmail = document.querySelector(
-            ".register-form #retype-email"
-        ).value;
-        if (user == "") {
-            alert("Mời bạn nhập 'User name' !");
-        } else if (user.length <= 5) {
-            alert("'User name' phải có ít nhất 6 ký tự !");
-        } else if (!/[a-zA-z]/.test(user)) {
-            alert("'User' phải có ít nhất 1 ký tự là chữ viêt");
-        } else if (password == "") {
-            alert("Mời bạn nhập 'Pass word' !");
-        } else if (password.length <= 5) {
-            alert("'Pass word' phải có ít nhất 6 ký tự !");
-        } else if (!/[a-zA-z]/.test(password)) {
-            alert("'Pass word' phải có ít nhất 1 ký tự viết hoa !'");
-        } else if (email == "") {
-            alert("Mời bạn nhập 'Email' !");
-        } else if (!/@gmail\.com$/.test(email)) {
-            alert("Mời bạn hãy nhập đúng cú pháp '@gmail.com' !");
-        } else if (retypeEmail == "") {
-            alert("Mời bạn nhập lại 'Email' !");
-        } else if (!/[a-zA-z]/.test(email)) {
-            alert("'Email' phải có it nhất 1 ký tự !");
-        } else if (retypeEmail != email) {
-            alert("Nhập lại 'Email' không trùng khớp !");
+    // set click cho .navigation .responsive-form_search
+    var searchButton = document.querySelector(
+        ".navigation .responsive-form_search .fa-solid"
+    );
+    searchButton.addEventListener("click", () => {
+        var formSearch = document.querySelector(".form_search2 #searchMovie2");
+        if (formSearch.style.opacity == 0) {
+            formSearch.style.opacity = "1";
         } else {
-            var userData = { User: user, Password: password, Email: email };
-            var jsonStringData = JSON.stringify(userData);
-            var savaData = localStorage.setItem(user, jsonStringData);
-            alert("Bạn đã đăng ký tài khoản thành công !");
-            var registerForm = document.querySelector(".register-form");
-            var darkMode = document.querySelector(".dark-mode");
-            registerForm.style.transform = "translateY(-999px)";
-            darkMode.classList.remove("show");
+            formSearch.style.opacity = 0;
         }
-    }
-
-    // Tạo event login trong form đăng nhập cho người dùng
-    var loginButton = document.querySelector(".login-form .login-button");
-    loginButton.addEventListener("click", () => {
-        var passWordLoginForm = document.querySelector(".login-form #password").value;
-        var userLoginForm = document.querySelector(".login-form #user").value;
-        // Lấy dữ liệu từ localStorage cho userLoginForm
-        var userData = localStorage.getItem(userLoginForm);
-        // Kiểm tra nếu userData không tồn tại hoặc password không khớp
-        if (!userData || JSON.parse(userData).Password != passWordLoginForm) {
-            if (userLoginForm == "") {
-                alert("Bạn chưa nhập 'User name'");
-            } else if (userLoginForm.length <= 5) {
-                alert("'User name' phải có ít nhất 6 ký tự !");
-            } else if (passWordLoginForm == "") {
-                alert("Bạn chưa nhập 'Password' !");
-            } else if (passWordLoginForm.length <= 5) {
-                alert("'Password phải có ít nhất 6 ký tự'");
-            } else {
-                alert("'User name' hoặc 'Password' không chính xác");
-            }
-            return;
-        }
-        // Nếu tới đây, đăng nhập thành công
-        alert("Chúc mừng bạn đăng nhập thành công");
-        var loginForm = document.querySelector(".login-form");
-        var darkMode = document.querySelector(".dark-mode");
-        loginForm.style.display = "none";
-        darkMode.style.display = "none";
-        var loginButton = document.querySelector(".login");
-        var loggedInUser = document.querySelector(".logged-in-user");
-        var spanOfLoggedInUser = document.querySelector(".logged-in-user span");
-        spanOfLoggedInUser.textContent = userLoginForm;
-        loggedInUser.style.display = "block";
-        loginButton.style.display = "none";
-        var a = localStorage.setItem("loggedInUser", userLoginForm);
-        // window.location.href = "./loginpage.html";
+        formSearch.style.transition = "opacity 0.5s ease";
     });
+
+
+    // Responsive navigation_bar (Respoonsive cho thanh điều hướng)
+    function setResponsiveNavigationBar() {
+        var navigationBar = document.querySelector("body .responsive-navigation_bar");
+        var navigationBarLength = navigationBar.scrollHeight;
+        var responsiveNavigation = document.querySelector(
+            ".navigation .responsive-navigation"
+        );
+        responsiveNavigation.addEventListener("click", () => {
+            var navigationBarLength2 = navigationBar.offsetHeight;
+            if (navigationBarLength2 == 0) {
+                navigationBar.style.height = navigationBarLength + "px";
+            }
+            if (navigationBarLength2 != 0) {
+                navigationBar.style.height = 0;
+            }
+        });
+    }
+    setResponsiveNavigationBar();
+
 </script>
 
 </html>

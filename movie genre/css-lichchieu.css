@@ -3,8 +3,11 @@
   box-sizing: border-box;
   padding: 15px;
   .underlined2 {
-    width: 1000px;
+    width: 100%;
     opacity: 0.1;
+  }
+  .title {
+    width: 90%;
   }
 }
 .movie-schedule {
