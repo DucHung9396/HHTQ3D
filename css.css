@@ -190,6 +190,7 @@ body::-webkit-scrollbar-thumb {
   padding-top: 15px;
   /* nút login (Đăng Nhập) */
   .login {
+    margin-top: 9px;
     font-family: "Raleway", sans-serif;
     z-index: 2;
     div {
@@ -250,9 +251,6 @@ body::-webkit-scrollbar-thumb {
     opacity: 0;
     margin-right: 5px;
   }
-  .s {
-    font-size: 14px;
-  }
   .search:hover {
     border-radius: 3px;
     transition: all 0.2s ease-in;
@@ -262,12 +260,14 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .navigation {
+  a {
+    padding-right: 5px;
+  }
   font-size: 13px;
   background-color: #12171b;
   height: 47px;
   padding-top: 5px;
   cursor: pointer;
-
   .child-navigation {
     .responsive-form_search {
       text-align: right;
@@ -281,15 +281,10 @@ body::-webkit-scrollbar-thumb {
     .col {
       box-sizing: border-box;
     }
-    display: flex;
     margin: auto;
     margin-top: -4px;
     .home-activity-color {
       color: white;
-    }
-    .active-color {
-      color: white;
-      background-color: #223344;
     }
   }
   /* .login:hover {
@@ -298,6 +293,17 @@ body::-webkit-scrollbar-thumb {
     background-color: #0f3c4b;
     box-shadow: 1px 1px 1px rgb(7, 63, 81);
   } */
+  .active-color {
+    color: white;
+    background-color: #223344;
+  }
+}
+.responsive-navigation_bar .col {
+  .active-color {
+    height: 30px;
+    color: white;
+    background-color: #223344;
+  }
 }
 
 /* responsive navigation_bar */
@@ -313,11 +319,12 @@ body::-webkit-scrollbar-thumb {
     display: none;
   }
   li {
+    padding-bottom: 7px;
     list-style: none;
-    padding-bottom: 20px;
     position: relative;
   }
-  .col {
+  li div {
+    padding-top: 15px;
   }
 }
 

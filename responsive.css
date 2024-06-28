@@ -20,6 +20,9 @@
 
 /* PC */
 @media screen and (min-width: 1100px) {
+  .movie-schedule .col {
+    width: 200px !important;
+  }
   .login-form.grid.wide {
     left: 30%;
   }
@@ -415,6 +418,12 @@
     order: 3;
     display: none;
   }
+
+  /* Css class ".movie a" of page "lịch chiếu" */
+  .movie-schedule .movie a {
+    width: 100% !important;
+  }
+
   .grid.wide {
     width: 100%;
   }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phim Hoạt Hình 3D Trung Quốc, Phim Hoạt Hình Đáng Xem</title>
+    <link rel="stylesheet" href="../responsive.css">
     <link rel="stylesheet" href="../css.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -15,50 +16,61 @@
 </head>
 
 <body>
-    <!-- Form "register" -->
-    <div class="register-form">
-        <h2>Register an account</h2>
-        <label for="user"><span>User name:</span> <input id="user" type="text" placeholder="Nhập tên đăng nhập...">
-        </label><br>
-        <label for="password"><span>Pass word:</span> <input id="password" type="password"
-                placeholder="Nhập pass word"><br>
-        </label>
-        <label for="email"><span>Email:</span> <input id="email" type="text" placeholder="Nhập email"><br>
-        </label>
-        <label for="retype-email"><span>Nhập lại email:</span> <input id="retype-email" type="text"
-                placeholder="Nhập lại email"><br>
-        </label>
-        <button class="register-registerform" onclick="registerAnAcount()">Register</button><br>
-    </div>
-
     <div class=" header">
-        <div class="childHeader">
-            <div class="logo"><a href="../index.html"><img src="../image/logo/Screenshot 2024-02-21 004019.png"
-                        alt=""></a>
-            </div>
-            <div class="form_search">
-                <form action="">
-                    <label for="searchMovie" for="">
-                        <i class="fa-solid fa-magnifying-glass" id="timkiem"></i>
-                    </label>
+        <div class="grid">
+            <div class="childHeader row">
+                <div class="lg col l-4 ll-4 m-6 c-6">
+                    <div class="logo"><a href="../index.html"><img src="../image/logo/Screenshot 2024-02-21 004019.png"
+                                alt=""></a>
+                    </div>
+                </div>
+                <div class="form_search col l-4 ll-4 m-0 c-0">
+                    <form action="">
+                        <label for="searchMovie" for="">
+                            <i class="fa-solid fa-magnifying-glass" id="timkiem"></i>
+                        </label>
 
-                    <input id="searchMovie" class="search" type="text" placeholder="Tìm kiếm..." id="tiemkiem" />
-                </form>
-            </div>
-            <div class="login">
-                Đăng nhập
+                        <input id="searchMovie" class="search" type="text" autocomplete="off" placeholder="Tìm kiếm..."
+                            id="tiemkiem" />
+                        <div class="notification" style="display: none;background-color: black;width: 63%;margin-left: 20.1%;
+                margin-top: 0px;
+                border-radius:10px;height: 30px;line-height: 30px;">Không Tìm
+                            Thấy Kết Quả
+                        </div>
+                    </form>
+                </div>
+                <div class="login col l-4 c-6 ll-4 m-6 ">
+                    <div>
+                        Đăng Nhập
+                    </div>
+                </div>
+                <!--Tạo thông tin khi user login thành công  -->
+                <div class="logged-in-user login col l-4 c-6 ll-4 m-6" style="display: none;">
+                    <i class='bx bxs-user'></i>
+                    <span></span>
+                </div>
             </div>
         </div>
     </div>
-    <div class="navigation">
-        <div class="child-navigation">
-            <a href="../index.html" title="ok" class="navbar">
-                <div>
+    <div class="navigation grid">
+        <div class="child-navigation row">
+            <div class="responsive-navigation col c-6 l-0 m-6 ll-6">
+                <i class='bx bx-menu'></i>
+            </div>
+            <div class="responsive-form_search col c-6 l-0 m-6 ll-6">
+                <form action="" class="form_search2">
+                    <input type="text" id="searchMovie2" class="search" type="text" autocomplete="off"
+                        placeholder="Tìm kiếm..." id="tiemkiem">
+                    <i class=" fa-solid fa-magnifying-glass s" id="timkiem"></i>
+                </form>
+            </div>
+            <a href="../index.html" class="col l-1-3 m-0 c-0 ll-0">
+                <div class="trangchu">
                     <i class='bx bxs-home' style='color:#fcfafa'></i>&nbsp
                     Trang chủ
                 </div>
             </a>
-            <div class="theloai">Thể loại
+            <div class="theloai col l-1-3 m-0 c-0 ll-0">Thể loại
                 <i class='bx bx-caret-down bxArrow' style='color:#ffffff'></i>
                 <ul>
                     <a href="./huyenhuyen.html">
@@ -82,54 +94,152 @@
                     <a href="./kiemhiep.html">
                         <li>Kiếm Hiệp</li>
                     </a>
-                    <a href="hiendai.html">
+                    <a href="./hiendai.html">
                         <li>Hiện Đại</li>
                     </a>
                 </ul>
             </div>
-            <a href="./phimle.html" title="ok2" class="navbar">
+            <a href="./phimle.html" title="ok2" class="navbar col l-1-3 m-0 c-0 ll-0">
                 <div class="phimle">Phim lẻ</div>
             </a>
-            <a href="./dangchieu.html">
+            <a href="./dangchieu.html" class="col l-1-3 m-0 c-0 ll-0">
                 <div>
                     <i class='bx bx-sync bx-rotate-90'></i>
                     Đang chiếu
                 </div>
             </a>
-            <a href="./lichchieu.html">
+            <a href="./lichchieu.html" class="l-1-3 m-0 c-0 ll-0">
                 <div>
                     <i class='bx bx-calendar-x' style='color:#ffffff'></i>&nbsp
                     Lịch chiếu
                 </div>
             </a>
-            <a href="./hoanthanh.html" title="ok3" onclick="lk(3)">
+            <a href="./hoanthanh.html" class="col l-1-3 m-0 c-0 ll-0" title="ok3" onclick="lk(3)">
                 <div>
                     <i class='bx bx-check' style='color:#ffffff'></i>
                     Hoàn thành
                 </div>
             </a>
-            <a href="./sapchieu.html">
+            <a href="./sapchieu.html" class="col l-1-3 m-0 c-0 ll-0">
                 <div>
                     <i class='bx bx-time-five'></i>&nbsp
                     Sắp chiếu
                 </div>
             </a>
-            <a href="./top10hh3d.html">
+            <a href="./top10hh3d.html" class="col l-1-3 m-0 c-0 ll-0">
                 <div>
                     <i class='bx bx-trophy'></i>&nbsp
                     Top 10 HH3D
                 </div>
             </a>
-            <a href="./dangxem.html">
-                <div>
+            <a href="./dangxem.html" class="col l-1-3 m-0 c-0 ll-0">
+                <div class="active-color">
                     <i class='bx bx-like'></i>&nbsp
                     Đáng xem
                 </div>
             </a>
         </div>
     </div>
+    <div class="responsive-navigation_bar row no-gutters">
+        <div class="col l-0 m-12 c-12 m-o-0-6">
+            <ul>
+                <li>
+                    <a href="../index.html">
+                        <div class="trangchu  home-activity-color" style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bxs-home'></i>&nbsp
+                            Trang chủ
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="theloai " style="padding-left: 10px;padding-right: 10px;">Thể loại
+                        <i class='bx bx-caret-down bxArrow' style='color:#ffffff'></i>
+                        <ul>
+                            <a href="./huyenhuyen.html">
+                                <li>Huyền Huyễn</li>
+                            </a>
+                            <a href="./xuyenkhong.html">
+                                <li>Xuyên Không</li>
+                            </a>
+                            <a href="./trungsinh.html">
+                                <li>Trùng Sinh</li>
+                            </a>
+                            <a href="./tienhiep.html">
+                                <li>Tiên Hiệp</li>
+                            </a>
+                            <a href="./cotrang.html">
+                                <li>Cổ Trang</li>
+                            </a>
+                            <a href="./haihuoc.html">
+                                <li>Hài Hước</li>
+                            </a>
+                            <a href="./kiemhiep.html">
+                                <li>Kiếm Hiệp</li>
+                            </a>
+                            <a href="./hiendai.html">
+                                <li>Hiện Đại</li>
+                            </a>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="./phimle.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">Phim lẻ</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./dangchieu.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-sync bx-rotate-90'></i>
+                            Đang chiếu
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./lichchieu.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-calendar-x' style='color:#ffffff'></i>&nbsp
+                            Lịch chiếu
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./hoanthanh.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-check' style='color:#ffffff'></i>
+                            Hoàn thành
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./sapchieu.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-time-five'></i>&nbsp
+                            Sắp chiếu
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./top10hh3d.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-trophy'></i>&nbsp
+                            Top 10 HH3D
+                        </div>
+                    </a>
+                </li>
+                <li class="i">
+                    <a href="./dangxem.html">
+                        <div class="active-color" style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-like'></i>&nbsp
+                            Đáng xem
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class=background>
-        <div class="content">
+        <div class="content grid">
             <br>
             <div class=" title">ĐÁNG XEM
                 <div class="underlined" style="width: 85px;">
@@ -137,8 +247,8 @@
             </div>
             <br>
             <div class="content-img">
-                <div class="moicapnhat ">
-                    <div class="title-img">
+                <div class="moicapnhat row ">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/dai-chua-te-300x450.webp" alt="">
                         </div>
@@ -147,7 +257,7 @@
                             Đại Chúa Tể
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/dau-la-dai-luc-1-1-300x450.jpg" alt="">
                         </div>
@@ -156,7 +266,7 @@
                             Đấu La Đại Lục Phần 1
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/dau-pha-thuong-khung-phan-5-gia-nam-hoc-vien-3-300x450.jpg"
                                 alt="">
@@ -166,7 +276,7 @@
                             Đấu Phá Thương Khung Phần 5: Già Nam Học Viện
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/doa-huyen-su-300x450.jpg" alt="">
                         </div>
@@ -175,7 +285,7 @@
                             Đọa Huyền Sư
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/IMG_0204-300x450.jpeg" alt="">
                         </div>
@@ -184,7 +294,7 @@
                             NO TITLE
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/luyen-khi-muoi-van-nam-1-300x450.jpg" alt="">
                         </div>
@@ -193,7 +303,7 @@
                             Luyện Khí 10 Vạn Năm
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/ngao-the-cuu-trung-thien-300x450.jpg" alt="">
                         </div>
@@ -202,7 +312,7 @@
                             Ngạo Thế Cửu Trùng Thiên
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/nghich-thien-chi-ton-300x450.jpg" alt="">
                         </div>
@@ -211,7 +321,7 @@
                             Nghịch Thiên Chí Tôn
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/nhat-niem-vinh-hang-phan-2-newposter-300x450.jpg" alt="">
                         </div>
@@ -220,7 +330,7 @@
                             Nhất Niệm Vĩnh Hằng
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/o-re-300x450.png" alt="">
                         </div>
@@ -229,7 +339,7 @@
                             Ở Rể
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/pham-nhan-tu-tien-phan-3-1-300x450.png" alt="">
                         </div>
@@ -238,7 +348,7 @@
                             Phàm Nhân Tu Tiên Phần 3
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/su-huynh-a-su-huynh-300x450.jpg" alt="">
                         </div>
@@ -247,7 +357,7 @@
                             Sư Huynh A Sư Huynh
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/than-an-vuong-toa-2-300x450.jpg" alt="">
                         </div>
@@ -256,7 +366,7 @@
                             Thần Ấn Vương Tọa
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/than-lan-ky-vuc-vo-song-chau-ss3-300x450.jpg" alt="">
                         </div>
@@ -265,7 +375,7 @@
                             Thằn Lằn Ký Vực Vo Song Châu
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/the-gioi-hoan-my-4-300x450.jpg" alt="">
                         </div>
@@ -274,7 +384,7 @@
                             Thế Giới Hoàn Mỹ
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/thon-phe-tinh-khong-4-300x450.jpg
                             " alt="">
@@ -284,7 +394,7 @@
                             Thôn Phệ Tinh Không Phần 4
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/thuong-nguyen-do-300x450.jpg" alt="">
                         </div>
@@ -293,7 +403,7 @@
                             Thương Nguyên Đồ
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/tinh-than-bien-300x450.jpg" alt="">
                         </div>
@@ -302,7 +412,7 @@
                             Tinh Thần Biến
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/vinh-sinh-phan-2-300x450.webp" alt="">
                         </div>
@@ -311,7 +421,7 @@
                             Vĩnh Sinh Phần 2
                         </div>
                     </div>
-                    <div class="title-img">
+                    <div class="title-img col l-2-4 ll-2-4 m-3 c-6">
                         <div>
                             <img src="../image/Đáng Xem/vo-than-chua-te-127-300x449.jpg" alt="">
                         </div>

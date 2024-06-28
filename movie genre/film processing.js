@@ -252,32 +252,19 @@ getLogin.addEventListener(
 );
 
 // Tạo sự kiện hiện thông tin khi user đăng nhập
-// Tạo các thẻ "elements" để tạo event hiển thị thông tin khi user đăng nhập
-var creatDiv = document.createElement("div");
-creatDiv.classList.add("logged-in-user");
-var creatSpan = document.createElement("span");
-var creatI = document.createElement("i");
-creatI.classList.add("bxs-user", "bx");
-var childHeader = document.querySelector(".childHeader");
-childHeader.appendChild(creatDiv);
+var currentlyLoggedInUserData = localStorage.getItem("loggedInUser");
+var loggedInUserName = document.querySelector(".logged-in-user span");
 var loggedInUser = document.querySelector(".logged-in-user");
-loggedInUser.appendChild(creatSpan);
-loggedInUser.insertAdjacentElement("afterbegin", creatI);
-console.log(childHeader);
-document.addEventListener("DOMContentLoaded", () => {
-  var currentlyLoggedInUserData = localStorage.getItem("loggedInUser");
-  var loggedInUserName = document.querySelector(".logged-in-user span");
-  var loggedInUser = document.querySelector(".logged-in-user");
-  var login = document.querySelector(".login");
-  if (currentlyLoggedInUserData == null || currentlyLoggedInUserData == "") {
-    loggedInUser.style.display = "none";
-    login.style.display = "block";
-  } else {
-    loggedInUserName.textContent = currentlyLoggedInUserData;
-    login.style.display = "none";
-    loggedInUser.style.display = "block";
-  }
-});
+var login = document.querySelector(".login");
+loggedInUserName.insertAdjacentText("beforeend", currentlyLoggedInUserData);
+if (currentlyLoggedInUserData == null || currentlyLoggedInUserData == "") {
+  loggedInUser.style.display = "none";
+  login.style.display = "block";
+} else {
+  loggedInUserName.textContent = currentlyLoggedInUserData;
+  login.style.display = "none";
+  loggedInUser.style.display = "block";
+}
 
 // Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
 var loggedInUser = document.querySelector(".logged-in-user");
@@ -371,3 +358,23 @@ searchButton.addEventListener("click", () => {
   }
   formSearch.style.transition = "opacity 0.5s ease";
 });
+
+// var a = document.URL;
+// console.log(a);
+// var currentURL = window.location.href;
+// var a = document.getElementById("url");
+
+// var b = (a.textContent = currentURL);
+
+window.onload = function () {
+  var currentURL = window.location.href;
+  document.getElementById("url").textContent = currentURL; // Hiển thị URL trong thẻ div
+  // In ra nội dung của thẻ với id="url"
+  var urlContent = document.getElementById("url").textContent;
+  var a = "p";
+  console.log(urlContent);
+
+  if (a.includes(urlContent.textContent)) {
+    console.log("a");
+  }
+};
