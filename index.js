@@ -1078,21 +1078,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-var a = document.querySelector(".responsive-theloai");
-var p = document.querySelector(
-  ".responsive-navigation_bar .responsive-theloai ul"
-);
-window.addEventListener("DOMContentLoaded", () => {
-  if (window.matchMedia("(max-width:1099px)").matches) {
-    a.addEventListener("click", () => {
-      if (p.style.display == "none") {
-        p.style.display = "block";
-      } else {
-        p.style.display = "none";
-      }
-    });
-  }
-});
+// var a = document.querySelector(".responsive-theloai");
+// var p = document.querySelector(
+//   ".responsive-navigation_bar .responsive-theloai ul"
+// );
+// var k = document.querySelector(".responsive-theloai");
+// if (window.matchMedia("(max-width:1099px)").matches) {
+//   a.addEventListener("click", () => {
+//     if (p.style.display == "none") {
+//       // k.style.content = "url(./image/image2/caret-up-regular-24.png)";
+//       p.style.display = "block";
+//       // k.style.position = "absolute";
+
+//       // k.style.top = "-50px";
+//       // k.style.left = "15px";
+//     } else {
+//       p.style.display = "none";
+//     }
+//   });
+// }
+window.addEventListener("DOMContentLoaded", () => {});
 
 // window.addEventListener("resize", () => {
 //   if (window.matchMedia("(max-width:1099px)").matches) {

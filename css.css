@@ -319,7 +319,7 @@ body::-webkit-scrollbar-thumb {
   a li:hover {
     color: white;
   }
-  overflow: hidden;
+  /* overflow: hidden; */
   .responsive-theloai ul {
     padding-top: 10px;
     width: 90%;
