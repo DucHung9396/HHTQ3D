@@ -44,6 +44,13 @@
         var storage = localStorage.getItem("nguoidung");
         storage = JSON.parse(storage);
         var flag = false;
+        // if(username == "" & password == ""){
+        //     alert("Tài khoản và mật khẩu không đúng!");
+
+        // }
+        if (storage == null) {
+            alert("Tài khoản và mật khẩu không đúng!");
+            }
         storage.forEach((item) => {
             if ((username === item.username) & (password === item.password)) {
                 flag = true;

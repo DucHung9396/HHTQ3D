@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -136,7 +137,7 @@
                 </ul>
             </div>
             <a href="./phimle.html" title="ok2" class="navbar col l-1-3 m-0 c-0 ll-0">
-                <div class="phimle active-color">Phim lẻ</div>
+                <div class="phimle">Phim lẻ</div>
             </a>
             <a href="./dangchieu.html" class="col l-1-3 m-0 c-0 ll-0">
                 <div>
@@ -157,7 +158,7 @@
                 </div>
             </a>
             <a href="./sapchieu.html" class="col l-1-3 m-0 c-0 ll-0">
-                <div>
+                <div class="active-color">
                     <i class='bx bx-time-five'></i>&nbsp
                     Sắp chiếu
                 </div>
@@ -188,7 +189,7 @@
                     </a>
                 </li>
                 <li>
-                    <div class="theloai " style="padding-left: 10px;padding-right: 10px;">Thể loại
+                    <div class="theloai responsive-theloai" style="padding-left: 10px;padding-right: 10px;">Thể loại
                         <i class='bx bx-caret-down bxArrow' style='color:#ffffff'></i>
                         <ul>
                             <a href="./huyenhuyen.html">
@@ -249,7 +250,7 @@
                 </li>
                 <li>
                     <a href="./sapchieu.html">
-                        <div style="padding-left: 10px;padding-right: 10px;">
+                        <div class="active-color" style="padding-left: 10px;padding-right: 10px;">
                             <i class='bx bx-time-five'></i>&nbsp
                             Sắp chiếu
                         </div>
@@ -358,19 +359,428 @@
         );
 
         // Tạo sự kiện hiện thông tin khi user đăng nhập
-        var currentlyLoggedInUserData = localStorage.getItem("loggedInUser");
-        var loggedInUserName = document.querySelector(".logged-in-user span");
+        document.addEventListener("DOMContentLoaded", () => {
+            var currentlyLoggedInUserData = localStorage.getItem("loggedInUser");
+            var loggedInUserName = document.querySelector(".logged-in-user span");
+            var loggedInUser = document.querySelector(".logged-in-user");
+            var login = document.querySelector(".login");
+            loggedInUserName.insertAdjacentText("beforeend", currentlyLoggedInUserData);
+            if (currentlyLoggedInUserData == null || currentlyLoggedInUserData == "") {
+                loggedInUser.style.display = "none";
+                login.style.display = "block";
+            } else {
+                login.style.display = "none";
+                loggedInUser.style.display = "block";
+            }
+        });
+
+        // Sự kiện click thoat khỏi chế độ đăng nhập của class "logged-in-user"
         var loggedInUser = document.querySelector(".logged-in-user");
-        var login = document.querySelector(".login");
-        loggedInUserName.insertAdjacentText("beforeend", currentlyLoggedInUserData);
-        if (currentlyLoggedInUserData == null || currentlyLoggedInUserData == "") {
-            loggedInUser.style.display = "none";
-            login.style.display = "block";
-        } else {
-            loggedInUserName.textContent = currentlyLoggedInUserData;
-            login.style.display = "none";
-            loggedInUser.style.display = "block";
+        loggedInUser.addEventListener("click", () => {
+            var logOut = localStorage.setItem("loggedInUser", "");
+            if (logOut === "" || logOut == null) {
+                var login = document.querySelector(".login");
+                login.style.display = "block";
+                loggedInUser.style.display = "none";
+            }
+        });
+
+
+        // Responsive navigation_bar (Respoonsive cho thanh điều hướng)
+        function setResponsiveNavigationBar() {
+            var navigationBar = document.querySelector("body .responsive-navigation_bar");
+            var navigationBarLength = navigationBar.scrollHeight;
+            var responsiveNavigation = document.querySelector(
+                ".navigation .responsive-navigation"
+            );
+            responsiveNavigation.addEventListener("click", () => {
+                var navigationBarLength2 = navigationBar.offsetHeight;
+                if (navigationBarLength2 == 0) {
+                    navigationBar.style.height = navigationBarLength + "px";
+                }
+                if (navigationBarLength2 != 0) {
+                    navigationBar.style.height = 0;
+                }
+            });
         }
+        setResponsiveNavigationBar();
+
+        // set click cho .navigation .responsive-form_search
+        var searchButton = document.querySelector(
+            ".navigation .responsive-form_search .fa-solid"
+        );
+        searchButton.addEventListener("click", () => {
+            var formSearch = document.querySelector(".form_search2 #searchMovie2");
+            if (formSearch.style.opacity == 0) {
+                formSearch.style.opacity = "1";
+            } else {
+                formSearch.style.opacity = 0;
+            }
+            formSearch.style.transition = "opacity 0.5s ease";
+        });
+
+    </script>
+</body>
+
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phim Hoạt Hình 3D Trung Quốc, Phim Sắp Chiếu Hay</title>
+    <link rel="stylesheet" href="../responsive.css">
+    <link rel="stylesheet" href="../css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        .moicapnhat .title-img {
+            margin-left: 10px;
+            padding: 0;
+
+            .movie-status {
+                background-color: rgb(188, 124, 13);
+                padding: 3px;
+                width: 60px;
+                position: absolute;
+                text-wrap: nowrap;
+                z-index: 1;
+            }
+
+            span {
+                font-size: 14px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-weight: 400;
+                color: white;
+                position: relative;
+                top: -1.5px;
+                left: 19px;
+            }
+
+            .bx-play {
+                position: absolute;
+                top: 2px;
+                font-size: 20px;
+            }
+
+            .index {
+                z-index: 0;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class=" header">
+        <div class="grid">
+            <div class="childHeader row">
+                <div class="lg col l-4 ll-4 m-6 c-6">
+                    <div class="logo"><a href="../index.html"><img src="../image/logo/Screenshot 2024-02-21 004019.png"
+                                alt=""></a>
+                    </div>
+                </div>
+                <div class="form_search col l-4 ll-4 m-0 c-0">
+                    <form action="">
+                        <label for="searchMovie" for="">
+                            <i class="fa-solid fa-magnifying-glass" id="timkiem"></i>
+                        </label>
+
+                        <input id="searchMovie" class="search" type="text" autocomplete="off" placeholder="Tìm kiếm..."
+                            id="tiemkiem" />
+                        <div class="notification" style="display: none;background-color: black;width: 63%;margin-left: 20.1%;
+                margin-top: 0px;
+                border-radius:10px;height: 30px;line-height: 30px;">Không Tìm
+                            Thấy Kết Quả
+                        </div>
+                    </form>
+                </div>
+                <div class="login col l-4 c-6 ll-4 m-6 ">
+                    <div>
+                        Đăng Nhập
+                    </div>
+                </div>
+                <!--Tạo thông tin khi user login thành công  -->
+                <div class="logged-in-user login col l-4 c-6 ll-4 m-6" style="display: none;">
+                    <i class='bx bxs-user'></i>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation grid">
+        <div class="child-navigation row">
+            <div class="responsive-navigation col c-6 l-0 m-6 ll-6">
+                <i class='bx bx-menu'></i>
+            </div>
+            <div class="responsive-form_search col c-6 l-0 m-6 ll-6">
+                <form action="" class="form_search2">
+                    <input type="text" id="searchMovie2" class="search" type="text" autocomplete="off"
+                        placeholder="Tìm kiếm..." id="tiemkiem">
+                    <i class=" fa-solid fa-magnifying-glass s" id="timkiem"></i>
+                </form>
+            </div>
+            <a href="../index.html" class="col l-1-3 m-0 c-0 ll-0">
+                <div class="trangchu">
+                    <i class='bx bxs-home' style='color:#fcfafa'></i>&nbsp
+                    Trang chủ
+                </div>
+            </a>
+            <div class="theloai col l-1-3 m-0 c-0 ll-0">Thể loại
+                <i class='bx bx-caret-down bxArrow' style='color:#ffffff'></i>
+                <ul>
+                    <a href="./huyenhuyen.html">
+                        <li>Huyền Huyễn</li>
+                    </a>
+                    <a href="./xuyenkhong.html">
+                        <li>Xuyên Không</li>
+                    </a>
+                    <a href="./trungsinh.html">
+                        <li>Trùng Sinh</li>
+                    </a>
+                    <a href="./tienhiep.html">
+                        <li>Tiên Hiệp</li>
+                    </a>
+                    <a href="./cotrang.html">
+                        <li>Cổ Trang</li>
+                    </a>
+                    <a href="./haihuoc.html">
+                        <li>Hài Hước</li>
+                    </a>
+                    <a href="./kiemhiep.html">
+                        <li>Kiếm Hiệp</li>
+                    </a>
+                    <a href="./hiendai.html">
+                        <li>Hiện Đại</li>
+                    </a>
+                </ul>
+            </div>
+            <a href="./phimle.html" title="ok2" class="navbar col l-1-3 m-0 c-0 ll-0">
+                <div class="phimle">Phim lẻ</div>
+            </a>
+            <a href="./dangchieu.html" class="col l-1-3 m-0 c-0 ll-0">
+                <div>
+                    <i class='bx bx-sync bx-rotate-90'></i>
+                    Đang chiếu
+                </div>
+            </a>
+            <a href="./lichchieu.html" class="l-1-3 m-0 c-0 ll-0">
+                <div>
+                    <i class='bx bx-calendar-x' style='color:#ffffff'></i>&nbsp
+                    Lịch chiếu
+                </div>
+            </a>
+            <a href="./hoanthanh.html" class="col l-1-3 m-0 c-0 ll-0" title="ok3" onclick="lk(3)">
+                <div>
+                    <i class='bx bx-check' style='color:#ffffff'></i>
+                    Hoàn thành
+                </div>
+            </a>
+            <a href="./sapchieu.html" class="col l-1-3 m-0 c-0 ll-0">
+                <div class="active-color">
+                    <i class='bx bx-time-five'></i>&nbsp
+                    Sắp chiếu
+                </div>
+            </a>
+            <a href="./top10hh3d.html" class="col l-1-3 m-0 c-0 ll-0">
+                <div>
+                    <i class='bx bx-trophy'></i>&nbsp
+                    Top 10 HH3D
+                </div>
+            </a>
+            <a href="./dangxem.html" class="col l-1-3 m-0 c-0 ll-0">
+                <div>
+                    <i class='bx bx-like'></i>&nbsp
+                    Đáng xem
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="responsive-navigation_bar row no-gutters">
+        <div class="col l-0 m-10-8 c-12 m-o-0-6">
+            <ul>
+                <li>
+                    <a href="../index.html">
+                        <div class="trangchu  home-activity-color" style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bxs-home'></i>&nbsp
+                            Trang chủ
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="theloai " style="padding-left: 10px;padding-right: 10px;">Thể loại
+                        <i class='bx bx-caret-down bxArrow' style='color:#ffffff'></i>
+                        <ul>
+                            <a href="./huyenhuyen.html">
+                                <li>Huyền Huyễn</li>
+                            </a>
+                            <a href="./xuyenkhong.html">
+                                <li>Xuyên Không</li>
+                            </a>
+                            <a href="./trungsinh.html">
+                                <li>Trùng Sinh</li>
+                            </a>
+                            <a href="./tienhiep.html">
+                                <li>Tiên Hiệp</li>
+                            </a>
+                            <a href="./cotrang.html">
+                                <li>Cổ Trang</li>
+                            </a>
+                            <a href="./haihuoc.html">
+                                <li>Hài Hước</li>
+                            </a>
+                            <a href="./kiemhiep.html">
+                                <li>Kiếm Hiệp</li>
+                            </a>
+                            <a href="./hiendai.html">
+                                <li>Hiện Đại</li>
+                            </a>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="./phimle.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">Phim lẻ</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./dangchieu.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-sync bx-rotate-90'></i>
+                            Đang chiếu
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./lichchieu.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-calendar-x' style='color:#ffffff'></i>&nbsp
+                            Lịch chiếu
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./hoanthanh.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-check' style='color:#ffffff'></i>
+                            Hoàn thành
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./sapchieu.html">
+                        <div class="active-color" style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-time-five'></i>&nbsp
+                            Sắp chiếu
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./top10hh3d.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-trophy'></i>&nbsp
+                            Top 10 HH3D
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./dangxem.html">
+                        <div style="padding-left: 10px;padding-right: 10px;">
+                            <i class='bx bx-like'></i>&nbsp
+                            Đáng xem
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class=background>
+        <div class="content grid">
+            <br>
+            <div class=" title">PHIM SẮP CHIẾU
+                <div class="underlined" style="width: 130px;">
+                </div>
+            </div>
+            <br>
+            <div class="content-img">
+                <div class="moicapnhat row">
+                    <div class="title-img">
+                        <div class="movie-status">
+                            <i class='bx bx-play' style='color:#59c911'></i><span>Trailer</span>
+                        </div>
+                        <div>
+                            <img src="../image/Sắp chiếu/song-sinh-vo-hon-300x450.webp" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Song Sinh Võ Hồn
+                        </div>
+                    </div>
+                    <div class="title-img">
+                        <div class="movie-status">
+                            <i class='bx bx-play' style='color:#59c911'></i><span>Trailer</span>
+                        </div>
+                        <div>
+                            <img src="../image/Sắp chiếu/tap-do-300x450.jpg" alt="">
+                        </div>
+                        <div class="blurredBackground"></div>
+                        <div class="movieTitle">
+                            Tạp Đồ
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="pagination">
+                <!-- <div class="button"><a href="#" "><button class=" button activeButton"
+                        onclick="setActiveButton(1);showPage(1)">1</button></a></div>
+                <div class="button"><a href="#"><button onclick="setActiveButton(2);showPage(2)">2</button></a> -->
+            </div>
+
+        </div>
+        <div class="crollPage">
+            <i class='bx bxs-chevrons-up bx-croll'></i>
+        </div>
+    </div>
+    </div>
+    <br>
+    <footer>
+        <div class="footer-background">
+            <div class="footer-content">
+                <span>
+                    HoatHinh3D
+                </span>
+                <div class="footer-underline"></div>
+                <a href="https://www.facebook.com/hoathinh3dcom">
+                    <div class="fb-icon">
+                        <i class='bx bxl-facebook-circle' style='color:#29448a'></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="license">
+            <i class='bx bx-copyright' style='color:#007979'></i>
+            <span>Copyright ® 2023 HOATHINH3D.</span>
+        </div>
+    </footer>
+    <script>
+        // 13>> Thêm thẻ "div" vào ".login" đăng nhập
+        var getLogin = document.querySelector(".login");
+        var createDiv = document.createElement("div");
+        createDiv.textContent = "Đăng Nhập";
+        getLogin.innerHTML = "";
+        getLogin.appendChild(createDiv);
+
+        // Tạo event "click" cho nút "login (Đăng Nhập)"
+        getLogin.addEventListener(
+            "click",
+            () => (location.href = "../login_page.html")
+        );
 
         // Tạo sự kiện hiện thông tin khi user đăng nhập
         document.addEventListener("DOMContentLoaded", () => {
@@ -436,4 +846,5 @@
     </script>
 </body>
 
+>>>>>>> 486bea8270871f26caad56f3347c6d76c6e9de72
 </html>

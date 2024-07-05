@@ -329,14 +329,14 @@ head.appendChild(createLink);
 // Responsive navigation_bar (Respoonsive cho thanh điều hướng)
 function setResponsiveNavigationBar() {
   var navigationBar = document.querySelector("body .responsive-navigation_bar");
-  var navigationBarLength = navigationBar.scrollHeight;
+  // var navigationBarLength = navigationBar.scrollHeight;
   var responsiveNavigation = document.querySelector(
     ".navigation .responsive-navigation"
   );
   responsiveNavigation.addEventListener("click", () => {
     var navigationBarLength2 = navigationBar.offsetHeight;
     if (navigationBarLength2 == 0) {
-      navigationBar.style.height = navigationBarLength + "px";
+      navigationBar.style.height = "340px";
     }
     if (navigationBarLength2 != 0) {
       navigationBar.style.height = 0;
@@ -359,22 +359,48 @@ searchButton.addEventListener("click", () => {
   formSearch.style.transition = "opacity 0.5s ease";
 });
 
-// var a = document.URL;
-// console.log(a);
-// var currentURL = window.location.href;
-// var a = document.getElementById("url");
+// thêm ".abc" vào ".responsive-theloai a li" để css padding
+var abc = document.querySelector(".responsive-theloai a:nth-of-type(1) li");
+abc.classList.add("abc");
 
-// var b = (a.textContent = currentURL);
+// Set click trang phim đang hoạt động cho ".responsive-theloai"
+var movieGenre_list = document.querySelectorAll(".responsive-theloai a");
+var movieGenre_list2 = document.querySelectorAll(".responsive-theloai a li");
+movieGenre_list2.forEach((item) => {
+  item.addEventListener("click", function (event) {
+    // event.preventDefault();
+    var indexItem = Array.from(movieGenre_list2).indexOf(item);
+    var saveAction_movieGenre = localStorage.setItem("movie-genre", indexItem);
+  });
+});
 
-window.onload = function () {
-  var currentURL = window.location.href;
-  document.getElementById("url").textContent = currentURL; // Hiển thị URL trong thẻ div
-  // In ra nội dung của thẻ với id="url"
-  var urlContent = document.getElementById("url").textContent;
-  var a = "p";
-  console.log(urlContent);
-
-  if (a.includes(urlContent.textContent)) {
-    console.log("a");
+document.addEventListener("DOMContentLoaded", () => {
+  var get_movieGenre = localStorage.getItem("movie-genre");
+  movieGenre_list2[get_movieGenre].classList.add("color-action-movie_genre");
+  // movieGenre_list.forEach((item) => {
+  //   // var hrefItem = event.currentTarget.getAttribute("href");
+  // });
+  var a = window.location.href;
+  var b = document.querySelector(".responsive-theloai").textContent;
+  var d = a.substring(a.lastIndexOf("/") + 1);
+  var e = d.replace(".html", "");
+  function loaibodau(str) {
+    return str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/Đ/g, "D")
+      .replace(/đ/g, "d");
   }
-};
+  var z = loaibodau(b);
+  var i = new RegExp(e, "i");
+  var o = new RegExp(z.replace(/\s/g, ""), "i");
+  // console.log(c);
+  if (i.test(o)) {
+    movieGenre_list2[get_movieGenre].classList.add("color-action-movie_genre");
+    console.log("a");
+  } else {
+    movieGenre_list2[get_movieGenre].classList.remove(
+      "color-action-movie_genre"
+    );
+  }
+});

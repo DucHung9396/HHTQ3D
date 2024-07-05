@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 /* Css movie-title */
 .content {
   box-sizing: border-box;
   padding: 15px;
   .underlined2 {
-    width: 1000px;
+    width: 100%;
     opacity: 0.1;
+  }
+  .title {
+    width: 90%;
   }
 }
 .movie-schedule {
@@ -63,3 +67,73 @@
     color: yellow;
   }
 }
+=======
+/* Css movie-title */
+.content {
+  box-sizing: border-box;
+  padding: 15px;
+  .underlined2 {
+    width: 100%;
+    opacity: 0.1;
+  }
+  .title {
+    width: 90%;
+  }
+}
+.movie-schedule {
+  .movie {
+    overflow: hidden;
+  }
+  .col {
+    box-sizing: border-box;
+  }
+  background-color: #0f171e;
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 20px;
+
+  .movie a {
+    background: #19242e;
+    border-radius: 4px;
+    height: 75px;
+    margin-bottom: 10px;
+    display: flex;
+    cursor: pointer;
+    width: 470px;
+    margin-left: 38px;
+  }
+  .movie-photos {
+    width: 70px;
+    height: 70px;
+    border: solid 4px #737373;
+    border-radius: 50%;
+    position: relative;
+    left: -30px;
+    top: -2px;
+  }
+  .movie-photos img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-position: center top;
+  }
+  .movie-title {
+    position: relative;
+    left: -20px;
+    top: 20px;
+  }
+  .movie-name {
+    font-size: 17px;
+  }
+  .episode {
+    margin-top: 10px;
+    font-style: italic;
+    font-weight: 500;
+    color: #b1afaf;
+  }
+  .episode span {
+    color: yellow;
+  }
+}
+>>>>>>> 486bea8270871f26caad56f3347c6d76c6e9de72

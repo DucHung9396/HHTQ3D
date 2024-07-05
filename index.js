@@ -845,7 +845,6 @@ if (currentlyLoggedInUserData == null || currentlyLoggedInUserData == "") {
   login.style.display = "block";
 } else {
   loggedInUserName.textContent = currentlyLoggedInUserData;
-  console.log(loggedInUserName);
   login.style.display = "none";
   loggedInUser.style.display = "block";
 }
@@ -1000,14 +999,14 @@ searchButton.addEventListener("click", () => {
 // Responsive navigation_bar (Respoonsive cho thanh điều hướng)
 function setResponsiveNavigationBar() {
   var navigationBar = document.querySelector("body .responsive-navigation_bar");
-  var navigationBarLength = navigationBar.scrollHeight;
   var responsiveNavigation = document.querySelector(
     ".navigation .responsive-navigation"
   );
   responsiveNavigation.addEventListener("click", () => {
     var navigationBarLength2 = navigationBar.offsetHeight;
+    console.log(navigationBarLength2);
     if (navigationBarLength2 == 0) {
-      navigationBar.style.height = navigationBarLength + "px";
+      navigationBar.style.height = "340px";
     }
     if (navigationBarLength2 != 0) {
       navigationBar.style.height = 0;
@@ -1015,3 +1014,66 @@ function setResponsiveNavigationBar() {
   });
 }
 setResponsiveNavigationBar();
+
+// Set color khi click vào ".showtimes"(Lịch chiếu phim)
+var showTime_list = document.querySelectorAll(".container-date");
+showTime_list.forEach((item) => {
+  item.addEventListener("click", () => {
+    showTime_list.forEach((oldDiv) => {
+      oldDiv.classList.remove("active-color");
+    });
+    // item.style.pointerEvents = "none"
+    item.classList.add("active-color");
+  });
+});
+
+// Set click trang phim đang hoạt động cho ".responsive-theloai"
+var movieGenre_list = document.querySelectorAll(".responsive-theloai a");
+movieGenre_list.forEach((item) => {
+  item.addEventListener("click", () => {
+    movieGenre_list.forEach((movieGenre) => {
+      movieGenre.classList.remove("color-action-movie_genre");
+    });
+    item.classList.add("color-action-movie_genre");
+  });
+});
+
+// Set click trang phim đang hoạt động cho ".responsive-theloai"
+var movieGenre_list = document.querySelectorAll(".responsive-theloai a");
+var movieGenre_list2 = document.querySelectorAll(".responsive-theloai a li");
+movieGenre_list2.forEach((item) => {
+  item.addEventListener("click", function (event) {
+    // event.preventDefault();
+    var indexItem = Array.from(movieGenre_list2).indexOf(item);
+    var saveAction_movieGenre = localStorage.setItem("movie-genre", indexItem);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  var get_movieGenre = localStorage.getItem("movie-genre");
+  movieGenre_list2[get_movieGenre].classList.add("color-action-movie_genre");
+  // movieGenre_list.forEach((item) => {
+  //   // var hrefItem = event.currentTarget.getAttribute("href");
+  // });
+  var a = window.location.href;
+  var b = document.querySelector(".responsive-theloai").textContent;
+  var d = a.substring(a.lastIndexOf("/") + 1);
+  var e = d.replace(".html", "");
+  function loaibodau(str) {
+    return str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/Đ/g, "D")
+      .replace(/đ/g, "d");
+  }
+  var z = loaibodau(b);
+  var i = new RegExp(e, "i");
+  var o = new RegExp(z.replace(/\s/g, ""), "i");
+  if (i.test(o)) {
+    movieGenre_list2[get_movieGenre].classList.add("color-action-movie_genre");
+  } else {
+    movieGenre_list2[get_movieGenre].classList.remove(
+      "color-action-movie_genre"
+    );
+  }
+});
