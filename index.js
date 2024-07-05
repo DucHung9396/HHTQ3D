@@ -1099,9 +1099,3 @@ document.addEventListener("click", (event) => {
     p.style.display = "none";
   }
 });
-// window.addEventListener("resize", () => {
-//   if (window.matchMedia("(max-width:1099px)").matches) {
-//     a.style.color = "red";
-//     console.log("a");
-//   }
-// });
