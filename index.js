@@ -1077,3 +1077,26 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 });
+
+var a = document.querySelector(".responsive-theloai");
+var p = document.querySelector(
+  ".responsive-navigation_bar .responsive-theloai ul"
+);
+window.addEventListener("DOMContentLoaded", () => {
+  if (window.matchMedia("(max-width:1099px)").matches) {
+    a.addEventListener("click", () => {
+      if (p.style.display == "none") {
+        p.style.display = "block";
+      } else {
+        p.style.display = "none";
+      }
+    });
+  }
+});
+
+// window.addEventListener("resize", () => {
+//   if (window.matchMedia("(max-width:1099px)").matches) {
+//     a.style.color = "red";
+//     console.log("a");
+//   }
+// });
