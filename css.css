@@ -301,13 +301,13 @@ body::-webkit-scrollbar-thumb {
 
 /* responsive navigation_bar */
 .responsive-theloai:hover:before {
-  content: url(./image/image2/caret-up-regular-24.png);
+  /* content: url(./image/image2/caret-up-regular-24.png);
   position: absolute;
   top: 10px;
-  left: 15px;
+  left: 15px; */
 }
 .responsive-navigation_bar .responsive-theloai:hover ul {
-  display: block;
+  /* display: block; */
 }
 
 .responsive-navigation_bar .col {
@@ -317,7 +317,7 @@ body::-webkit-scrollbar-thumb {
 }
 .responsive-navigation_bar {
   a li:hover {
-    color: white;
+    color: white !important;
   }
   /* overflow: hidden; */
   .responsive-theloai ul {

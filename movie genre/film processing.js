@@ -404,3 +404,25 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 });
+
+var a = document.querySelector(".responsive-theloai");
+var p = document.querySelector(
+  ".responsive-navigation_bar .responsive-theloai ul"
+);
+var k = document.querySelector(".responsive-theloai");
+p.style.display = "none";
+if (window.matchMedia("(max-width:1099px)").matches) {
+  a.addEventListener("click", () => {
+    if (p.style.display == "none") {
+      // k.style.content = "url(./image/image2/caret-up-regular-24.png)";
+      p.style.display = "block";
+    } else {
+      p.style.display = "none";
+    }
+  });
+}
+document.addEventListener("click", (event) => {
+  if (!a.contains(event.target) & !p.contains(event.target)) {
+    p.style.display = "none";
+  }
+});
