@@ -321,14 +321,13 @@ body::-webkit-scrollbar-thumb {
   }
   /* overflow: hidden; */
   .responsive-theloai ul {
-    padding-top: 10px;
+    padding-top: 5px;
     width: 90%;
     z-index: 1;
     position: absolute;
     li {
       background: #0f3c4b;
       left: -43px;
-      /* padding-top: 5px; */
       padding-left: 15px;
     }
     .abc {
