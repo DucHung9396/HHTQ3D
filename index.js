@@ -439,6 +439,7 @@ function showtimes(ngay) {
     createA.appendChild(div2);
     divlon.appendChild(createA);
     divlon.classList.add("title-img");
+    divlon.classList.add("col", "l-2-4", "ll-2-4", "m-3", "c-6");
     div.classList.add("blurredBackground");
     div2.classList.add("movieTitle");
     element_images.appendChild(divlon);
