@@ -1,6 +1,7 @@
 .grid {
   display: block;
   width: 100%;
+  margin: auto;
 }
 
 .grid.wide {
@@ -27,6 +28,12 @@
     left: 30%;
   }
   .navigation .child-navigation {
+    width: 1100px;
+  }
+  .footer-background2 {
+    width: 1100px;
+  }
+  footer .licence {
     width: 1100px;
   }
   .row.no-gutters {
@@ -122,6 +129,12 @@
 /*PC low resolution  */
 @media (min-width: 1024px) and (max-width: 1099px) {
   .navigation .child-navigation {
+    width: 90%;
+  }
+  .footer-background2 {
+    width: 90%;
+  }
+  footer .licence {
     width: 90%;
   }
   .childHeader {
@@ -222,6 +235,12 @@
 /* Tablet -> PC low resolution */
 @media screen and (min-width: 740px) and (max-width: 1023px) {
   .navigation .child-navigation {
+    width: 95%;
+  }
+  .footer-background2 {
+    width: 95%;
+  }
+  footer .licence {
     width: 95%;
   }
   /* login-form */
@@ -389,6 +408,12 @@
 
 /* Mobile */
 @media screen and (max-width: 739px) {
+  .footer-content {
+    width: 100% !important;
+  }
+  footer .licence {
+    width: 95% !important;
+  }
   .login-form.grid.grid.wide {
     width: 90%;
     height: 11%;

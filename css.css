@@ -824,23 +824,26 @@ img {
 /* Css Footer */
 
 footer {
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: black;
-  height: 110px;
-  padding-top: 3px;
-
+  height: 130px;
+  .footer-background2 {
+    height: 100%;
+  }
   .footer-background {
-    height: 80px;
+    height: 100px;
     background-color: #101720;
   }
   .footer-content {
     height: 100%;
+    .col {
+      box-sizing: border-box;
+    }
+
     background-color: black;
-    width: 350px;
-    position: relative;
-    left: 12.4%;
+    width: 300px;
   }
-  div div span {
+  .hh3d {
     background: linear-gradient(to right, #c32928, #eec332);
     -webkit-background-clip: text;
     color: transparent;
@@ -852,26 +855,30 @@ footer {
   }
   .footer-underline {
     box-shadow: 0 -0.4px rgb(136, 116, 116);
-    position: relative;
+    /* position: relative; */
     width: 100%;
     bottom: -25px;
     height: 1px;
   }
   .fb-icon {
-    position: absolute;
+    position: relative;
     top: 15px;
     right: 10px;
     font-size: 25px;
     cursor: pointer;
+    text-align: right;
   }
-  .license {
-    position: relative;
-    width: 300px;
-    left: 185px;
+  .licence {
+    padding-top: 5px;
+
     /* css icon bx-copyright */
     .bx-copyright {
+      position: relative;
+      top: 2px;
       font-size: 17px;
-      line-height: 30px;
+    }
+    .copyright-owner {
+      font-size: 13px;
     }
     font-weight: 400;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
