@@ -1038,8 +1038,7 @@ movieGenre_list.forEach((item) => {
     item.classList.add("color-action-movie_genre");
   });
 });
-
-// Set click trang phim đang hoạt động cho ".responsive-theloai"
+// Set click màu cho trang phim đang hoạt động cho ".responsive-theloai"
 var movieGenre_list = document.querySelectorAll(".responsive-theloai a");
 var movieGenre_list2 = document.querySelectorAll(".responsive-theloai a li");
 movieGenre_list2.forEach((item) => {
@@ -1049,7 +1048,6 @@ movieGenre_list2.forEach((item) => {
     var saveAction_movieGenre = localStorage.setItem("movie-genre", indexItem);
   });
 });
-
 document.addEventListener("DOMContentLoaded", () => {
   var get_movieGenre = localStorage.getItem("movie-genre");
   movieGenre_list2[get_movieGenre].classList.add("color-action-movie_genre");
@@ -1079,6 +1077,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Set event click ".responsive-theloai ul" để hiện "movie genre"
 var a = document.querySelector(".responsive-theloai");
 var p = document.querySelector(
   ".responsive-navigation_bar .responsive-theloai ul"

@@ -1124,7 +1124,12 @@ audio {
   color: #52a7f1;
 }
 
-/* Tạo ".color-action-movie_genre" */
+/* Tạo ".color-action-movie_genre" kiểu responsive */
 .color-action-movie_genre {
   color: white !important;
+}
+
+/* Tạo "color-action-movie_genre" not responsive */
+.color-action-movie_genre2 {
+  color: #52a7f1 !important;
 }

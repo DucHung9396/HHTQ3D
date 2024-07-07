@@ -160,7 +160,7 @@
                         <i class='bx bx-caret-down bxArrow' style='color:#ffffff'></i>
                         <ul>
                             <a href="./huyenhuyen.html">
-                                <li>Huyền Huyễn</li>
+                                <li class="abc">Huyền Huyễn</li>
                             </a>
                             <a href="./xuyenkhong.html">
                                 <li>Xuyên Không</li>
@@ -1306,7 +1306,7 @@
         responsiveNavigation.addEventListener("click", () => {
             var navigationBarLength2 = navigationBar.offsetHeight;
             if (navigationBarLength2 == 0) {
-                navigationBar.style.height = navigationBarLength + "px";
+                navigationBar.style.height = "340px";
             }
             if (navigationBarLength2 != 0) {
                 navigationBar.style.height = 0;
@@ -1315,6 +1315,77 @@
     }
     setResponsiveNavigationBar();
 
+    // Set event click ".responsive-theloai ul" để hiện "movie genre"
+    var a = document.querySelector(".responsive-theloai");
+    var p = document.querySelector(
+        ".responsive-navigation_bar .responsive-theloai ul"
+    );
+    var k = document.querySelector(".responsive-theloai");
+    p.style.display = "none";
+    if (window.matchMedia("(max-width:1099px)").matches) {
+        a.addEventListener("click", () => {
+            if (p.style.display == "none") {
+                // k.style.content = "url(./image/image2/caret-up-regular-24.png)";
+                p.style.display = "block";
+            } else {
+                p.style.display = "none";
+            }
+        });
+    }
+    document.addEventListener("click", (event) => {
+        if (!a.contains(event.target) & !p.contains(event.target)) {
+            p.style.display = "none";
+        }
+    });
+
+    // Set click trang phim đang hoạt động cho ".responsive-theloai"
+    var movieGenre_list = document.querySelectorAll(".responsive-theloai a");
+    movieGenre_list.forEach((item) => {
+        item.addEventListener("click", () => {
+            movieGenre_list.forEach((movieGenre) => {
+                movieGenre.classList.remove("color-action-movie_genre");
+            });
+            item.classList.add("color-action-movie_genre");
+        });
+    });
+    // Set click màu cho trang phim đang hoạt động cho ".responsive-theloai"
+    var movieGenre_list = document.querySelectorAll(".responsive-theloai a");
+    var movieGenre_list2 = document.querySelectorAll(".responsive-theloai a li");
+    movieGenre_list2.forEach((item) => {
+        item.addEventListener("click", function (event) {
+            // event.preventDefault();
+            var indexItem = Array.from(movieGenre_list2).indexOf(item);
+            var saveAction_movieGenre = localStorage.setItem("movie-genre", indexItem);
+        });
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+        var get_movieGenre = localStorage.getItem("movie-genre");
+        movieGenre_list2[get_movieGenre].classList.add("color-action-movie_genre");
+        // movieGenre_list.forEach((item) => {
+        //   // var hrefItem = event.currentTarget.getAttribute("href");
+        // });
+        var a = window.location.href;
+        var b = document.querySelector(".responsive-theloai").textContent;
+        var d = a.substring(a.lastIndexOf("/") + 1);
+        var e = d.replace(".html", "");
+        function loaibodau(str) {
+            return str
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/Đ/g, "D")
+                .replace(/đ/g, "d");
+        }
+        var z = loaibodau(b);
+        var i = new RegExp(e, "i");
+        var o = new RegExp(z.replace(/\s/g, ""), "i");
+        if (i.test(o)) {
+            movieGenre_list2[get_movieGenre].classList.add("color-action-movie_genre");
+        } else {
+            movieGenre_list2[get_movieGenre].classList.remove(
+                "color-action-movie_genre"
+            );
+        }
+    });
 </script>
 
 </html>

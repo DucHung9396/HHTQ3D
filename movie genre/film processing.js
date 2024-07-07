@@ -397,7 +397,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // console.log(c);
   if (i.test(o)) {
     movieGenre_list2[get_movieGenre].classList.add("color-action-movie_genre");
-    console.log("a");
   } else {
     movieGenre_list2[get_movieGenre].classList.remove(
       "color-action-movie_genre"
