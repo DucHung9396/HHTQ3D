@@ -211,7 +211,9 @@ body::-webkit-scrollbar-thumb {
     transition: all 0.1s ease-in-out;
   }
 }
-
+.a {
+  position: relative;
+}
 /*Ô tìm kiếm  */
 .form_search {
   .fa-solid {
@@ -680,6 +682,14 @@ body::-webkit-scrollbar-thumb {
   top: 0;
   z-index: 1000;
   background-color: rgb(0, 0, 0, 0.8);
+}
+
+.sticky1 {
+  position: fixed !important;
+  z-index: 1;
+  width: 100%;
+  top: 52px;
+  /* left: 20px; */
 }
 
 /* tạo class ".activeButton" thêm vào thẻ button trong class ".pagination" */

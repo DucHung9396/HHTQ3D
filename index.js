@@ -998,16 +998,20 @@ searchButton.addEventListener("click", () => {
 });
 
 // Responsive navigation_bar (Respoonsive cho thanh điều hướng)
+var responsiveNavigation = document.querySelector(
+  ".navigation .responsive-navigation"
+);
 function setResponsiveNavigationBar() {
   var navigationBar = document.querySelector("body .responsive-navigation_bar");
   var responsiveNavigation = document.querySelector(
     ".navigation .responsive-navigation"
   );
+
   responsiveNavigation.addEventListener("click", () => {
     var navigationBarLength2 = navigationBar.offsetHeight;
-    console.log(navigationBarLength2);
     if (navigationBarLength2 == 0) {
       navigationBar.style.height = "340px";
+      navigationBar.style.position = "relative";
     }
     if (navigationBarLength2 != 0) {
       navigationBar.style.height = 0;
@@ -1015,7 +1019,28 @@ function setResponsiveNavigationBar() {
   });
 }
 setResponsiveNavigationBar();
-
+// function a() {
+//   var a = responsiveNavigation.offsetTop;
+//   console.log(a);
+// }
+// window.addEventListener("scroll", a);
+// if (window.scrollY > a) {
+// }
+console.log(a);
+function op() {
+  var k = document.querySelector(".navigation .responsive-navigation");
+  var a = k.offsetTop;
+  var z = document.querySelector("body .responsive-navigation_bar");
+  var i = window.scrollY;
+  if (i > a) {
+    console.log("a");
+    z.classList.add("sticky1");
+  } else {
+    z.classList.remove("sticky1");
+  }
+}
+op();
+window.addEventListener("scroll", op);
 // Set color khi click vào ".showtimes"(Lịch chiếu phim)
 var showTime_list = document.querySelectorAll(".container-date");
 showTime_list.forEach((item) => {
@@ -1099,3 +1124,9 @@ document.addEventListener("click", (event) => {
     p.style.display = "none";
   }
 });
+
+//
+function o() {
+  console.log(a);
+}
+// window.addEventListener("scroll", o);
