@@ -1030,6 +1030,7 @@ function scrollMenuBar() {
   var z = window.scrollY;
   if (z > responsiveNavagation_position) {
     menuBar.classList.add("sticky1");
+    // menuBar.style.fontSize = "10px";
   } else {
     menuBar.classList.remove("sticky1");
   }

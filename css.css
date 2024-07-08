@@ -312,9 +312,6 @@ body::-webkit-scrollbar-thumb {
   top: 10px;
   left: 15px; */
 }
-.responsive-navigation_bar .responsive-theloai:hover ul {
-  /* display: block; */
-}
 
 .responsive-navigation_bar .col {
   .active-color {
@@ -351,6 +348,7 @@ body::-webkit-scrollbar-thumb {
   height: 0;
   transition: height 0.3s ease;
   overflow: hidden;
+
   .theloai ul {
     display: none;
   }
