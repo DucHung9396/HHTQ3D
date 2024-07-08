@@ -1386,6 +1386,34 @@
             );
         }
     });
+
+    /* Tạo thanh navbar di chuyển theo trang */
+    var navbar = document.querySelector(".navigation");
+    var navbar_position = navbar.offsetTop;
+    function handle_navbar() {
+        if (window.scrollY > navbar_position) {
+            navbar.classList.add("sticky");
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+    window.onscroll = handle_navbar;
+
+    // Set event cho thanh "menu bar" di chuyển theo trang khi scroll cho ".body .responsive-navigation_bar"
+    function scrollMenuBar() {
+        var responsiveNavigation = document.querySelector(
+            ".navigation .responsive-navigation"
+        );
+        var responsiveNavagation_position = responsiveNavigation.offsetTop;
+        var menuBar = document.querySelector("body .responsive-navigation_bar");
+        var z = window.scrollY;
+        if (z > responsiveNavagation_position) {
+            menuBar.classList.add("sticky1");
+        } else {
+            menuBar.classList.remove("sticky1");
+        }
+    }
+    window.addEventListener("scroll", scrollMenuBar);
 </script>
 
 </html>

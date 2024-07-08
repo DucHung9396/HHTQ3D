@@ -1019,28 +1019,23 @@ function setResponsiveNavigationBar() {
   });
 }
 setResponsiveNavigationBar();
-// function a() {
-//   var a = responsiveNavigation.offsetTop;
-//   console.log(a);
-// }
-// window.addEventListener("scroll", a);
-// if (window.scrollY > a) {
-// }
-console.log(a);
-function op() {
-  var k = document.querySelector(".navigation .responsive-navigation");
-  var a = k.offsetTop;
-  var z = document.querySelector("body .responsive-navigation_bar");
-  var i = window.scrollY;
-  if (i > a) {
-    console.log("a");
-    z.classList.add("sticky1");
+
+// Set event cho thanh "menu bar" di chuyển theo trang khi scroll cho ".body .responsive-navigation_bar"
+function scrollMenuBar() {
+  var responsiveNavigation = document.querySelector(
+    ".navigation .responsive-navigation"
+  );
+  var responsiveNavagation_position = responsiveNavigation.offsetTop;
+  var menuBar = document.querySelector("body .responsive-navigation_bar");
+  var z = window.scrollY;
+  if (z > responsiveNavagation_position) {
+    menuBar.classList.add("sticky1");
   } else {
-    z.classList.remove("sticky1");
+    menuBar.classList.remove("sticky1");
   }
 }
-op();
-window.addEventListener("scroll", op);
+window.addEventListener("scroll", scrollMenuBar);
+
 // Set color khi click vào ".showtimes"(Lịch chiếu phim)
 var showTime_list = document.querySelectorAll(".container-date");
 showTime_list.forEach((item) => {
@@ -1063,6 +1058,7 @@ movieGenre_list.forEach((item) => {
     item.classList.add("color-action-movie_genre");
   });
 });
+
 // Set click màu cho trang phim đang hoạt động cho ".responsive-theloai"
 var movieGenre_list = document.querySelectorAll(".responsive-theloai a");
 var movieGenre_list2 = document.querySelectorAll(".responsive-theloai a li");
@@ -1103,13 +1099,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Set event click ".responsive-theloai ul" để hiện "movie genre"
-var a = document.querySelector(".responsive-theloai");
-var p = document.querySelector(
-  ".responsive-navigation_bar .responsive-theloai ul"
-);
-var k = document.querySelector(".responsive-theloai");
-p.style.display = "none";
 if (window.matchMedia("(max-width:1099px)").matches) {
+  var a = document.querySelector(".responsive-theloai");
+  var p = document.querySelector(
+    ".responsive-navigation_bar .responsive-theloai ul"
+  );
+  var k = document.querySelector(".responsive-theloai");
+  p.style.display = "none";
   a.addEventListener("click", () => {
     if (p.style.display == "none") {
       // k.style.content = "url(./image/image2/caret-up-regular-24.png)";
@@ -1119,14 +1115,10 @@ if (window.matchMedia("(max-width:1099px)").matches) {
     }
   });
 }
+
+// Set click vào bất kì đâu trên trang web sẽ đóng danh sách thể loại phim ".responsive .theloai"
 document.addEventListener("click", (event) => {
   if (!a.contains(event.target) & !p.contains(event.target)) {
     p.style.display = "none";
   }
 });
-
-//
-function o() {
-  console.log(a);
-}
-// window.addEventListener("scroll", o);
