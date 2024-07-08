@@ -214,6 +214,10 @@ body::-webkit-scrollbar-thumb {
 
 /*Ô tìm kiếm  */
 .form_search {
+  .fa-solid {
+    position: relative;
+    left: 30px;
+  }
   margin-top: 8px;
   flex-wrap: nowrap;
   white-space: nowrap;
